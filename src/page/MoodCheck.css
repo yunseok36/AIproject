@@ -1,0 +1,63 @@
+.Page-Design-MoodCheck {
+    padding: 40px 80px 40px 80px;
+    background-color: #FFFFFB;
+    font-family: "Instrument Sans";
+}
+
+.title-MoodCheck {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #36795A;
+    text-align: center;
+    position: relative;
+    padding-top: 50px;
+}
+
+.article-MoodCheck {
+    font-size: 1.2rem;
+    color: #828356;
+    padding-top: 40px;
+    padding-bottom: 80px;
+    line-height: 35px;
+    text-align: center;
+}
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 70px;
+    margin-bottom: 100px;
+}
+
+.box-item {
+    background: #F0F0E0;
+    color: #36795A;
+    padding: 60px 20px;
+    border-radius: 20px;
+    flex: 1 1 calc(25% - 20px);
+    flex-direction: column;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.6rem;
+    min-width: 220px;
+    max-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    box-shadow: 0 5px 0px rgba(218, 218, 204, 1);
+    transition: all 0.3s ease;
+    cursor: pointer;  
+}
+
+.box-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 0px rgba(218, 218, 204, 1);
+}
+
+.box-item img {
+  width: 110px;
+  height: auto;
+  margin-bottom: 30px;
+}

@@ -1,0 +1,96 @@
+.footer {
+    background-color: #36795A;
+    color: #FFFFFB;
+    padding: 40px;
+    font-family: "Instrument Sans", sans-serif;
+    font-size: 14px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 150px;
+    margin-bottom: 80px;
+}
+
+.footer-section img {
+    width: 100px;
+    height: 100px;
+
+}
+
+.footer-section h4 {
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 6px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li:hover {
+  color: #d0d0cc;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 40px 20px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 10px;
+    color: #FFFFFB;
+    text-decoration: none;
+}
+
+.link-information {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.link-information:hover {
+  color: #d0d0cc;
+}
+
+.footer-right {
+    margin-top: 10px;
+}
+
+.footer-icons {
+    display: flex;
+    color: #FFFFFB;
+    gap: 20px;
+}
+
+.footer-icons img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+}
+
+.footer-icons img:hover {
+    filter: brightness(0.85) saturate(0.1) sepia(0.2) hue-rotate(30deg);
+}
