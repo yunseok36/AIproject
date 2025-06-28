@@ -60,7 +60,7 @@
   color: #333;
   resize: none;
   outline: none;
-  box-shadow: 0 8px 0px rgba(218, 218, 204, 0.4);
+  box-shadow: 0 5px 0px rgba(218, 218, 204, 1);
 }
 
 .loading-container {
