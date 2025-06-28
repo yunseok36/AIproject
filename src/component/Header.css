@@ -1,0 +1,58 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 32px;
+    border-bottom: 1px solid #DADACC;
+    background-color: #FFFFFB;
+    flex-wrap: wrap; /* 반응형 대응 */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    max-width: 160px;
+    height: auto; 
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+    font-family: "Koulen", sans-serif;
+    
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #36795A;
+    font-weight: 300;
+    font-size: 22px;
+}
+
+.nav-list li a:hover {
+    color: #218f70;
+}
+
+/*로그인 버튼*/
+.nav-list li .login-button {
+  background-color: #36795A;
+  color: #FFFFFB;
+  padding: 3px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.nav-list li .login-button:hover {
+  background-color: #eeeeed;
+  color: #36795A;
+}
