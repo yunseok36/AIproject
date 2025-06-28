@@ -1,0 +1,119 @@
+.guide-page {
+    padding: 40px 30px;
+    background-color: #FFFFFB;
+    font-family: "Instrument Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.guide-page > * {
+    width: 100%;
+    max-width: 1080px;
+}
+
+.guide-page p,
+.guide-page ul,
+.guide-page li,
+.guide-page .guide-description,
+.guide-page .qa-block {
+    margin-top: 12px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.guide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.emotion-icon {
+    width: 160px;
+    height: auto;
+    margin-left: 20px;
+    align-self: flex-start;
+    order: 2;
+}
+
+.guide-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #36795A;
+    margin: 0;
+    flex: 1;
+    order: 1;
+}
+
+.guide-description {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+.guide-description > strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+ul.dot-list {
+    padding-left: 1em;
+    list-style: none;
+    margin: 0;
+}
+
+ul.dot-list li {
+    position: relative;
+    padding-left: 1em;
+    margin-bottom: 8px;
+}
+
+ul.dot-list li::before {
+    content: "·";
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    margin-right: 0.5em;
+}
+
+.flow-steps-centered {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 50px 0 60px 0;
+}
+
+.step-circle {
+    background-color: #36795A;
+    color: white;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5;
+    white-space: pre-line;
+}
+
+.step-arrow {
+    font-size: 1.8rem;
+    color: black;
+    align-self: center;
+}
+
+.qa-block {
+    margin: 30px 0 20px 0;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.qa-block p {
+    margin-bottom: 8px;
+}
