@@ -42,25 +42,35 @@ code {
   margin-top: 30px;
   padding: 12px 30px;
   background-color: #36795A;
-  color: white;
-  font-size: 1rem;
+  color: #FFFFFB;
+  font-size: 1.2rem;
   font-weight: 600;
   border: none;
-  border-radius: 30px;
+  border-radius: 50px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s ease, color 0.3s ease;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  letter-spacing: 0.5px;
 }
 
 .button-primary:hover {
-  background-color: #2b634a;
+  background-color: #eeeeed;
+  color: #36795A;
 }
 
 .button-primary::after {
-  content: " →";
-  margin-left: 6px;
-  font-weight: bold;
+  content: " ➔";
+  margin-left: 8px;
+}
+
+.button-primary.no-arrow {
+  justify-content: center;
+}
+
+.button-primary.no-arrow::after {
+  content: "";
+  margin-left: 0;
 }

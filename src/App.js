@@ -12,7 +12,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/guide" element={<Guide />} />
+          <Route path="/about" element={<Guide />} />
           <Route path="/survey" element={<MoodSurvey />} />
           <Route path="/input" element={<div>직접 입력 페이지</div>} />
           <Route path="/contents" element={<div>추천 콘텐츠 페이지</div>} />
