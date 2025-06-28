@@ -52,14 +52,14 @@ function Footer() {
             <div className="footer-bottom">
                 <div className="footer-left">
                     <div className="footer-links">
-                        <span>Privacy policy</span>
+                        <span className="link-information">Privacy policy</span>
                         <span>|</span>
-                        <span>Terms and Conditions</span>
+                        <span className="link-information">Terms and Conditions</span>
                         <span>|</span>
-                        <span>Cookie Settings</span>
+                        <span className="link-information">Cookie Settings</span>
                     </div>
                     <div className="footer-right">
-                        © 2025 MOODI·TREE All rights reserved.
+                        © 2025 MOODI · TREE All rights reserved.
                     </div> 
                 </div>
                 <div className="footer-icons">

@@ -5,16 +5,24 @@ function Main() {
 
   const [inputText, setInputText] = useState("");
   const [emotionResult, setEmotionResult] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // 나중에 AI API 연동할 시
   const analyzeEmotion = async () => {
     if (!inputText.trim()) {
-      setEmotionResult("내용을 입력해주세요.");
+      setEmotionResult("내용을 입력해주세요!");
       return;
     }
+
+    setLoading(true);
+    setEmotionResult(""); // 진단 전 결과 초기화
+
+    setTimeout(() => {
+    setLoading(false);
     setEmotionResult("😊 감정 분석 결과: 당신은 현재 긍정적인 감정을 느끼고 있습니다.");
+    }, 5000);
   };
-  
+
   return (
     <div className="Page-Design">
         <div className="section1">
@@ -38,22 +46,29 @@ function Main() {
                 현재의 기분을 알리는 글을 작성한 후 진단 받아보세요.<br/>
                 AI가 상세히 분석하여 현재의 기분 및 이를 다룰 수 있는 방법을 알려드리겠습니다.
             </div><br/><br/>
-            <textarea className="text-input" rows="6" placeholder="내용을 입력해주세요." maxLength={1000}
+            <textarea className="text-input" rows="6" placeholder="내용을 입력해주세요.(1000자 제한)" maxLength={1000}
             value={inputText}
-            onChange={(e) => setInputText(e.target.value)} />
+            onChange={(e) => setInputText(e.target.value)} /><br/><br/>
+            <div className="space">
+              <div className="button" onClick={analyzeEmotion}>
+                감정 진단
+              </div>
+            </div>
+            {loading && (
+              <div className="loading-container">
+              <div className="loader"></div>
+              <p>진단중...</p>
+              </div>
+            )}
+
+
+            {!loading && emotionResult && (
+              <div className="emotion-result">
+                {emotionResult}
+              </div>
+              )}
         </div>  
-
-        <div className="result-check" onClick={analyzeEmotion}>
-          감정 진단
-        </div>
-
-         {emotionResult && (
-          <div className="emotion-result">
-            {emotionResult}
-          </div>
-        )}
     </div>
-
   );
 }
 
