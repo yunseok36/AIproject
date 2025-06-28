@@ -1,0 +1,86 @@
+.mood-page {
+    padding: 40px 20px;
+    font-family: "Instrument Sans", sans-serif;
+    background-color: #FFFFFB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1080px;
+    margin: auto;
+}
+
+.mood-title,
+.mood-description,
+.survey-table {
+    width: 100%;
+}
+
+.mood-title {
+    font-size: 2.5rem;
+    color: #36795A;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.mood-description {
+    font-size: 1.05rem;
+    text-align: left;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.survey-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.survey-header,
+.survey-row {
+    display: grid;
+    grid-template-columns: 1fr repeat(5, 40px);
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.survey-header {
+    font-weight: bold;
+    text-align: center;
+    color: #444;
+    border-bottom: 2px solid #ccc;
+}
+
+.question-col {
+    padding-right: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.score-col,
+.score-col-header {
+    text-align: center;
+}
+
+.result-message {
+    margin-top: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #36795A;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.result-sub {
+    color: #36795A;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.result-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
