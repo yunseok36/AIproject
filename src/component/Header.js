@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import logo from "../image/logo.png"; // 로고 이미지 경로에 맞게 조정하세요
+import logo from "../image/logo.png";
 
 function Header() {
     return (
