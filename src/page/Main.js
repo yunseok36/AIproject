@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./Main.css";
+import { useNavigate } from "react-router-dom"; // useNavigate 훅 임포트
 
 function Main() {
   const [inputText, setInputText] = useState("");
   const [emotionResult, setEmotionResult] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate(); // useNavigate 훅 사용
 
   const analyzeEmotion = async () => {
     if (!inputText.trim()) {
@@ -19,6 +22,11 @@ function Main() {
       setLoading(false);
       setEmotionResult("😊 감정 분석 결과: 당신은 현재 긍정적인 감정을 느끼고 있습니다.");
     }, 5000);
+  };
+
+  // "시작하기" 버튼 클릭 시 MoodCheck 페이지로 이동하는 함수
+  const handleStartClick = () => {
+    navigate("/MoodCheck");
   };
 
   return (
@@ -36,7 +44,8 @@ function Main() {
           감정을 이해하며 조절해가는 첫걸음을 시작해보세요.
         </div>
         <br />
-        <button className="button-primary">시작하기</button>
+        {/* "시작하기" 버튼에 onClick 이벤트 핸들러 추가 */}
+        <button className="button-primary" onClick={handleStartClick}>시작하기</button>
       </div>
       <div className="section2">
         <h1 className="title2">현재의 감정을<br /> 한 번 확인해보세요.</h1>
