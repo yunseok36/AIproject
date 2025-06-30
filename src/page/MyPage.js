@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './MyPage.css';
 
 function MyPage() {
   const [activeTab, setActiveTab] = useState('music');
+  const navigate = useNavigate();
 
   const musicList = [
     {
@@ -34,7 +36,7 @@ function MyPage() {
             <div className="music-title">{item.title}</div>
             <div className="music-artist">{item.artist}</div>
           </div>
-          <a href={item.link} className="listen-btn">음악 듣기</a>
+          <a href={item.link} className="listen-btn">재생하기</a>
         </div>
       ));
     } else {
@@ -56,7 +58,7 @@ function MyPage() {
           <div className="emoji">😊</div>
           <div className="date">2025.06.24</div>
         </div>
-        <button className="button">로그아웃</button>
+        <button className="button" onClick={() => navigate('/calendar')}>달력 확인</button>
       </div>
 
       <div className="content">

@@ -39,7 +39,7 @@ function Main() {
         <button className="button-primary">시작하기</button>
       </div>
       <div className="section2">
-        <h1 className="title2">현재의 감정을<br /> 한 번 확인해보세요.</h1>
+        <h1 className="title2">현재의 감정을<br /> 한 번 확인해보세요</h1>
         <div className="article">
           현재의 기분을 알리는 글을 작성한 후 진단 받아보세요.<br />
           AI가 상세히 분석하여 현재의 기분 및 이를 다룰 수 있는 방법을 알려드리겠습니다.

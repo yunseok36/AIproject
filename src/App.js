@@ -9,6 +9,7 @@ import Movie from "./page/Movie";
 import MoodSurvey from "./page/MoodSurvey";
 import MyPage from "./page/MyPage";
 import Calendar from "./page/Calendar";
+import Contact from "./page/Contact";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/Survey" element={<MoodSurvey />} />
           <Route path="/MyMood" element={<MyPage />} />
           <Route path="/Calendar" element={<Calendar />} />
+          <Route path="/Contact" element={<Contact />} />
         </Routes>
         <Footer />
       </Router>
