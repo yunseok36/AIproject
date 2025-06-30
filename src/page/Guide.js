@@ -23,12 +23,13 @@ function Guide() {
                 <ul className="dot-list">
                     <li>한두 단어: "우울함", "행복해", "짜증 나"</li>
                     <li>간단한 문장도 가능: "요즘 너무 지치고 무기력해요."</li>
-                    <li>'외롭다'는 감정 → '위로되는 음악', '따뜻한 에세이' 추천</li>
+                    <li>'외롭다'는 감정  ➡  '위로되는 음악', '따뜻한 에세이' 추천</li>
                 </ul>
             </div>
 
+            <br/><br/>
             <p className="guide-description">
-                MOODI-TREE를 효과적으로 사용하는 방법을 안내해드려요.
+                <strong>MOODI-TREE를 효과적으로 사용하는 방법을 안내해드려요.</strong>
             </p>
 
             <div className="flow-steps-centered">
@@ -43,7 +44,7 @@ function Guide() {
                             className="step-circle"
                             dangerouslySetInnerHTML={{ __html: step }}
                         />
-                        {index < arr.length - 1 && <span className="step-arrow">→</span>}
+                        {index < arr.length - 1 && <span className="step-arrow">➡</span>}
                     </React.Fragment>
                 ))}
             </div>
