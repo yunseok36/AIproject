@@ -16,7 +16,7 @@
 .article-MoodCheck {
     font-size: 1.2rem;
     color: #828356;
-    padding-top: 40px;
+    padding-top: 50px;
     padding-bottom: 80px;
     line-height: 35px;
     text-align: center;
@@ -27,12 +27,12 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 70px;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
 }
 
 .box-item {
     background: #F0F0E0;
-    color: #36795A;
+    color: #4f5034;
     padding: 60px 20px;
     border-radius: 20px;
     flex: 1 1 calc(25% - 20px);
@@ -60,4 +60,21 @@
   width: 110px;
   height: auto;
   margin-bottom: 30px;
+}
+
+.hover-description {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #828356;
+  margin-bottom: 50px;
+  min-height: 30px;
+  transition: opacity 0.3s ease;
+}
+
+/* dimmed 처리 */
+.box-item.dimmed {
+  filter: brightness(0.9);
+  opacity: 0.6;
+  transition: all 0.3s ease;
 }

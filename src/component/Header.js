@@ -11,11 +11,11 @@ function Header() {
             </div>
             <nav className="nav">
                 <ul className="nav-list">
-                    <li><Link to="/ABOUT">ABOUT</Link></li>
-                    <li><Link to="/MOODCHECK">MOOD CHECK</Link></li>
-                    <li><Link to="/MY MOOD">MY MOOD</Link></li>
-                    <li><Link to="/CONTACT">CONTACT</Link></li>
-                    <li><Link to="/LOGIN" className="login-button">LOGIN</Link></li>
+                    <li><Link to="/About">ABOUT</Link></li>
+                    <li><Link to="/MoodCheck">MOOD CHECK</Link></li>
+                    <li><Link to="/MyMood">MY MOOD</Link></li>
+                    <li><Link to="/Contact">CONTACT</Link></li>
+                    <li><Link to="/Login" className="login-button">LOGIN</Link></li>
                 </ul>
             </nav>
         </header>
