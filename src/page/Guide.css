@@ -20,6 +20,7 @@
     margin-top: 12px;
     margin-bottom: 20px;
     line-height: 1.8;
+    color: #828356;
 }
 
 .guide-header {
@@ -104,7 +105,7 @@ ul.dot-list li::before {
 
 .step-arrow {
     font-size: 1.8rem;
-    color: black;
+    color: #5e5e5e;
     align-self: center;
 }
 

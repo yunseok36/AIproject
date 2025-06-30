@@ -7,6 +7,8 @@ import MoodCheck from "./page/MoodCheck";
 import Music from "./page/Music";
 import Movie from "./page/Movie";
 import MoodSurvey from "./page/MoodSurvey";
+import MyPage from "./page/MyPage";
+import Calendar from "./page/Calendar";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/Music" element={<Music />} />
           <Route path="/Movie" element={<Movie />} />
           <Route path="/Survey" element={<MoodSurvey />} />
+          <Route path="/MyMood" element={<MyPage />} />
+          <Route path="/Calendar" element={<Calendar />} />
         </Routes>
         <Footer />
       </Router>
