@@ -1,0 +1,116 @@
+/* Home.module.css 내용을 기반으로 Music.module.css로 변경 */
+
+.homeContainer { /* 이 클래스 이름은 Music.js에서 .musicContainer로 변경되었으므로, 필요에 따라 조정 */
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #ffffff;
+  color: #1e1e1e;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 60px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e1e1e;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.login {
+  background-color: #1e1e1e;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+}
+
+.left {
+  flex: 1;
+  text-align: center;
+}
+
+.earphones {
+  width: 250px;
+  margin-bottom: 32px;
+}
+
+/* 음악 추천 버튼 색상 초록색으로 변경 */
+.recommendButton {
+  background-color: #36795A; /* 초록색 */
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+
+.description {
+  font-size: 16px;
+  color: #5e5e5e;
+  line-height: 1.8;
+}
+
+.right {
+  flex: 1;
+  text-align: left;
+  padding-left: 80px;
+}
+
+/* 오른쪽 텍스트 색상 초록색으로 변경 */
+.right h1 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 24px;
+  color: #36795A; /* 초록색 */
+}
+
+/* 오른쪽 텍스트 색상 초록색으로 변경 */
+.right h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #36795A; /* 초록색 */
+  line-height: 1.6;
+}
+
+/* Music.js에서 사용할 컨테이너 클래스 추가 (선택 사항, Home.module.css의 .homeContainer 대체) */
+.musicContainer {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #ffffff;
+  color: #1e1e1e;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}

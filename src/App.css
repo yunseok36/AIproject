@@ -37,6 +37,19 @@ code {
   color: white;
 }
 
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .button-primary {
   margin-top: 30px;
   padding: 12px 30px;
