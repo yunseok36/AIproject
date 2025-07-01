@@ -1,6 +1,6 @@
 .Page-Design-MoodCheck {
     padding: 40px 80px 40px 80px;
-    background-color: #FFFFFB;
+    background-color: #f6faea;
     font-family: "Instrument Sans";
 }
 
@@ -31,7 +31,7 @@
 }
 
 .box-item {
-    background: #F0F0E0;
+    background: #e3e3cb;
     color: #4f5034;
     padding: 60px 20px;
     border-radius: 20px;

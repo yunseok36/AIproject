@@ -1,6 +1,6 @@
 .contact-page {
   padding: 80px 30px;
-  background-color: #FFFFFB;
+  background-color: #f6faea;
   font-family: "Instrument Sans", sans-serif;
   text-align: center;
 }
@@ -55,7 +55,7 @@
   display: block;
   margin: 0 auto; 
   background-color: #36795A;
-  color: #FFFFFB;
+  color: #f6faea;
   border: none;
   max-width: 200px;
   max-height: 60px;

@@ -3,8 +3,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 32px;
-    border-bottom: 1px solid #DADACC;
-    background-color: #FFFFFB;
+    border-bottom: 1px solid hsl(60, 16%, 83%);
+    background-color: #f6faea;
     flex-wrap: wrap; /* 반응형 대응 */
 }
 

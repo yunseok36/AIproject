@@ -9,7 +9,7 @@ function Contact() {
     inquiryType: "",
     responseMethod: "",
     newsletterAgreed: false,
-    file: null
+    file: []
   });
 
   const handleChange = (e) => {
@@ -18,20 +18,30 @@ function Contact() {
     if (type === "checkbox") {
       setForm({ ...form, [name]: checked });
     } else if (type === "file") {
-      setForm({ ...form, [name]: files[0] });
+      const selectedFiles = Array.from(files);
+      setForm((prevForm) => ({
+        ...prevForm,
+        file: [...prevForm.file, ...selectedFiles],
+      }));
     } else {
       setForm({ ...form, [name]: value });
     }
   };
 
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const droppedFiles = Array.from(e.dataTransfer.files);
+    setForm((prevForm) => ({
+      ...prevForm,
+      file: [...prevForm.file, ...droppedFiles],
+    }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("폼 제출 데이터:", form);
-
     alert("문의가 제출되었습니다. 감사합니다!");
-    // TODO: 서버 전송 로직 추가 필요 (formData 등)
 
-    // 폼 초기화
     setForm({
       name: "",
       email: "",
@@ -39,8 +49,14 @@ function Contact() {
       inquiryType: "",
       responseMethod: "",
       newsletterAgreed: false,
-      file: null
+      file: []
     });
+  };
+
+  const handleFileDelete = (index) => {
+    const newFiles = [...form.file];
+    newFiles.splice(index, 1);
+    setForm({ ...form, file: newFiles });
   };
 
   return (
@@ -91,14 +107,34 @@ function Contact() {
           onChange={handleChange}
           required
         />
-        <div className="file-upload">
-          <label>
-            <input
-              type="file"
-              name="file"
-              onChange={handleChange}
-            />
-          </label>
+        <div
+          className="file-upload-dropzone"
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={handleDrop}
+        >
+          <input
+            type="file"
+            name="file"
+            multiple
+            onChange={handleChange}
+            className="file-input-hidden"
+            id="file-upload"
+          />
+
+          <ul className="file-list">
+            {form.file.map((f, index) => (
+              <li key={index} className="file-item">
+                {f.name}
+                <button
+                  type="button"
+                  className="remove-button"
+                  onClick={() => handleFileDelete(index)}
+                >
+                  삭제
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="radio-group">
           <label>답변 방법:</label>
