@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .calendar-wrapper {
   max-width: 500px;
   background: #F0F0E0;
@@ -17,11 +18,71 @@
 .day-names, .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+=======
+@import url('https://fonts.googleapis.com/css2?family=Headline:wght@700&family=Koulen&display=swap');
+
+.calendar-container {
+  max-width: 1080px;
+  margin: 30px auto;
+  font-family: 'Headline', sans-serif;
+}
+
+.section-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #36795A;
+  margin-bottom: 20px;
+}
+
+.calendar-box {
+  background: #f0f0e0;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.calendar-header-fixed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.calendar-header-fixed button {
+  color: #36795A;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.month-year {
+  font-family: 'Headline', sans-serif;
+  font-size: 30px;
+  color: #36795A;
+  text-align: center;
+  flex: 1;
+}
+
+.year {
+  font-family: 'Koulen', sans-serif;
+  font-size: 30px;
+  font-weight: normal;
+  color: #36795A;
+}
+
+.day-names {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 2px solid #36795A;
+  margin-bottom: 8px;
+>>>>>>> ad2aac12a8fbce79e372f4b47b4b82e1b820edef
 }
 
 .day-name {
   text-align: center;
   font-weight: bold;
+<<<<<<< HEAD
   padding: 10px 0;
   color: #2c4b3b;
 }
@@ -35,6 +96,30 @@
   text-align: center;
   padding-top: 8px;
   font-size: 14px;
+=======
+  color: #36795A;
+  padding: 8px 0;
+  font-family: 'Headline', sans-serif;
+  font-size: 16px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.day-cell {
+  background: #ffffff;
+  margin: 4px;
+  height: 80px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+>>>>>>> ad2aac12a8fbce79e372f4b47b4b82e1b820edef
 }
 
 .day-cell .emoji {
@@ -43,4 +128,122 @@
 
 .day-cell.empty {
   background: transparent;
+<<<<<<< HEAD
+=======
+  border: none;
+  cursor: default;
+}
+
+.note-box {
+  background: #f9f9f2;
+  border-radius: 12px;
+  padding: 15px;
+  border: 1px solid #d0d0d0;
+  margin-top: 20px;
+}
+
+.note-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.note-title-field {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.note-title-field label {
+  display: block;
+  font-weight: bold;
+  color: #36795A;
+  margin-bottom: 4px;
+}
+
+.note-title-field input {
+  width: 100%;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  background: #fff;
+}
+
+.note-emotion {
+  font-weight: bold;
+  color: #36795A;
+  font-size: 16px;
+}
+
+.selected-emoji {
+  margin-left: 8px;
+  font-size: 20px;
+}
+
+.divider {
+  border-bottom: 1px solid #ccc;
+  margin: 8px 0;
+}
+
+.emotion-buttons {
+  margin: 10px 0;
+  display: flex;
+  gap: 8px;
+}
+
+.emotion-btn {
+  font-size: 22px;
+  background: transparent;
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.emotion-btn:hover {
+  transform: scale(1.2);
+}
+
+.note-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.note-fields label {
+  font-weight: bold;
+  color: #36795A;
+}
+
+.note-fields textarea {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+.save-btn {
+  margin-top: 10px;
+  background: #36795A;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.note-preview-header strong.note-title-preview {
+  font-size: 20px;
+}
+
+.note-preview-content {
+  color: #333;
+  font-size: 16px;
+  margin-top: 8px;
+  line-height: 1.4;
+>>>>>>> ad2aac12a8fbce79e372f4b47b4b82e1b820edef
 }

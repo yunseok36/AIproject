@@ -10,7 +10,7 @@
   background: #fff;
   border: 2px solid #36795A;
   border-radius: 18px;
-  width: 430px;
+  width: 500px;
   padding: 42px 36px 24px 36px;
   box-sizing: border-box;
   box-shadow: 0 2px 8px rgba(54, 121, 90, 0.06);
@@ -76,7 +76,7 @@
 
 .login-form {
   width: 100%;
-  max-width: 240px; 
+  max-width: 300px; 
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -165,3 +165,44 @@
 .login-link-row a:hover {
   text-decoration: underline;
 }
+/* --- 기존 코드 위에 아래만 추가! --- */
+.modal-backdrop {
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 32px 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(54,121,90,0.2);
+  min-width: 240px;
+  text-align: center;
+  animation: popup-in 0.18s cubic-bezier(0.2,0.8,0.2,1);
+}
+@keyframes popup-in {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-box button {
+  margin-top: 20px;
+  padding: 7px 24px;
+  border: none;
+  border-radius: 6px;
+  background: #36795A;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.16s;
+}
+.modal-box button:hover {
+  background: #265a40;
+}
+

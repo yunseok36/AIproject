@@ -1,7 +1,5 @@
 .mood-page {
     padding: 40px 20px;
-    font-family: "Instrument Sans", sans-serif;
-    background-color: #FFFFFB;
     display: flex;
     flex-direction: column;
     align-items: center;

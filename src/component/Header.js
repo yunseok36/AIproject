@@ -13,7 +13,7 @@ function Header() {
                 <ul className="nav-list">
                     <li><Link to="/About">ABOUT</Link></li>
                     <li><Link to="/MoodCheck">MOOD CHECK</Link></li>
-                    <li><Link to="/MyMood">MY MOOD</Link></li>
+                    <li><Link to="/MyPage">MY MOOD</Link></li>
                     <li><Link to="/Contact">CONTACT</Link></li>
                     <li><Link to="/Login" className="login-button">LOGIN</Link></li>
                 </ul>

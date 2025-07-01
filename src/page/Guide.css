@@ -1,7 +1,5 @@
 .guide-page {
-    padding: 40px 30px;
-    background-color: #FFFFFB;
-    font-family: "Instrument Sans", sans-serif;
+    padding: 100px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,10 +21,14 @@
     color: #828356;
 }
 
+.section-Guide {
+    padding-bottom: 60px;
+}
+
 .guide-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: flex-start;    
     width: 100%;
     margin-bottom: 30px;
 }
@@ -40,7 +42,7 @@
 }
 
 .guide-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 700;
     color: #36795A;
     margin: 0;
@@ -49,26 +51,30 @@
 }
 
 .guide-description {
-    font-size: 1.05rem;
+    font-size: 1.3rem;
     line-height: 1.8;
     margin: 20px 0;
+    color: #646547;
 }
 
 .guide-description > strong {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
 }
 
 ul.dot-list {
-    padding-left: 1em;
+    padding-left: 1.05em;
     list-style: none;
     margin: 0;
+    color: #828356;
 }
 
 ul.dot-list li {
+    font-size: 1.1rem;
     position: relative;
     padding-left: 1em;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    color: #828356;
 }
 
 ul.dot-list li::before {
@@ -83,15 +89,16 @@ ul.dot-list li::before {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
-    margin: 50px 0 60px 0;
+    gap: 15px;
+    margin: 30px 0 60px 0;
+    padding-top: 60px;
 }
 
 .step-circle {
     background-color: #36795A;
     color: white;
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -109,6 +116,14 @@ ul.dot-list li::before {
     align-self: center;
 }
 
+.question {
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #646547;
+}
+
 .qa-block {
     margin: 30px 0 20px 0;
     font-size: 1.05rem;
@@ -117,4 +132,49 @@ ul.dot-list li::before {
 
 .qa-block p {
     margin-bottom: 8px;
+}
+
+.faq-item {
+  padding: 20px 10px;
+  border-bottom: 1px solid #DADACC;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #646547;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition: color 0.2s ease;
+}
+
+.faq-question:hover {
+  color: #828356;
+}
+
+.arrow-icon {
+  margin-right: 10px;
+  font-size: 1.1rem;
+  color: #36795A;
+}
+
+.faq-answer-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s linear;
+}
+
+.faq-answer-wrapper.open {
+  max-height: 150px;
+  opacity: 1;
+}
+
+.faq-answer {
+  color: #828356;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-top: 10px;
 }
