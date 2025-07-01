@@ -45,19 +45,20 @@ function Main() {
       <div className="section2">
         <h1 className="title2">AI와 함께 감정을 다루고, 케어하세요</h1>
         <div className="box-items">
-
         </div>
         <div className="article">
-
         </div>
       </div>
       
       <div className="section3">
-        <h1 className="title2">현재의 감정을<br /> 한 번 확인해보세요</h1>
-        <div className="article">
-          현재의 기분을 알리는 글을 작성한 후 감정을 진단해드립니다.<br />
-          AI가 상세히 분석하여 현재의 기분 및 이를 다룰 수 있는 방법을 알려드리겠습니다.
-        </div><br /><br />
+        <div className="title-right">
+          <h1 className="title2">현재의 감정을<br /> 한 번 확인해보세요</h1>
+          <div className="article">
+            현재의 기분을 알리는 글을 작성한 후 감정을 진단해드립니다.<br />
+            AI가 상세히 분석하여 현재의 기분 및 이를 다룰 수 있는 방법을 알려드리겠습니다.
+          </div>
+        </div>
+        <br /><br />
         <textarea
           className="text-input"
           rows="6"
@@ -71,17 +72,16 @@ function Main() {
             감정 진단
           </button>
         </div>
-        {loading && (
-          <div className="loading-container">
-            <div className="loader"></div>
-            <p>진단중...</p>
-          </div>
+        <div className="loading-placeholder">
+        {loading ? (
+            <div className="loading-container">
+              <div className="loader"></div>
+              <p>진단중...</p>
+            </div>
+        ) : (
+        emotionResult && <div className="emotion-result">{emotionResult}</div>
         )}
-        {!loading && emotionResult && (
-          <div className="emotion-result">
-            {emotionResult}
-          </div>
-        )}
+        </div>
       </div>
     </div>
   );
