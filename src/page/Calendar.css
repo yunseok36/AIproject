@@ -1,16 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Headline:wght@700&family=Koulen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Koulen&display=swap');
 
 .calendar-container {
   max-width: 1080px;
   margin: 30px auto;
-  font-family: 'Headline', sans-serif;
 }
 
 .section-title {
+  margin-bottom: 20px;
   font-size: 30px;
   font-weight: bold;
   color: #36795A;
-  margin-bottom: 20px;
 }
 
 .calendar-box {
@@ -21,32 +20,36 @@
 
 .calendar-header-fixed {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 16px;
   margin-bottom: 10px;
   font-weight: bold;
 }
 
 .calendar-header-fixed button {
-  color: #36795A;
   background: transparent;
   border: none;
+  color: #36795A;
   font-size: 20px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .month-year {
-  font-family: 'Headline', sans-serif;
-  font-size: 30px;
-  color: #36795A;
-  text-align: center;
   flex: 1;
+  text-align: center;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 40px;
+  color: #36795A;
+  line-height: 1.1;
 }
 
 .year {
-  font-family: 'Koulen', sans-serif;
-  font-size: 30px;
+  margin-top: 4px;
+  font-size: 24px;
   font-weight: normal;
+  font-family: 'Koulen', sans-serif;
   color: #36795A;
 }
 
@@ -58,12 +61,12 @@
 }
 
 .day-name {
-  text-align: center;
-  font-weight: bold;
-  color: #36795A;
   padding: 8px 0;
-  font-family: 'Headline', sans-serif;
-  font-size: 16px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: 'Do Hyeon', sans-serif;
+  color: #36795A;
 }
 
 .calendar-grid {
@@ -72,20 +75,16 @@
 }
 
 .day-cell {
-  background: #ffffff;
-  margin: 4px;
-  height: 80px;
-  border-radius: 10px;
-  text-align: center;
-  cursor: pointer;
+  position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  height: 80px;
+  margin: 4px;
+  background: #fff;
   border: none;
-}
-
-.day-cell .emoji {
-  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .day-cell.empty {
@@ -94,78 +93,47 @@
   cursor: default;
 }
 
+.day-cell.has-emoji {
+  background: #F3F3EC;
+}
+
+.day-cell .emoji {
+  font-size: 24px;
+}
+
+.day-cell .day-number {
+  position: absolute;
+  right: 6px;
+  bottom: 4px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
 .note-box {
-  background: #f9f9f2;
-  border-radius: 12px;
-  padding: 15px;
-  border: 1px solid #d0d0d0;
-  margin-top: 20px;
+  margin: 20px auto 0;
+  padding: 20px;
+  background: #f0f0e0;
+  border-radius: 16px;
+  box-sizing: border-box;
 }
 
 .note-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 10px;
 }
 
-.note-title-field {
-  flex: 1;
-  margin-right: 10px;
-}
-
-.note-title-field label {
-  display: block;
-  font-weight: bold;
-  color: #36795A;
-  margin-bottom: 4px;
-}
-
-.note-title-field input {
-  width: 100%;
-  padding: 6px;
-  border-radius: 6px;
-  border: 1px solid #bbb;
-  background: #fff;
-}
-
 .note-emotion {
+  font-size: 16px;
   font-weight: bold;
   color: #36795A;
-  font-size: 16px;
 }
 
 .selected-emoji {
   margin-left: 8px;
   font-size: 20px;
-}
-
-.divider {
-  border-bottom: 1px solid #ccc;
-  margin: 8px 0;
-}
-
-.emotion-buttons {
-  margin: 10px 0;
-  display: flex;
-  gap: 8px;
-}
-
-.emotion-btn {
-  font-size: 22px;
-  background: transparent;
-  border: none;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s;
-}
-
-.emotion-btn:hover {
-  transform: scale(1.2);
 }
 
 .note-fields {
@@ -179,30 +147,67 @@
   color: #36795A;
 }
 
-.note-fields textarea {
-  padding: 8px;
+.note-fields input {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #bbb;
   border-radius: 6px;
-  border: 1px solid #ccc;
-  resize: vertical;
+  background: #fff;
+  box-sizing: border-box;
 }
 
-.save-btn {
-  margin-top: 10px;
-  background: #36795A;
-  color: white;
-  padding: 8px 12px;
-  border: none;
+.note-fields textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
   border-radius: 6px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.emotion-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.emotion-btn {
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.emotion-btn:hover {
+  transform: scale(1.2);
+}
+
+.note-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .note-preview-header strong.note-title-preview {
   font-size: 20px;
 }
 
+.note-divider {
+  border: 0;
+  border-top: 1px solid #B3B3B3;
+  margin: 8px 0;
+}
+
 .note-preview-content {
-  color: #333;
-  font-size: 16px;
   margin-top: 8px;
+  font-size: 16px;
   line-height: 1.4;
+  color: #333;
 }

@@ -64,7 +64,7 @@ export default function Calendar() {
     cells.push(
       <div
         key={key}
-        className="day-cell"
+        className={`day-cell ${emotionMap[key] ? "has-emoji" : ""}`}
         onClick={() => handleSelectDay(year, month, d)}
       >
         <div className="emoji">{emotionMap[key]}</div>
@@ -100,24 +100,25 @@ export default function Calendar() {
           <div className="note-box">
             <div className="note-preview-header">
               <strong className="note-title-preview">{noteMap[selectedDay].title || "제목 없음"}</strong>
-              <span>
+              <span className="note-emotion">
                 오늘의 감정:
                 <span className="selected-emoji">
                   {emotionMap[selectedDay] || "🙂"}
                 </span>
               </span>
             </div>
+            <hr className="note-divider" />
             <div className="note-preview-content">
               {noteMap[selectedDay].content || "내용이 없습니다."}
             </div>
-            <button className="save-btn" onClick={() => setEditMode(true)}>
+            <button className="button-primary" onClick={() => setEditMode(true)}>
               수정
             </button>
           </div>
         ) : (
           <div className="note-box">
             <div className="note-top">
-              <div className="note-title-field">
+              <div className="note-fields">
                 <label>제목</label>
                 <input
                   type="text"
@@ -153,7 +154,7 @@ export default function Calendar() {
                 placeholder="내용을 입력하세요"
               />
             </div>
-            <button className="save-btn" onClick={handleSaveNote}>
+            <button className="button-primary" onClick={handleSaveNote}>
               저장
             </button>
           </div>
