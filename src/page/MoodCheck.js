@@ -38,7 +38,7 @@ function MoodCheck() {
     return (
         <div className="Page-Design-MoodCheck">
             <div className="title-MoodCheck">
-               원하는 활동을 선택하세요. 
+               원하는 활동을 선택하세요
             </div>
             <div className="article-MoodCheck">
                 MOODI · TREE에서 다양한 활동을 체험하며, 현재의 감정 상태 확인 및<br/>
