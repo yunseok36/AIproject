@@ -3,9 +3,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 32px;
-    border-bottom: 1px solid #DADACC;
-    background-color: #FFFFFB;
-    flex-wrap: wrap; /* 반응형 대응 */
+    border-bottom: 1px solid hsl(60, 16%, 83%);
+    background-color: #f6faea;
+    flex-wrap: wrap;
 }
 
 .logo-container {
@@ -42,7 +42,6 @@
     color: #218f70;
 }
 
-/*로그인 버튼*/
 .nav-list li .login-button {
   background-color: #36795A;
   color: #FFFFFB;
