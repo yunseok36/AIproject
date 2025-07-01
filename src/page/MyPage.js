@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-HEAD
 
 import { useNavigate } from 'react-router-dom';
 
@@ -7,10 +6,8 @@ import './MyPage.css';
 
 function MyPage() {
   const [activeTab, setActiveTab] = useState('music');
-HEAD
 
   const navigate = useNavigate();
-
 
   const musicList = [
     {
@@ -42,11 +39,8 @@ HEAD
             <div className="music-title">{item.title}</div>
             <div className="music-artist">{item.artist}</div>
           </div>
-
           <a href={item.link} className="listen-btn">음악 듣기</a>
-
           <a href={item.link} className="listen-btn">재생하기</a>
-
         </div>
       ));
     } else {
@@ -57,11 +51,8 @@ HEAD
   return (
     <div className="Page-Design-MyMood">
       <div className="sidebar">
-
         <h1 className="page-title">My Page</h1>
-
         <h1 className="page-title">Profile</h1>
-
         <div className="profile">
           <img src="https://i.ibb.co/5TKD4bp/profile.png" alt="profile" className="profile-img" />
           <div className="username">이재희</div>
@@ -72,15 +63,11 @@ HEAD
           <div className="emoji">😊</div>
           <div className="date">2025.06.24</div>
         </div>
-
         <button className="button">로그아웃</button>
-
         <button className="button" onClick={() => navigate('/calendar')}>달력 확인</button>
-
       </div>
 
       <div className="content">
-        
         <div className="tabs">
           <div
             className={`tab ${activeTab === 'music' ? 'active' : ''}`}
@@ -95,7 +82,6 @@ HEAD
             onClick={() => setActiveTab('drama')}
           >드라마</div>
         </div>
-
         <div className="tab-content">
           {renderContent()}
         </div>

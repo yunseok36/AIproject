@@ -29,11 +29,7 @@
 }
 
 .box-item {
-<<<<<<< HEAD
-    background: #F0F0E0;
-=======
-    background: #e3e3cb;
->>>>>>> ad2aac12a8fbce79e372f4b47b4b82e1b820edef
+    background: #e3e3cb;   /* #F0F0E0 or #e3e3cb 중에서 선택, 여기서는 더 컬러풀한 쪽! */
     color: #4f5034;
     padding: 60px 20px;
     border-radius: 20px;
