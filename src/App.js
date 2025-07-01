@@ -6,6 +6,7 @@ import Guide from "./page/Guide";
 import MoodCheck from "./page/MoodCheck";
 import Music from "./page/Music";
 import Movie from "./page/Movie";
+import Loading from "./page/Loading";
 import MoodSurvey from "./page/MoodSurvey";
 import Login from "./component/Login";
 import MyPage from "./page/MyPage";
@@ -33,6 +34,7 @@ function App() {
           <Route path="/Calendar" element={<Calendar />} />
           <Route path="/Detail" element={<Detail />} />
           <Route path="/Contact" element={<Contact />} />
+          <Route path="/Loading" element={<Loading />} />
         </Routes>
         <Footer />
       </Router>

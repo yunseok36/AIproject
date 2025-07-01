@@ -37,7 +37,6 @@ function Main() {
             감정을 이해하며 조절해가는 첫걸음을 시작해보세요.
           </div>
           <br />
-          <button className="button-primary">시작하기</button>
           </div>
           <img className="image-Main" src={handImage} alt="Hand"/>
         </div>
@@ -46,7 +45,7 @@ function Main() {
       <div className="section2">
         <h1 className="title2">AI와 함께 감정을 다루고, 케어하세요</h1>
         <div className="box-items">
-          
+
         </div>
         <div className="article">
 
