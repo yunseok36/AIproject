@@ -101,8 +101,8 @@ const MoodSurvey = () => {
                     <p className="result-sub">{keywords}</p>
                     <div className="result-actions">
                         <button className="button-primary" onClick={resetSurvey}>다시 설문하기</button>
-                        <Link to="/input" className="button-primary">직접 입력하기</Link>
-                        <Link to="/contents" className="button-primary">콘텐츠로 가기</Link>
+                        <Link to="/" className="button-primary">직접 입력하기</Link>
+                        <Link to="/MoodCheck" className="button-primary">콘텐츠로 가기</Link>
                     </div>
                 </>
             )}
