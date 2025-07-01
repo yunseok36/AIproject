@@ -8,6 +8,8 @@ import Music from "./page/Music";
 import Movie from "./page/Movie";
 import MoodSurvey from "./page/MoodSurvey";
 import Login from "./component/Login";
+import MyPage from "./page/MyPage";
+import Join from "./component/Join";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/Movie" element={<Movie />} />
           <Route path="/Survey" element={<MoodSurvey />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/MyPage" element={<MyPage />} />
+          <Route path="/Join" element={<Join />} />
         </Routes>
         <Footer />
       </Router>
