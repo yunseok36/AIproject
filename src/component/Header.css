@@ -36,10 +36,11 @@
     color: #36795A;
     font-weight: 300;
     font-size: 22px;
+    transition: color 0.3s ease;
 }
 
 .nav-list li a:hover {
-    color: #218f70;
+    color: #3c6854;
 }
 
 .nav-list li .login-button {

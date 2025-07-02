@@ -26,7 +26,7 @@
 
 .username {
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   color: #4F5034;
   margin-bottom: 5px;
 }
@@ -59,10 +59,9 @@
 }
 
 .buttons {
-  display: flex;              /* 버튼들을 가로로 나열 */
-  gap: 10px;                  /* 버튼 사이 간격 */
-  justify-content: center;   /* 가운데 정렬 (원하면 space-between도 가능) */
-
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 
 .button-1 {
@@ -99,9 +98,10 @@
 }
 
 .page-subtitle {
-  font-size: 2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
   color: #36795A;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .tabs {

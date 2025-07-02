@@ -7,6 +7,7 @@ import RecommendImage from "../image/recommend.png";
 import ActivityImage from "../image/activity.png";
 import SaveImage from "../image/save.png"
 
+// 섹션 3 슬라이더 내용
 const functionItems = [
   {
     id: "01.",
@@ -35,28 +36,41 @@ const functionItems = [
 ];
 
 function Main() {
+  // 감정 진단 텍스트
   const [inputText, setInputText] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [emotionResult, setEmotionResult] = useState("");
   const [loading, setLoading] = useState(false);
+  const [analyzed, setAnalyzed] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-
-  const analyzeEmotion = async () => {
-    if (!inputText.trim()) {
-      setEmotionResult("내용을 입력해주세요!");
+  const analyzeEmotion = () => {
+    if (analyzed) {
+      setInputText("");
+      setErrorMessage("");
+      setEmotionResult("");
+      setLoading(false);
+      setAnalyzed(false);
       return;
     }
 
+    if (!inputText.trim()) {
+      alert("내용을 입력해주세요!");
+      return;
+    }
+
+    setErrorMessage("");
     setLoading(true);
     setEmotionResult("");
 
     setTimeout(() => {
       setLoading(false);
       setEmotionResult("😊 감정 분석 결과: 당신은 현재 긍정적인 감정을 느끼고 있습니다.");
+      setAnalyzed(true);
     }, 3000);
   };
 
-    const prevSlide = () => {
+  const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? functionItems.length - 1 : prev - 1));
   };
 
@@ -137,40 +151,46 @@ function Main() {
       </div>
       </div>
 
-      <div className="section4">
-        <div className="title-right">
-          <h1 className="title4">현재의 감정을<br /> 한 번 확인해보세요</h1>
-          <div className="article">
-            현재의 기분을 알리는 글을 작성한 후 감정을 진단해드립니다.<br />
-            AI가 상세히 분석하여 현재의 기분 및 이를 다룰 수 있는 방법을 알려드리겠습니다.
-          </div>
-        </div>
-        <br /><br />
-        <textarea
-          className="text-input"
-          rows="6"
-          placeholder="내용을 입력해주세요.(1000자 제한)"
-          maxLength={1000}
-          value={inputText}
-          onChange={(e) => setInputText(e.target.value)}
-        /><br /><br />
-        <div className="space">
-          <button className="button-primary no-arrow" onClick={analyzeEmotion}>
-            감정 진단
-          </button>
-        </div>
-        <div className="loading-placeholder">
-        {loading ? (
-            <div className="loading-container">
-              <div className="loader"></div>
-              <p>진단중...</p>
-            </div>
-        ) : (
-        emotionResult && <div className="emotion-result">{emotionResult}</div>
-        )}
+    <div className="section4">
+      <div className="title-right">
+        <h1 className="title4">현재의 감정을<br /> 한 번 확인해보세요</h1>
+        <div className="article">
+          현재의 기분을 알리는 글을 작성한 후 감정을 진단해드립니다.<br />
+          AI가 상세히 분석하여 현재의 기분 및 이를 다룰 수 있는 방법을 알려드리겠습니다.
         </div>
       </div>
+      <br /><br />
+      <div className="emotion-box">
+        {loading ? (
+          <div className="loading-container">
+            <div className="loader"></div>
+            <p>진단중...</p>
+          </div>
+        ) : emotionResult ? (
+          <div className="emotion-result">{emotionResult}</div>
+        ) : errorMessage ? (
+          <div className="emotion-result error">{errorMessage}</div>
+        ) : (
+          <textarea
+            className="text-input"
+            rows="6"
+            placeholder="내용을 입력해주세요.(1000자 제한)"
+            maxLength={1000}
+            value={inputText}
+              onChange={(e) => {
+          setInputText(e.target.value);
+          setErrorMessage("");
+              }}
+          />
+        )}
+      </div>
+      <div className="space">
+        <button className="button-primary no-arrow" onClick={analyzeEmotion}>
+          {analyzed ? "다시하기" : "감정 진단"}
+        </button>
+      </div>
     </div>
+  </div>
   );
 }
 

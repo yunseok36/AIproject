@@ -6,38 +6,39 @@
 .section1 {
   text-align: left;
   padding-left: 70px;
-  padding-bottom: 200px;
+  padding-bottom: 160px;
 }
 
 .section2 {
   text-align: left;
   padding-left: 10px;
-  padding-bottom: 200px;
+  padding-bottom: 160px;
 }
 
 .section3 {
   position: relative;
-  padding: 40px;
-  padding-bottom: 200px;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  background-color: #e3e3cb;
+  padding: 60px 120px 80px;
+  box-sizing: border-box;
+  z-index: 0;
 }
 
 .section4 {
   text-align: center;
   position: relative;
-  padding-bottom: 200px;
+  padding-top: 100px;
+  padding-bottom:30px;
 }
 
 .content-wrapper {
   display: flex;
   align-items: flex-start;
   gap: 40px;
-}
-
-.content-wrapper2 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 50px 0;
 }
 
 .left-content {
@@ -52,7 +53,7 @@
 }
 
 .space {
-  padding-bottom: 50px;
+  padding-top: 30px;
 }
 
 .title-right {
@@ -73,6 +74,7 @@
   align-items: center;
   justify-content: center;
   min-height: 380px;
+  margin-top: -30px;
   gap: 40px;
 }
 
@@ -111,7 +113,6 @@
   font-weight: 700;
   color: #36795A;
 }
-
 
 .sub-title {
   font-size: 1.3rem;
@@ -154,7 +155,6 @@
   margin-bottom: 6px;
   color: #646547;
 }
-
 
 .functions-text .function-desc {
   flex: 1;
@@ -221,32 +221,48 @@
 }
 
 .text-input {
-  background-color: #F0F0E0;
-  border-radius: 20px;
+  background: transparent;
   border: none;
-  padding: 30px 20px;
-  width: 85%;
-  height: 230px;
+  width: 100%;
+  height: 100%;
   font-size: 1rem;
   color: #333;
   resize: none;
   outline: none;
-  box-shadow: 0 5px 0px rgba(218, 218, 204, 1);
+  box-shadow: none;
 }
+
+.emotion-box {
+  background-color: #F0F0E0;
+  border-radius: 20px;
+  padding: 30px 20px;
+  width: 100%;
+  max-width: 1110px;
+  height: 230px;
+  box-shadow: 0 5px 0px rgba(218, 218, 204, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  white-space: pre-line;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
 
 /*슬라이더*/
 .slider-indicators {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-top: 20px;
+  margin-top: 80px;
 }
 
 .indicator-dot {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: #ccc;
+  background-color: #b1b1b1;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }

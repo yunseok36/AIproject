@@ -52,7 +52,7 @@ function MyPage() {
     <div className="Page-Design-MyMood">
       <div className="sidebar">
         <h1 className="page-title">My Page</h1>
-        <h1 className="page-subtitle">Profile</h1>
+        <div className="page-subtitle">프로필</div>
         <div className="profile">
           <img src="https://i.ibb.co/5TKD4bp/profile.png" alt="profile" className="profile-img" />
           <div className="username">이재희</div>
