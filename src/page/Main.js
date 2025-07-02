@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "./Main.css";
+import { useNavigate } from "react-router-dom"; // useNavigate 훅 임포트
 import handImage from "../image/hand.jpg";
 
 function Main() {
   const [inputText, setInputText] = useState("");
   const [emotionResult, setEmotionResult] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate(); // useNavigate 훅 사용
 
   const analyzeEmotion = async () => {
     if (!inputText.trim()) {
@@ -20,6 +23,11 @@ function Main() {
       setLoading(false);
       setEmotionResult("😊 감정 분석 결과: 당신은 현재 긍정적인 감정을 느끼고 있습니다.");
     }, 3000);
+  };
+
+  // "시작하기" 버튼 클릭 시 MoodCheck 페이지로 이동하는 함수
+  const handleStartClick = () => {
+    navigate("/MoodCheck");
   };
 
   return (
@@ -41,6 +49,8 @@ function Main() {
           </div>
           <img className="image-Main" src={handImage} alt="Hand"/>
         </div>
+        <br />
+        <button className="button-primary" onClick={handleStartClick}>시작하기</button>
       </div>
 
       <div className="section2">
