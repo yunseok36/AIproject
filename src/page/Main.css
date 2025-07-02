@@ -37,7 +37,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
   padding: 50px 0;
 }
 
@@ -94,6 +93,7 @@
 
 .title2 {
   padding-left: 60px;
+  padding-bottom: 50px;
   font-size: 2.8rem;
   font-weight: 700;
   color: #36795A;
@@ -134,8 +134,8 @@
 .article2 {
   font-size: 1.2rem;
   color: #828356;
-  padding-top: 150px;
-  padding-right: 100px;
+  padding-top: 250px;
+  padding-right: 80px;
   line-height: 35px;
   text-align: right;
 }
@@ -178,7 +178,7 @@
   width: 600px;
   height: auto;
   align-self: flex-start;
-  transform: translate(-10px, 10px)
+  transform: translate(10px, 10px)
 }
 
 .functions-box {
@@ -298,3 +298,4 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+

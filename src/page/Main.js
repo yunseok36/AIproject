@@ -90,7 +90,7 @@ function Main() {
         <div className="content-wrapper">
           <div className="left-content-section2">
             <h1 className="title2">왜 MOODI · TREE일까요?</h1>
-            <img className="image-Main" src={handImage2} alt="Hand"/>
+            <img className="image-Main2" src={handImage2} alt="Hand"/>
           </div>
           <div className="right-content-section2">
             <div className="article2">
