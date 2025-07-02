@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-
 import { useNavigate } from 'react-router-dom';
-
+import useCalendarStore from '../store/calendarStore';
 import './MyPage.css';
 
 function MyPage() {
   const [activeTab, setActiveTab] = useState('music');
-
   const navigate = useNavigate();
+
+  const { emotionMap } = useCalendarStore();
+
+  const today = new Date();
+  const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+  const todayEmotion = emotionMap[todayKey] || "😊";
+  const todayString = `${today.getFullYear()}.${String(today.getMonth() + 1).padStart(2, "0")}.${String(today.getDate()).padStart(2, "0")}`;
 
   const musicList = [
     {
@@ -60,8 +65,8 @@ function MyPage() {
         </div>
         <div className="today-emotion">
           <div className="label">오늘의 감정</div>
-          <div className="emoji">😊</div>
-          <div className="date">2025.06.24</div>
+          <div className="emoji">{todayEmotion}</div>
+          <div className="date">{todayString}</div>
         </div>
         <div className="buttons">
           <button className="button-2">로그아웃</button>

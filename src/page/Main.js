@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Main.css";
 import handImage from "../image/hand.jpg";
 import handImage2 from "../image/two-hands.jpg";
@@ -7,7 +7,6 @@ import RecommendImage from "../image/recommend.png";
 import ActivityImage from "../image/activity.png";
 import SaveImage from "../image/save.png"
 
-// 섹션 3 슬라이더 내용
 const functionItems = [
   {
     id: "01.",
@@ -77,8 +76,6 @@ function Main() {
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev === functionItems.length - 1 ? 0 : prev + 1));
   };
-
-  const currentItem = functionItems[currentIndex];
 
   return (
     <div className="Page-Design">
