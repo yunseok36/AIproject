@@ -71,7 +71,7 @@ export default function Login() {
             <img src={logo} alt="로고" className="logo-img" />
           </span>
           <div>
-            <span className="login-logo-title">MOODI·TREE</span>
+            <span className="login-logo-title">MOODI · TREE</span>
             <div className="login-logo-desc">내 마음을 읽는 AI, 맞춤 콘텐츠 추천 플랫폼</div>
           </div>
         </div>

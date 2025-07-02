@@ -1,7 +1,6 @@
 .Page-Design-MyMood {
   display: flex;
   padding: 80px 80px;
-  background-color: #FFFFFB;
   gap: 50px;
   font-family: "Instrument Sans", sans-serif;
 }
@@ -11,7 +10,7 @@
   background: #e3e3cb;
   padding: 10px 20px;
   border-right: 1px solid #DADACC;
-  height: 700px;
+  height: 720px;
   border-radius: 20px;
   text-align: center;
 }
@@ -33,9 +32,9 @@
 }
 
 .today-emotion {
-  border-top: 1px solid #c4c4b5;
-  padding-top: 40px;
-  margin-top: 60px;
+  border-top: 1px solid #c4c4b5;    /*프로필하고 오늘의 감정 간격분리줄*/
+  padding-top: 30px;
+  margin-top: 50px;
   text-align: center;
 }
 
@@ -56,14 +55,32 @@
   margin-top: 5px;
   font-size: 0.95rem;
   color: #828356;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
-.button {
+.buttons {
+  display: flex;              /* 버튼들을 가로로 나열 */
+  gap: 10px;                  /* 버튼 사이 간격 */
+  justify-content: center;   /* 가운데 정렬 (원하면 space-between도 가능) */
+
+}
+
+.button-1 {
   margin-top: 20px;
   background: #36795A;
   color: #FFFFFB;
   border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.button-2 {
+  margin-top: 20px;
+  background: #FFFFFB;
+  color: #36795A;
+  border: 2px solid #36795A;
   padding: 10px 20px;
   border-radius: 20px;
   cursor: pointer;
@@ -78,7 +95,13 @@
 .page-title {
   font-size: 2.2rem;
   color: #36795A;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
+}
+
+.page-subtitle {
+  font-size: 2rem;
+  color: #36795A;
+  margin-bottom: 30px;
 }
 
 .tabs {

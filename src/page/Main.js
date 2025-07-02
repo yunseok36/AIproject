@@ -1,11 +1,40 @@
 import React, { useState } from "react";
 import "./Main.css";
 import handImage from "../image/hand.jpg";
+import checkImage from "../image/checking.png";
+import RecommendImage from "../image/recommend.png";
+import ActivityImage from "../image/activity.png";
+import SaveImage from "../image/save.png"
+
+const functionItems = [
+  {
+    id: "01",
+    image: checkImage,
+    text: ["텍스트 및 설문조사를 통한", "실시간 감정분석"],
+  },
+  {
+    id: "02",
+    image: RecommendImage,
+    text: ["분석된 감정을 기반으로 한", "콘텐츠 추천"],
+  },
+  {
+    id: "03",
+    image: ActivityImage,
+    text: ["감정 회복을 위한", "행동 가이드 연계 제공"],
+  },
+  {
+    id: "04",
+    image: SaveImage,
+    text: ["현재 감정 및 추천받은 콘텐츠", "저장 및 기록"],
+  },
+];
 
 function Main() {
   const [inputText, setInputText] = useState("");
   const [emotionResult, setEmotionResult] = useState("");
   const [loading, setLoading] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
 
   const analyzeEmotion = async () => {
     if (!inputText.trim()) {
@@ -21,6 +50,16 @@ function Main() {
       setEmotionResult("😊 감정 분석 결과: 당신은 현재 긍정적인 감정을 느끼고 있습니다.");
     }, 3000);
   };
+
+    const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? functionItems.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === functionItems.length - 1 ? 0 : prev + 1));
+  };
+
+  const currentItem = functionItems[currentIndex];
 
   return (
     <div className="Page-Design">
@@ -44,9 +83,16 @@ function Main() {
 
       <div className="section2">
         <h1 className="title2">AI와 함께 감정을 다루고, 케어하세요</h1>
-        <div className="box-items">
-        </div>
-        <div className="article">
+                <div className="slider">
+          <button className="arrow left" onClick={prevSlide}>←</button>
+
+          <div className="functions-box">
+            <h2>{currentItem.id}</h2>
+            <img src={currentItem.image} className="functions-Image" alt={`기능 ${currentItem.id}`} />
+            <p>{currentItem.text[0]}<br />{currentItem.text[1]}</p>
+          </div>
+
+          <button className="arrow right" onClick={nextSlide}>→</button>
         </div>
       </div>
       

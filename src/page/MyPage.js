@@ -52,19 +52,21 @@ function MyPage() {
     <div className="Page-Design-MyMood">
       <div className="sidebar">
         <h1 className="page-title">My Page</h1>
-        <h1 className="page-title">Profile</h1>
+        <h1 className="page-subtitle">Profile</h1>
         <div className="profile">
           <img src="https://i.ibb.co/5TKD4bp/profile.png" alt="profile" className="profile-img" />
           <div className="username">이재희</div>
-          <button className="button">프로필 수정</button>
+          <button className="button-1">프로필 수정</button>
         </div>
         <div className="today-emotion">
           <div className="label">오늘의 감정</div>
           <div className="emoji">😊</div>
           <div className="date">2025.06.24</div>
         </div>
-        <button className="button">로그아웃</button>
-        <button className="button" onClick={() => navigate('/calendar')}>달력 확인</button>
+        <div className="buttons">
+          <button className="button-2">로그아웃</button>
+          <button className="button-1" onClick={() => navigate('/calendar')}>달력 확인</button>
+        </div>
       </div>
 
       <div className="content">
