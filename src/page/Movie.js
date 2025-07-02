@@ -1,30 +1,35 @@
-import { useNavigate } from 'react-router-dom'; // Home.jsx에서 가져옴
-import styles from './Movie.module.css';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from './Movie.module.css'; // 영화 페이지용 CSS
+import cameraImage from '../image/camera.png'; // 카메라 이미지 import 추가
 
 function Movie() {
-  const navigate = useNavigate(); // Home.jsx에서 가져옴
+  const navigate = useNavigate();
 
-  const handleClick = () => { // Home.jsx에서 가져옴
-    navigate('/loading'); // 이 경로가 App.js에 정의되어 있지 않다면 문제가 될 수 있습니다.
-                          // App.js의 라우팅에 맞게 수정해야 합니다.
+  const handleClick = () => {
+    console.log("영화 추천받기 버튼 클릭됨");
+    // URL 파라미터로 'movie' 전달
+    navigate('/Loading/movie');
   };
 
   return (
-    // Home.jsx의 mainContent 부분을 가져옴
-    <div className={styles.movieContainer}> {/* 클래스 이름 변경 */}
+    <div className={styles.movieContainer}>
       <main className={styles.mainContent}>
         <div className={styles.left}>
-          {/* assets/earphones.png 경로는 public 폴더에 있어야 합니다. */}
-          <img src="/assets/movie.png" alt="movie" className={styles.movie} /> 
+          <img 
+            src={cameraImage} // import한 변수 사용
+            alt="movie" 
+            className={styles.movieIcon} 
+            style={{ transform: 'scale(1.5)' }} // 1.5배 확대 인라인 스타일 추가
+          />
         </div>
 
         <div className={styles.right}>
-          <h1>Shall I recommend<br />your own movie?</h1>
-          <h2>감정이 머무는 곳, 그곳에 당신만의 영화가 있습니다</h2>
+          <h1>Would you watch<br /> your own movie?</h1>
+          <h2>당신의 감정에 딱 맞는 영화, 보러 갈래요?</h2>
           <p className={styles.description}>
-            AI가 당신의 감정을 분석해,<br />
-            기분에 맞는 영화 장르와 추천 리스트를 제공합니다.<br />
-            오늘의 감정, 한 편의 영화로 감싸보세요.<br />
+            AI가 현재 감정을 분석하여 상황에 맞는 영화를 추천해드립니다.<br />
+            추천받은 영화를 통해 나만의 시네마를 만나보세요.
           </p>
           <button className={styles.recommendButton} onClick={handleClick}>
             영화 추천받기
