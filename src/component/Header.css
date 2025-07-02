@@ -4,7 +4,7 @@
     align-items: center;
     padding: 12px 32px;
     border-bottom: 1px solid hsl(60, 16%, 83%);
-    background-color: #f6faea;
+    background-color: #F2F0E6;
     flex-wrap: wrap;
 }
 
@@ -52,6 +52,6 @@
 }
 
 .nav-list li .login-button:hover {
-  background-color: #eeeeed;
+  background-color: #F2F3F4;
   color: #36795A;
 }

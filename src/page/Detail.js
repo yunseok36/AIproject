@@ -9,7 +9,7 @@ export default function Detail() {
 
   const noteExists = noteMap[date];
   const note = noteExists || { title: "", content: "" };
-  const emotion = emotionMap[date] || "🙂";
+  const emotion = emotionMap[date] || "😄";
 
   if (!noteExists) {
     return (
