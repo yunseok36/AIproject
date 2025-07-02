@@ -109,3 +109,12 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* ⭐️ 이모지/감정 결과 폰트 스타일 추가! */
+.emotion-result {
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+  font-size: 1.3em;
+  margin-top: 16px;
+  font-weight: 500;
+  color: #333;
+}

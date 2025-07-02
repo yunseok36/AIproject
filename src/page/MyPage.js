@@ -6,10 +6,14 @@ function MyPage() {
   const [activeTab, setActiveTab] = useState('music');
   const [user, setUser] = useState(null);
 
-  // 프로필 이미지 수정 관련 state
+  // 프로필 이미지 관련 state
   const [imgEditing, setImgEditing] = useState(false);
   const [editImg, setEditImg] = useState(null);
   const [imgPreview, setImgPreview] = useState(null);
+
+  // 감정 이력 state
+  const [emotionHistory, setEmotionHistory] = useState([]);
+  const [todayEmotion, setTodayEmotion] = useState(null);
 
   const navigate = useNavigate();
 
@@ -18,6 +22,21 @@ function MyPage() {
     if (stored) setUser(JSON.parse(stored));
     else navigate('/Login');
   }, [navigate]);
+
+  // ⭐ 감정 이력 불러오기 (마운트 시)
+  useEffect(() => {
+    if (user?.email) {
+      fetch(`http://localhost:4000/api/emotion?email=${encodeURIComponent(user.email)}`)
+        .then(res => res.json())
+        .then(data => {
+          setEmotionHistory(data || []);
+          // 오늘 날짜 감정만 추출
+          const today = new Date().toISOString().slice(0, 10);
+          const todayLog = data.find(e => (e.date && e.date.slice(0,10) === today));
+          setTodayEmotion(todayLog || null);
+        });
+    }
+  }, [user]);
 
   // 파일 변경 핸들러 (미리보기 생성)
   const handleImgChange = e => {
@@ -43,30 +62,58 @@ function MyPage() {
     }
   };
 
-  const musicList = [
-    {
-      title: "Personal",
-      artist: "Emotional Oranges",
-      img: "https://i.scdn.co/image/ab67616d0000b273bc94d67b6050301567f7e0a7",
-      link: "#"
-    },
-    {
-      title: "Pink + White",
-      artist: "Frank Ocean",
-      img: "https://upload.wikimedia.org/wikipedia/en/a/a0/Blonde_-_Frank_Ocean.jpeg",
-      link: "#"
-    },
-    {
-      title: "Like Him",
-      artist: "Tyler, The Creator",
-      img: "https://i1.sndcdn.com/artworks-000233857417-5uhx9f-t500x500.jpg",
-      link: "#"
+  // 음악/영화 추천 임시 리스트 (랜덤 3개 뽑기)
+  const musicListAll = [
+  {
+    title: "Personal",
+    artist: "Emotional Oranges",
+    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=facearea&w=300&h=300",
+    link: "#"
+  },
+  {
+    title: "Pink + White",
+    artist: "Frank Ocean",
+    img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=facearea&w=300&h=300",
+    link: "#"
+  },
+  {
+    title: "Like Him",
+    artist: "Tyler, The Creator",
+    img: "https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG",
+    link: "#"
+  },
+  {
+    title: "Someone Like You",
+    artist: "Adele",
+    img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=facearea&w=300&h=300",
+    link: "#"
+  },
+  {
+    title: "Cheer Up",
+    artist: "TWICE",
+    img: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Music-icon.png",
+    link: "#"
+  }
+  // ...여기 원하는 만큼 더 추가
+];
+
+
+  // 랜덤 3개 추천
+  function pickRandom(arr, n = 3) {
+    const copy = arr.slice();
+    const result = [];
+    while (copy.length && result.length < n) {
+      const idx = Math.floor(Math.random() * copy.length);
+      result.push(copy.splice(idx, 1)[0]);
     }
-  ];
+    return result;
+  }
 
   const renderContent = () => {
+    // TODO: 감정에 따라 추천 알고리즘 반영
+    const showList = pickRandom(musicListAll, 3);
     if (activeTab === 'music') {
-      return musicList.map((item, index) => (
+      return showList.map((item, index) => (
         <div className="music-item" key={index}>
           <img src={item.img} alt={item.title} className="music-img" />
           <div className="music-info">
@@ -74,7 +121,6 @@ function MyPage() {
             <div className="music-artist">{item.artist}</div>
           </div>
           <a href={item.link} className="listen-btn">음악 듣기</a>
-          <a href={item.link} className="listen-btn">재생하기</a>
         </div>
       ));
     } else {
@@ -93,11 +139,12 @@ function MyPage() {
           {/* 이미지만과 "이미지 선택"만 수직 중앙정렬 */}
           <div className="profile-img-select">
             <img
-              src={imgPreview || user.profileImg || "https://i.ibb.co/5TKD4bp/profile.png"}
+              src={imgPreview || user.profileImg || process.env.PUBLIC_URL + "/profile.png"}
               alt="profile"
               className="profile-img"
               style={{ marginBottom: '8px' }}
-            />
+/>
+
             {imgEditing && (
               <label className="custom-file-label">
                 <input
@@ -126,7 +173,9 @@ function MyPage() {
         </div>
         <div className="today-emotion">
           <div className="label">오늘의 감정</div>
-          <div className="emoji">😊</div>
+          <div className="emoji">
+            {todayEmotion ? todayEmotion.emotion : '아직 진단 내역 없음'}
+          </div>
           <div className="date">{new Date().toISOString().slice(0, 10)}</div>
         </div>
         <button className="button" onClick={() => navigate('/calendar')}>달력 확인</button>
@@ -148,6 +197,23 @@ function MyPage() {
         </div>
         <div className="tab-content">
           {renderContent()}
+
+          {/* 감정 진단 내역 리스트 */}
+          <div style={{ marginTop: "60px", textAlign: "left" }}>
+            <h3 style={{ color: "#36795A", fontSize: "1.1rem", marginBottom: 10 }}>최근 감정 진단 기록</h3>
+            {emotionHistory.length === 0 ? (
+              <div style={{ color: "#888", margin: "10px 0" }}>기록이 없습니다.</div>
+            ) : (
+              <ul style={{ listStyle: "none", padding: 0 }}>
+                {emotionHistory.slice(0, 7).map((e, idx) => (
+                  <li key={idx} style={{ marginBottom: 8, borderBottom: "1px solid #eee", paddingBottom: 4 }}>
+                    <span style={{ marginRight: 14 }}>{e.date ? e.date.slice(0, 10) : ""}</span>
+                    <span>{e.emotion}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -4,9 +4,6 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = 4000;
 
-app.use(cors());
-app.use(express.json());
-
 // 1. MongoDB 연결
 mongoose.connect(
   'mongodb+srv://ljh9236032:1234@mooditree.1s0a6qd.mongodb.net/?retryWrites=true&w=majority&appName=MOODITREE',
@@ -23,12 +20,17 @@ const userSchema = new mongoose.Schema({
 });
 const User = mongoose.model('User', userSchema);
 
-// 3. API 라우트 정의
+// 3. Emotion 모델 불러오기
+const Emotion = require('./models/Emotion'); // <- 여기 한 번만!
+
+app.use(cors());
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('서버가 정상적으로 작동중입니다!');
 });
 
+// 회원가입
 app.post('/api/join', async (req, res) => {
   const { name, email, password } = req.body;
   if (!name || !email || !password) {
@@ -44,6 +46,7 @@ app.post('/api/join', async (req, res) => {
   }
 });
 
+// 로그인
 app.post('/api/login', async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -55,7 +58,33 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
+// 감정 저장
+app.post('/api/emotion', async (req, res) => {
+  const { email, emotion, label, date } = req.body;
+  if (!email || !emotion || !label || !date) {
+    return res.status(400).json({ message: '필수값 누락' });
+  }
+  try {
+    await Emotion.create({ email, emotion, label, date });
+    res.status(201).json({ message: '감정 저장 완료' });
+  } catch (e) {
+    res.status(500).json({ message: '서버 오류', error: e.message });
+  }
+});
+
+// 감정 이력 조회
+app.get('/api/emotion', async (req, res) => {
+  const { email } = req.query;
+  console.log('[DEBUG] /api/emotion called, email:', email);
+  if (!email) return res.status(400).json({ message: '이메일 필요' });
+  try {
+    const history = await Emotion.find({ email }).sort({ date: -1 });
+    res.json(history);
+  } catch (e) {
+    res.status(500).json({ message: '서버 오류', error: e.message });
+  }
+});
+
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`서버가 http://localhost:${PORT} 에서 실행중`);
 });
-
