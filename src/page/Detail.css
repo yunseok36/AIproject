@@ -1,0 +1,87 @@
+.detail-container {
+    max-width: 600px;
+    margin: 30px auto;
+    background: #f0f0e0;
+    border-radius: 16px;
+    padding: 20px;
+    font-family: 'Do Hyeon', sans-serif;
+    box-sizing: border-box;
+}
+
+.detail-date {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.detail-emotion {
+    text-align: center;
+    font-size: 18px;
+    color: #36795A;
+    margin-bottom: 10px;
+}
+
+.note-divider {
+    border: 0;
+    border-top: 1px solid #B3B3B3;
+    margin: 10px 0;
+}
+
+.detail-content {
+    min-height: 80px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.recommend-section {
+    margin-top: 20px;
+}
+
+.recommend-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #36795A;
+    margin-bottom: 10px;
+}
+
+.recommend-group {
+    margin-bottom: 12px;
+}
+
+.recommend-label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.recommend-tags span {
+    display: inline-block;
+    background: #69866E;
+    color: #fff;
+    border-radius: 8px;
+    padding: 4px 8px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.detail-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-danger {
+    background: #B34A4A;
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: bold;
+}

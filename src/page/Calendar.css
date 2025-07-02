@@ -211,3 +211,9 @@
   line-height: 1.4;
   color: #333;
 }
+
+.note-button-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}

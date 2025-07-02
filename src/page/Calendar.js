@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import useCalendarStore from "../store/calendarStore";
 import "./Calendar.css";
 
 const emotions = ["😊", "😢", "😠", "😱", "😌"];
 
 export default function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [emotionMap, setEmotionMap] = useState({});
-  const [noteMap, setNoteMap] = useState({});
   const [selectedDay, setSelectedDay] = useState(null);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [editMode, setEditMode] = useState(false);
+
+  const { emotionMap, noteMap, setEmotion, saveNote } = useCalendarStore();
 
   const getDaysInMonth = (year, month) =>
     new Date(year, month + 1, 0).getDate();
@@ -26,27 +28,23 @@ export default function Calendar() {
   };
 
   const handleSelectDay = (year, month, day) => {
-    const key = `${year}-${month + 1}-${day}`;
+    const mm = String(month + 1).padStart(2, "0");
+    const dd = String(day).padStart(2, "0");
+    const key = `${year}-${mm}-${dd}`;
     setSelectedDay(key);
     setTitle(noteMap[key]?.title || "");
     setContent(noteMap[key]?.content || "");
-    setEditMode(false); // 처음 선택 시에는 미리보기부터
+    setEditMode(false);
   };
 
   const handleEmotionChange = (emoji) => {
     if (selectedDay) {
-      setEmotionMap({
-        ...emotionMap,
-        [selectedDay]: emoji,
-      });
+      setEmotion(selectedDay, emoji);
     }
   };
 
   const handleSaveNote = () => {
-    setNoteMap({
-      ...noteMap,
-      [selectedDay]: { title, content },
-    });
+    saveNote(selectedDay, { title, content });
     setEditMode(false);
   };
 
@@ -60,7 +58,9 @@ export default function Calendar() {
     cells.push(<div className="day-cell empty" key={`e-${i}`} />);
   }
   for (let d = 1; d <= daysInMonth; d++) {
-    const key = `${year}-${month + 1}-${d}`;
+    const mm = String(month + 1).padStart(2, "0");
+    const dd = String(d).padStart(2, "0");
+    const key = `${year}-${mm}-${dd}`;
     cells.push(
       <div
         key={key}
@@ -111,9 +111,12 @@ export default function Calendar() {
             <div className="note-preview-content">
               {noteMap[selectedDay].content || "내용이 없습니다."}
             </div>
-            <button className="button-primary" onClick={() => setEditMode(true)}>
-              수정
-            </button>
+            <div className="note-button-group">
+              <button className="button-primary" onClick={() => setEditMode(true)}>
+                수정
+              </button>
+              <Link to={`/Detail/${selectedDay}`} className="button-primary">상세</Link>
+            </div>
           </div>
         ) : (
           <div className="note-box">

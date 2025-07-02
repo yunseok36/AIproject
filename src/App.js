@@ -11,6 +11,7 @@ import Login from "./component/Login";
 import MyPage from "./page/MyPage";
 import Join from "./component/Join";
 import Calendar from "./page/Calendar";
+import Detail from "./page/Detail";
 import Contact from "./page/Contact";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/Join" element={<Join />} />
           <Route path="/MyMood" element={<MyPage />} />
           <Route path="/Calendar" element={<Calendar />} />
+          <Route path="/Detail" element={<Detail />} />
           <Route path="/Contact" element={<Contact />} />
         </Routes>
         <Footer />
