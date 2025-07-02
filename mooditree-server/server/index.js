@@ -55,6 +55,7 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`서버가 http://localhost:${PORT} 에서 실행중`);
 });
+

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import logo from '../image/logo_footer.png';
 
@@ -8,10 +8,7 @@ export default function Login() {
   const [pw, setPw] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-
-  // ✅ 모달 알림 관련 state
-  const [showModal, setShowModal] = useState(false);
-  const [userName, setUserName] = useState('');
+  const navigate = useNavigate();
 
   const handleChangeEmail = e => {
     setEmail(e.target.value);
@@ -45,10 +42,12 @@ export default function Login() {
       .then(res => res.json())
       .then(data => {
         if (data.message === '로그인 성공') {
-          setUserName(data.name);
-          setShowModal(true);   // ✅ 모달 열기!
-          setSuccess('');
-          setError('');
+          // ✅ localStorage에 로그인 정보 저장
+          localStorage.setItem('user', JSON.stringify({
+            name: data.name,
+            email: email
+          }));
+          navigate('/'); // 메인페이지로 이동!
         } else {
           setError(data.message);
           setSuccess('');
@@ -59,9 +58,6 @@ export default function Login() {
         setSuccess('');
       });
   };
-
-  // ✅ 모달 닫기
-  const closeModal = () => setShowModal(false);
 
   return (
     <div className="login-bg">
@@ -105,17 +101,6 @@ export default function Login() {
           <span>아직 계정이 없으신가요?</span>
           <Link to="/Join">회원가입</Link>
         </div>
-        {/* ✅ 커스텀 알림 모달 */}
-        {showModal && (
-          <div className="modal-backdrop">
-            <div className="modal-box">
-              <div style={{ fontSize: "18px", marginBottom: "12px", color: "#36795A", fontWeight: "bold" }}>
-                {userName}님, 로그인 성공!
-              </div>
-              <button onClick={closeModal}>확인</button>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
