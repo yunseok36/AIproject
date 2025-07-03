@@ -1,18 +1,31 @@
+
+
 /*페이지 구성*/
 .Page-Design {
   padding: 50px 120px;
 }
 
+.section0 {
+  font-family: 'Montserrat', sans-serif;
+  color:#36795A;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 4.3rem;
+  font-weight: 700;
+  padding-top: 100px;
+  padding-bottom: 200px;
+}
+
 .section1 {
   text-align: left;
   padding-left: 70px;
-  padding-bottom: 160px;
+  padding-bottom: 170px;
 }
 
 .section2 {
   text-align: left;
   padding-left: 10px;
-  padding-bottom: 160px;
+  padding-bottom: 170px;
 }
 
 .section3 {
@@ -105,7 +118,7 @@
   text-align: center;
   font-size: 2.8rem;
   font-weight: 700;
-  color: #36795A;
+  color: #646547;
 }
 
 .title4 {
@@ -146,7 +159,7 @@
   font-size: 2.8rem;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #36795A;
+  color: #646547;
 }
 
 .function-title {
@@ -212,7 +225,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #36795A;
+  color: #646547;
   transition: transform 0.3s ease;
 }
 
@@ -268,7 +281,7 @@
 }
 
 .indicator-dot.active {
-  background-color: #36795A; /* 초록색으로 활성화 표시 */
+  background-color: #828356; /* 갈색으로 활성화 표시 */
 }
 
 
@@ -314,4 +327,3 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-

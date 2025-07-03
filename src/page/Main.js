@@ -6,7 +6,8 @@ import handImage2 from "../image/two-hands.jpg";
 import checkImage from "../image/checking.png";
 import RecommendImage from "../image/recommend.png";
 import ActivityImage from "../image/activity.png";
-import SaveImage from "../image/save.png"
+import SaveImage from "../image/save.png";
+import plusImage from "../image/plus.svg";
 
 const functionItems = [
   {
@@ -87,6 +88,12 @@ function Main() {
 
   return (
     <div className="Page-Design">
+      <div className="section0">
+            ✺ KNOW YOUR MOOD<br/>
+            <div className="main-text-starticon">✚</div>
+            <br/>CHANGE YOUR DAY ✧
+      </div>
+
       <div className="section1">
         <div className="content-wrapper">
           <div className="text-content">
@@ -100,11 +107,10 @@ function Main() {
             감정을 이해하며 조절해가는 첫걸음을 시작해보세요.
           </div>
           <br />
+          <button className="button-primary" onClick={handleStartClick}>시작하기</button>
           </div>
           <img className="image-Main" src={handImage} alt="Hand"/>
-        </div>
-        <br />
-        <button className="button-primary" onClick={handleStartClick}>시작하기</button>
+        </div> 
       </div>
 
       <div className="section2">
