@@ -1,87 +1,80 @@
 .detail-container {
-    max-width: 600px;
-    margin: 30px auto;
-    background: #f0f0e0;
-    border-radius: 16px;
-    padding: 20px;
-    font-family: 'Do Hyeon', sans-serif;
-    box-sizing: border-box;
+  max-width: 1080px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #F2F0E6;
+  border-radius: 16px;
+  box-sizing: border-box;
 }
 
 .detail-date {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #333;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 6px;
+  text-align: left;
 }
 
 .detail-emotion {
-    text-align: center;
-    font-size: 18px;
-    color: #36795A;
-    margin-bottom: 10px;
-}
-
-.note-divider {
-    border: 0;
-    border-top: 1px solid #B3B3B3;
-    margin: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #36795A;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
 .detail-content {
-    min-height: 80px;
-    padding: 10px;
-    background: #fff;
-    border-radius: 8px;
-    font-size: 16px;
-    color: #333;
-    line-height: 1.5;
+  min-height: 80px;
+  padding: 10px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  border-radius: 8px;
+  box-sizing: border-box;
 }
 
 .recommend-section {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .recommend-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #36795A;
-    margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #36795A;
+  margin-bottom: 10px;
 }
 
 .recommend-group {
-    margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 
 .recommend-label {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
+  display: inline-block;
+  background: #36795A;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.recommend-tags {
+  margin-top: 6px;
 }
 
 .recommend-tags span {
-    display: inline-block;
-    background: #69866E;
-    color: #fff;
-    border-radius: 8px;
-    padding: 4px 8px;
-    margin-right: 6px;
-    margin-bottom: 4px;
-    font-size: 14px;
+  display: inline-block;
+  background: #78866B;
+  color: #fff;
+  padding: 6px 12px;
+  margin-right: 8px;
+  margin-bottom: 6px;
+  border-radius: 20px;
+  font-size: 16px;
 }
 
 .detail-footer {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.button-danger {
-    background: #B34A4A;
-    border: none;
-    color: #fff;
-    border-radius: 8px;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
 }

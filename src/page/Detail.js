@@ -5,7 +5,15 @@ import "./Detail.css";
 export default function Detail() {
   const { date } = useParams();
   const navigate = useNavigate();
-  const { noteMap, emotionMap, deleteNote } = useCalendarStore();
+  const { noteMap, emotionMap, deleteNote, hasHydrated } = useCalendarStore();
+
+  if (!hasHydrated) {
+    return (
+      <div className="detail-container">
+        <p>불러오는 중...</p>
+      </div>
+    );
+  }
 
   const noteExists = noteMap[date];
   const note = noteExists || { title: "", content: "" };
@@ -27,11 +35,28 @@ export default function Detail() {
     navigate(-1);
   };
 
+  const recommendData = [
+    {
+      label: "음악",
+      tags: ["#Personal", "#Pink+White", "#Like_Him"],
+    },
+    {
+      label: "영화",
+      tags: ["#Personal", "#Pink+White", "#Like_Him"],
+    },
+    {
+      label: "드라마",
+      tags: ["#Personal", "#Pink+White", "#Like_Him"],
+    },
+  ];
+
   return (
     <div className="detail-container">
-      <div className="section-title">기록 상세</div>
+      <div className="section-title" style={{ textAlign: "center" }}>
+        {note.title || "제목 없음"}
+      </div>
 
-      <div className="detail-date">{date}</div>
+      <div className="detail-date"><strong>{date}</strong></div>
 
       <div className="detail-emotion">
         오늘의 감정: <span className="selected-emoji">{emotion}</span>
@@ -40,47 +65,32 @@ export default function Detail() {
       <hr className="note-divider" />
 
       <div className="detail-content">
-        <strong>{note.title || "제목 없음"}</strong>
         <p>{note.content || "내용이 없습니다."}</p>
       </div>
+
+      <hr className="note-divider" />
 
       <div className="recommend-section">
         <div className="recommend-title">추천받은 콘텐츠</div>
 
-        <div className="recommend-group">
-          <div className="recommend-label">음악</div>
-          <div className="recommend-tags">
-            <span>#Personal</span>
-            <span>#Pink+White</span>
-            <span>#Like_Him</span>
+        {recommendData.map((item) => (
+          <div key={item.label} className="recommend-group">
+            <div className="recommend-label">{item.label}</div>
+            <div className="recommend-tags">
+              {item.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div className="recommend-group">
-          <div className="recommend-label">영화</div>
-          <div className="recommend-tags">
-            <span>#Personal</span>
-            <span>#Pink+White</span>
-            <span>#Like_Him</span>
-          </div>
-        </div>
-
-        <div className="recommend-group">
-          <div className="recommend-label">드라마</div>
-          <div className="recommend-tags">
-            <span>#Personal</span>
-            <span>#Pink+White</span>
-            <span>#Like_Him</span>
-          </div>
-        </div>
+        ))}
       </div>
 
       <div className="detail-footer">
+        <button onClick={handleDelete} className="button-primary">
+          기록 삭제
+        </button>
         <button onClick={() => navigate(-1)} className="button-primary">
           뒤로가기
-        </button>
-        <button onClick={handleDelete} className="button-danger">
-          기록 삭제
         </button>
       </div>
     </div>
