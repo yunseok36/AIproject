@@ -34,33 +34,36 @@ function Guide() {
 
             <div className="section-Guide">
                 <div className="guide-description">
+                    <div className="guide-subtitle">MOODI · TREE 소개</div>
                     <strong>MOODI-TREE는 어떤 서비스인가요?</strong>
                     <ul className="dot-list">
-                        <li>감정 기반 콘텐츠 추천 플랫폼입니다.</li>
-                        <li>사용자의 감정 상태에 따라 적절한 음악, 글, 활동을 추천하여 정서적 안정을 돕습니다.</li>
+                        <li>MOODI-TREE는 AI를 활용한 감정 기반 콘텐츠 추천 플랫폼입니다.</li>
+                        <li>사용자가 현재의 감정 상태를 입력하면 AI가 해당 정보에 따라 적절한 음악, 글, 활동 등을 사용자에게 추천합니다.</li>
                     </ul>
                 </div>
 
                 <div className="guide-description">
                     <strong>어떤 식으로 감정을 입력해야 하나요?</strong>
                     <ul className="dot-list">
-                        <li>한두 단어: "우울함", "행복해", "짜증 나"</li>
-                        <li>간단한 문장도 가능: "요즘 너무 지치고 무기력해요."</li>
-                        <li>'외롭다'는 감정  ➡  '위로되는 음악', '따뜻한 에세이' 추천</li>
+                        <li><strong>간단한 한두 단어 입력:</strong> "우울함", "행복해", "짜증 나"</li>
+                        <li><strong>짧은 문장 형태로도 가능:</strong> "요즘 너무 지치고 무기력해요.", "일이 너무 많아서 피곤해요."</li>
+                        <li><strong>감정 입력 후 어울리는 콘텐츠 추천:</strong> '외롭다'는 감정 입력  ➡  '위로되는 음악', '따뜻한 에세이' 등과 같은 콘텐츠 추천</li>
                     </ul>
                 </div>
             </div>
             <br/><br/>
 
             <div className="section-Guide">
+                
                 <p className="guide-description">
-                    <strong>MOODI-TREE를 효과적으로 사용하는 방법을 안내해드려요.</strong>
+                    <div className="guide-subtitle">MOODI · TREE 사용 방법</div>
+                    <strong>MOODI-TREE를 효과적으로 사용하는 방법을 안내해드립니다.</strong>
                 </p>
 
                 <div className="flow-steps-centered">
                     {[
-                        "감정 입력하기",
-                        "AI 감정<br />분석 결과 확인",
+                        "현재 감정 입력",
+                        "AI 분석<br /> 결과 확인",
                         "맞춤 콘텐츠 및<br />활동 추천",
                         "추천 결과<br />저장 및 회고"
                     ].map((step, index, arr) => (
@@ -73,12 +76,35 @@ function Guide() {
                         </React.Fragment>
                     ))}
                 </div>
+                <br/>
 
                 <div className="guide-description">
-                    <strong>AI가 입력된 감정 단어, 문장을 자연어 처리로 분석합니다.</strong>
+                    <strong>1. 사용자가 텍스트를 통해 현재의 감정 상태를 입력합니다.</strong>
                     <ul className="dot-list">
-                        <li>이전에 입력한 감정과 추천 결과는 <strong>MY MOOD</strong> 메뉴에서 확인할 수 있습니다.</li>
+                        <li>짧은 단어 또는 문장 형태로 현 상태에 대해 간단히 작성합니다.</li>
                         <li>시간이 지남에 따라 자신의 감정 변화를 시각적으로 추적해보세요.</li>
+                    </ul>
+                    <br/>
+
+                    <strong>2. AI가 입력된 단어 및 문장을 자연어 처리로 분석합니다.</strong>
+                    <ul className="dot-list">
+                        <li>사용자가 입력한 텍스트를 분석하여 감정을 나타내는 특정 단어 및 문장을 찾아냅니다.</li>
+                        <li>분석된 내용을 토대로 사용자의 현 상태와 가장 일치하는 감정을 결과로 출력합니다.</li>
+                    </ul>
+                    <br/>
+
+                    <strong>3. 출력된 감정 결과를 바탕으로 이에 어울리는 콘텐츠를 추천합니다.</strong>
+                    <ul className="dot-list">
+                        <li>감정 결과를 기반으로 사용자의 감정을 긍정적인 방향으로 유도해주는 콘텐츠를 주제별로 3개 추천합니다.</li>
+                        <li>만약 추천받은 콘텐츠가 마음에 들지 않는다면, 새로운 콘텐츠를 다시 추천받을 수 있습니다.</li>
+                    </ul>
+                    <br/>
+                    
+                    <strong>4. 저장된 감정 상태 및 추천 콘텐츠 기록들을 확인합니다.</strong>
+                    <ul className="dot-list">
+                        <li>회원가입 및 로그인 시 감정 상태 및 추천 결과를 <strong>MY MOOD</strong> 메뉴에 확인할 수 있습니다</li>
+                        <li>나의 기록 화면에서 기록하고 싶은 내용 및 감정을 원하는 달력의 날짜에 입력 및 저장할 수 있습니다.</li>
+                        <li>시간이 지남에 따라 바뀌어가는 감정 상태를 시각적으로 추적 및 확인해보세요.</li>
                     </ul>
                 </div>
             </div>
