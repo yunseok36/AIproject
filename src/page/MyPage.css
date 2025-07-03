@@ -24,6 +24,26 @@
   border: 1px solid #CFCFCF;
 }
 
+.profile-img-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-img, .profile-img-preview {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid #b2c6ba;
+  margin-bottom: 0;
+  box-shadow: 0 2px 8px rgba(54,121,90,0.08);
+  background: #f6faea;
+}
+
+
+
 .username {
   font-weight: 700;
   font-size: 1.1rem;
@@ -171,4 +191,47 @@
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: bold;
+}
+
+.profile-edit-input {
+  width: 90%;
+  padding: 7px 12px;
+  font-size: 1.1em;
+  border: 1.5px solid #b2c6ba;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  margin-top: 3px;
+  outline: none;
+  background: #fff;
+}
+.profile-edit-input:focus {
+  border-color: #36795A;
+}
+.custom-file-label {
+  display: inline-block;
+  background: #e3e3cb;
+  color: #36795A;
+  border: 1.5px solid #36795A;
+  border-radius: 20px;
+  padding: 8px 22px;
+  font-size: 1.05em;
+  font-family: "Koulen", sans-serif;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-top: 2px;
+  box-shadow: 0 1px 6px rgba(54,121,90,0.05);
+  transition: background 0.14s, color 0.14s;
+}
+
+.custom-file-label:hover {
+  background: #d8e7d5;
+  color: #218f70;
+}
+
+.file-upload-text {
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  font-size: 1.07em;
+  display: inline-block;
+  vertical-align: middle;
 }

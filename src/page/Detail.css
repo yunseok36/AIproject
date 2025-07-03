@@ -1,7 +1,7 @@
 .detail-container {
     max-width: 600px;
     margin: 30px auto;
-    background: #FDFFF5;
+    background: #f0f0e0;
     border-radius: 16px;
     padding: 20px;
     font-family: 'Do Hyeon', sans-serif;
@@ -24,7 +24,7 @@
 
 .note-divider {
     border: 0;
-    border-top: 1px solid #CFCFCF;
+    border-top: 1px solid #B3B3B3;
     margin: 10px 0;
 }
 

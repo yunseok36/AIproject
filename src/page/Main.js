@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Main.css";
+import { useNavigate } from "react-router-dom"; // useNavigate 훅 임포트
 import handImage from "../image/hand.jpg";
 import handImage2 from "../image/two-hands.jpg";
 import checkImage from "../image/checking.png";
@@ -42,8 +43,10 @@ function Main() {
   const [loading, setLoading] = useState(false);
   const [analyzed, setAnalyzed] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  
+  const navigate = useNavigate(); // useNavigate 훅 사용
 
-  const analyzeEmotion = () => {
+  const analyzeEmotion = async () => {
     if (analyzed) {
       setInputText("");
       setErrorMessage("");
@@ -77,6 +80,11 @@ function Main() {
     setCurrentIndex((prev) => (prev === functionItems.length - 1 ? 0 : prev + 1));
   };
 
+  // "시작하기" 버튼 클릭 시 MoodCheck 페이지로 이동하는 함수
+  const handleStartClick = () => {
+    navigate("/MoodCheck");
+  };
+
   return (
     <div className="Page-Design">
       <div className="section1">
@@ -95,6 +103,8 @@ function Main() {
           </div>
           <img className="image-Main" src={handImage} alt="Hand"/>
         </div>
+        <br />
+        <button className="button-primary" onClick={handleStartClick}>시작하기</button>
       </div>
 
       <div className="section2">
