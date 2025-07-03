@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./MoodCheck.css";
 import { useNavigate } from "react-router-dom";
 import music from "../image/music.png";
@@ -59,7 +59,6 @@ function MoodCheck() {
                 ))}
             </div>
 
-            {/* 아래쪽 설명 영역 */}
             <div className="hover-description">
                 {hoveredItem ? hoveredItem.description : '\u00A0'}
             </div>
@@ -68,4 +67,3 @@ function MoodCheck() {
 }
 
 export default MoodCheck;
-

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 32px;
+    padding: 8px 24px;
     border-bottom: 1px solid hsl(60, 16%, 83%);
     background-color: #f6faea;
     flex-wrap: wrap;
@@ -17,42 +17,100 @@
     margin-top: 5px;
     margin-bottom: 5px;
     width: 100%;
-    max-width: 160px;
+    max-width: 140px;
     height: auto; 
 }
 
 .nav-list {
     list-style: none;
     display: flex;
-    gap: 40px;
+    gap: 10px;
     margin: 0;
     padding: 0;
     font-family: "Koulen", sans-serif;
-    
 }
 
 .nav-list li a {
     text-decoration: none;
     color: #36795A;
-    font-weight: 300;
-    font-size: 22px;
-    transition: color 0.3s ease;
+    font-weight: 400;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 6px 18px;
+    transition: background 0.18s, color 0.18s;
+    display: inline-block;
+    font-family: "Koulen", sans-serif;
+    letter-spacing: 0.7px;
 }
 
 .nav-list li a:hover {
-    color: #3c6854;
+    background: #e1f5e3;
+    color: #218f70;
 }
 
 .nav-list li .login-button {
-  background-color: #36795A;
-  color: #FFFFFB;
-  padding: 3px 40px;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+    background-color: #36795A;
+    color: #FFFFFB;
+    font-weight: 400;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-family: "Koulen", sans-serif;
+    letter-spacing: 0.7px;
+    transition: background-color 0.3s, color 0.18s;
+    display: inline-block;
 }
 
 .nav-list li .login-button:hover {
-  background-color: #F2F3F4;
-  color: #36795A;
+    background-color: #eeeeed;
+    color: #36795A;
+}
+
+
+.header-username {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-name {
+  background: linear-gradient(90deg, #bfffa6 60%, #43cea2 100%);
+  color: #236e37;
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 0.7px;
+  border-radius: 20px;
+  padding: 6px 18px;
+  display: flex;
+  align-items: center;
+  border: 1.2px solid #36795A;
+  box-shadow: 0 2px 6px rgba(54,121,90,0.10);
+  margin-right: 0px;
+  font-family: "Koulen", sans-serif;
+}
+.user-name::before {
+  content: "👋";
+  font-size: 1.15em;
+  margin-right: 6px;
+}
+
+.logout-btn {
+    background: #36795A;
+    color: #FFFFFB;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-family: "Koulen", sans-serif;
+    font-weight: 700;
+    border: none;
+    margin-left: 0px;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+    display: flex;
+    align-items: center;
+}
+
+.logout-btn:hover {
+    background: #eeeeed;
+    color: #36795A;
 }

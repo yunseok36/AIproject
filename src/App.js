@@ -8,11 +8,13 @@ import Music from "./page/Music";
 import Movie from "./page/Movie";
 import MoodSurvey from "./page/MoodSurvey";
 import Login from "./component/Login";
-import MyPage from "./page/MyPage";
 import Join from "./component/Join";
 import Calendar from "./page/Calendar";
 import Detail from "./page/Detail";
 import Contact from "./page/Contact";
+import Loading from "./page/Loading";
+import MusicResult from "./page/MusicResult"; // 음악 결과 페이지 import
+import MovieResult from "./page/MovieResult"; // 영화 결과 페이지 import
 
 function App() {
   return (
@@ -27,12 +29,13 @@ function App() {
           <Route path="/Movie" element={<Movie />} />
           <Route path="/Survey" element={<MoodSurvey />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/MyPage" element={<MyPage />} />
           <Route path="/Join" element={<Join />} />
-          <Route path="/MyMood" element={<MyPage />} />
           <Route path="/Calendar" element={<Calendar />} />
           <Route path="/Detail" element={<Detail />} />
           <Route path="/Contact" element={<Contact />} />
+          <Route path="/Loading/:type" element={<Loading />} /> {/* URL 파라미터 사용 */}
+          <Route path="/MusicResult" element={<MusicResult />} /> {/* 음악 결과 페이지 라우트 */}
+          <Route path="/MovieResult" element={<MovieResult />} /> {/* 영화 결과 페이지 라우트 */}
         </Routes>
         <Footer />
       </Router>
