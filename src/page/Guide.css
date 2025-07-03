@@ -50,6 +50,12 @@
     order: 1;
 }
 
+.guide-subtitle {
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin: 40px 0;
+}
+
 .guide-description {
     font-size: 1.3rem;
     line-height: 1.8;
@@ -100,6 +106,7 @@ ul.dot-list li::before {
     width: 180px;
     height: 180px;
     border-radius: 50%;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,7 +124,7 @@ ul.dot-list li::before {
 }
 
 .question {
-    font-size: 1.3rem;
+    font-size: 1.9rem;
     font-weight: 600;
     line-height: 1.8;
     margin-bottom: 20px;
