@@ -12,8 +12,9 @@ import Join from "./component/Join";
 import Calendar from "./page/Calendar";
 import Contact from "./page/Contact";
 import Loading from "./page/Loading";
-import MusicResult from "./page/MusicResult"; // 음악 결과 페이지 import
-import MovieResult from "./page/MovieResult"; // 영화 결과 페이지 import
+import MusicResult from "./page/MusicResult";
+import MovieResult from "./page/MovieResult";
+import Detail from "./page/Detail"; // Detail 컴포넌트 import 추가
 
 function App() {
   return (
@@ -30,13 +31,12 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/Join" element={<Join />} />
           <Route path="/Calendar" element={<Calendar />} />
+          <Route path="/Detail/:date" element={<Detail />} /> {/* 원격 저장소의 변경사항 */}
           <Route path="/Contact" element={<Contact />} />
-          {/* type과 mood 파라미터 추가 */}
-          <Route path="/Loading/:type/:mood" element={<Loading />} /> 
-          {/* mood 파라미터 추가 */}
-          <Route path="/MusicResult/:mood" element={<MusicResult />} /> 
-          {/* mood 파라미터 추가 */}
-          <Route path="/MovieResult/:mood" element={<MovieResult />} /> 
+          {/* 파라미터 추가된 라우트 */}
+          <Route path="/Loading/:type/:mood" element={<Loading />} />
+          <Route path="/MusicResult/:mood" element={<MusicResult />} />
+          <Route path="/MovieResult/:mood" element={<MovieResult />} />
         </Routes>
         <Footer />
       </Router>
