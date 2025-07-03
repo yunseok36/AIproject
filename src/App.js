@@ -10,7 +10,6 @@ import MoodSurvey from "./page/MoodSurvey";
 import Login from "./component/Login";
 import Join from "./component/Join";
 import Calendar from "./page/Calendar";
-import Detail from "./page/Detail";
 import Contact from "./page/Contact";
 import Loading from "./page/Loading";
 import MusicResult from "./page/MusicResult"; // 음악 결과 페이지 import
@@ -31,11 +30,13 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/Join" element={<Join />} />
           <Route path="/Calendar" element={<Calendar />} />
-          <Route path="/Detail" element={<Detail />} />
           <Route path="/Contact" element={<Contact />} />
-          <Route path="/Loading/:type" element={<Loading />} /> {/* URL 파라미터 사용 */}
-          <Route path="/MusicResult" element={<MusicResult />} /> {/* 음악 결과 페이지 라우트 */}
-          <Route path="/MovieResult" element={<MovieResult />} /> {/* 영화 결과 페이지 라우트 */}
+          {/* type과 mood 파라미터 추가 */}
+          <Route path="/Loading/:type/:mood" element={<Loading />} /> 
+          {/* mood 파라미터 추가 */}
+          <Route path="/MusicResult/:mood" element={<MusicResult />} /> 
+          {/* mood 파라미터 추가 */}
+          <Route path="/MovieResult/:mood" element={<MovieResult />} /> 
         </Routes>
         <Footer />
       </Router>

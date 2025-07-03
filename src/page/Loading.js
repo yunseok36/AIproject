@@ -5,22 +5,26 @@ import treeImage from "../image/tree.png";
 
 function Loading() {
   const navigate = useNavigate();
-  const { type } = useParams(); // URL에서 type 파라미터 가져오기
+  const { type, mood } = useParams(); // type (music/movie)과 mood 파라미터 가져오기
   
   useEffect(() => {
-    console.log("Loading 페이지 마운트됨, type:", type);
+    console.log(`Loading 페이지 마운트됨, Type: ${type}, Mood: ${mood}`);
     const timer = setTimeout(() => {
       if (type === "music") {
-        navigate('/MusicResult');
+        console.log(`MusicResult/${mood} 페이지로 이동`);
+        navigate(`/MusicResult/${mood}`);
       } else if (type === "movie") {
-        navigate('/MovieResult');
+        console.log(`MovieResult/${mood} 페이지로 이동`);
+        navigate(`/MovieResult/${mood}`);
       } else {
-        navigate('/MusicResult'); // 기본값
+        // 예상치 못한 type일 경우 기본 MusicResult 페이지로 이동
+        console.log("예상치 못한 type, 기본 MusicResult/긍정적 페이지로 이동");
+        navigate('/MusicResult/긍정적'); 
       }
     }, 3000);
     
     return () => clearTimeout(timer);
-  }, [navigate, type]);
+  }, [navigate, type, mood]);
 
   return (
     <main className="loading-main">
