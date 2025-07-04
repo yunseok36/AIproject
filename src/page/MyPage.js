@@ -2,6 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MyPage.css';
 
+// 이모지 추출 함수 (컴포넌트 함수 바깥/안 어디든 가능, 여기선 바깥에 둡니다)
+function extractEmoji(str) {
+  if (!str) return null;
+  // 최신 브라우저 지원 이모지 정규식 (최우선)
+  const match = str.match(/[\p{Emoji}]/gu);
+  if (match && match.length > 0) return match[0];
+  // 대체: 이모지 surrogate pair
+  if (/^([\uD800-\uDBFF][\uDC00-\uDFFF])/u.test(str)) {
+    return str[0] + str[1];
+  }
+  // alt: 넓은 이모지 범위 유니코드
+  const alt = str.match(/([\u231A-\uD83E\uDDFF])/);
+  if (alt) return alt[0];
+  return null;
+}
+
 function MyPage() {
   const [activeTab, setActiveTab] = useState('music');
   const [user, setUser] = useState(null);
@@ -17,19 +33,41 @@ function MyPage() {
 
   const navigate = useNavigate();
 
+  // 감정 라벨을 한글 감정명으로 매핑
+  const labelToShort = {
+    "Very Positive": "매우 긍정",
+    "Positive": "긍정",
+    "Neutral": "중립",
+    "Negative": "부정",
+    "Very Negative": "매우 부정",
+    "5 star": "매우 긍정",
+    "4 star": "긍정",
+    "3 star": "중립",
+    "2 star": "부정",
+    "1 star": "매우 부정"
+  };
+
+  // 이모지+감정명만 추출하는 함수
+  const getSimpleEmotion = (item) => {
+    if (!item) return { emoji: "❓", label: "미진단" };
+    let emoji = extractEmoji(item.emotion) || "❓";
+    let label = labelToShort[item.label] || "감정";
+    return { emoji, label };
+  };
+
   useEffect(() => {
     const stored = localStorage.getItem('user');
     if (stored) setUser(JSON.parse(stored));
     else navigate('/Login');
   }, [navigate]);
 
-  // ⭐ 감정 이력 불러오기 (마운트 시)
+  // 감정 이력 불러오기 (마운트 시)
   useEffect(() => {
     if (user?.email) {
       fetch(`http://localhost:4000/api/emotion?email=${encodeURIComponent(user.email)}`)
         .then(res => res.json())
         .then(data => {
-          // [중요!] 항상 배열만 emotionHistory에 저장
+          // 항상 배열만 emotionHistory에 저장
           const emotions = Array.isArray(data.emotions) ? data.emotions : [];
           setEmotionHistory(emotions);
 
@@ -176,10 +214,18 @@ function MyPage() {
             </button>
           )}
         </div>
+        {/* 오늘의 감정: 이모지+감정명만 간단하게 */}
         <div className="today-emotion">
           <div className="label">오늘의 감정</div>
-          <div className="emoji">
-            {todayEmotion ? todayEmotion.emotion : '아직 진단 내역 없음'}
+          <div className="emoji" style={{ fontSize: 40, fontWeight: 600, marginBottom: 6 }}>
+            {todayEmotion
+              ? (
+                <>
+                  <span style={{ fontSize: 48 }}>{getSimpleEmotion(todayEmotion).emoji}</span>
+                  <span style={{ marginLeft: 10, fontSize: 28 }}>{getSimpleEmotion(todayEmotion).label}</span>
+                </>
+              )
+              : "아직 진단 내역 없음"}
           </div>
           <div className="date">{new Date().toISOString().slice(0, 10)}</div>
         </div>
