@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { songRecommendations } from "../data/recommendationData"; // 데이터 import
-import "./MusicResult.css"; // MusicResult 전용 CSS
+import { songRecommendations } from "../data/recommendationData";
+import "./MusicResult.css";
 
 // 3개의 랜덤 아이템을 선택하는 유틸리티 함수
 const getRandomItems = (arr, count) => {
@@ -26,8 +26,11 @@ function MusicResult() {
           recommendedSongs.map((song, index) => (
             <div key={index} className="result-item">
               <div className="image-wrapper">
-                {/* 음악 아이콘 이미지 (public 폴더에 music-icon.png가 있다고 가정) */}
-                <img src="/images/music-icon.png" alt="Music Icon" className="result-image" />
+                <img 
+                  src={song.image} // recommendationData.js에서 가져온 이미지 사용
+                  alt={`${song.name} - ${song.title} 앨범 커버`} 
+                  className="result-image"
+                />
               </div>
               <div className="song-info">
                 <p className="singer">{song.name}</p>

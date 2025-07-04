@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { movieRecommendations } from "../data/recommendationData"; // 데이터 import
-import "./MovieResult.css"; // MovieResult 전용 CSS
+import { movieRecommendations } from "../data/recommendationData";
+import "./MovieResult.css";
 
-// 3개의 랜덤 아이템을 선택하는 유틸리티 함수 (MusicResult와 동일)
+// 3개의 랜덤 아이템을 선택하는 유틸리티 함수
 const getRandomItems = (arr, count) => {
   const shuffled = [...arr].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, count);
@@ -26,10 +26,13 @@ function MovieResult() {
           recommendedMovies.map((movie, index) => (
             <div key={index} className="result-item">
               <div className="image-wrapper">
-                {/* 영화 아이콘 이미지 (public 폴더에 movie-icon.png가 있다고 가정) */}
-                <img src="/images/movie-icon.png" alt="Movie Icon" className="result-image" />
+                <img 
+                  src={movie.image} // recommendationData.js에서 가져온 이미지 사용
+                  alt={`${movie.title} 포스터`} 
+                  className="result-image"
+                />
               </div>
-              <div className="song-info"> {/* 클래스명은 Result.css에서 재활용 */}
+              <div className="song-info">
                 <p className="singer">{movie.director || '감독 정보 없음'}</p>
                 <p className="title">{movie.title}</p>
                 {movie.year && <p className="year">({movie.year})</p>}
