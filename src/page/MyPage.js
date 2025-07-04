@@ -29,11 +29,18 @@ function MyPage() {
       fetch(`http://localhost:4000/api/emotion?email=${encodeURIComponent(user.email)}`)
         .then(res => res.json())
         .then(data => {
-          setEmotionHistory(data || []);
+          // [중요!] 항상 배열만 emotionHistory에 저장
+          const emotions = Array.isArray(data.emotions) ? data.emotions : [];
+          setEmotionHistory(emotions);
+
           // 오늘 날짜 감정만 추출
           const today = new Date().toISOString().slice(0, 10);
-          const todayLog = data.find(e => (e.date && e.date.slice(0,10) === today));
+          const todayLog = emotions.find(e => (e.date && e.date.slice(0,10) === today));
           setTodayEmotion(todayLog || null);
+        })
+        .catch(() => {
+          setEmotionHistory([]);
+          setTodayEmotion(null);
         });
     }
   }, [user]);
@@ -64,39 +71,38 @@ function MyPage() {
 
   // 음악/영화 추천 임시 리스트 (랜덤 3개 뽑기)
   const musicListAll = [
-  {
-    title: "Personal",
-    artist: "Emotional Oranges",
-    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=facearea&w=300&h=300",
-    link: "#"
-  },
-  {
-    title: "Pink + White",
-    artist: "Frank Ocean",
-    img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=facearea&w=300&h=300",
-    link: "#"
-  },
-  {
-    title: "Like Him",
-    artist: "Tyler, The Creator",
-    img: "https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG",
-    link: "#"
-  },
-  {
-    title: "Someone Like You",
-    artist: "Adele",
-    img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=facearea&w=300&h=300",
-    link: "#"
-  },
-  {
-    title: "Cheer Up",
-    artist: "TWICE",
-    img: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Music-icon.png",
-    link: "#"
-  }
-  // ...여기 원하는 만큼 더 추가
-];
-
+    {
+      title: "Personal",
+      artist: "Emotional Oranges",
+      img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=facearea&w=300&h=300",
+      link: "#"
+    },
+    {
+      title: "Pink + White",
+      artist: "Frank Ocean",
+      img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=facearea&w=300&h=300",
+      link: "#"
+    },
+    {
+      title: "Like Him",
+      artist: "Tyler, The Creator",
+      img: "https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG",
+      link: "#"
+    },
+    {
+      title: "Someone Like You",
+      artist: "Adele",
+      img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=facearea&w=300&h=300",
+      link: "#"
+    },
+    {
+      title: "Cheer Up",
+      artist: "TWICE",
+      img: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Music-icon.png",
+      link: "#"
+    }
+    // ...더 추가 가능
+  ];
 
   // 랜덤 3개 추천
   function pickRandom(arr, n = 3) {
@@ -143,8 +149,7 @@ function MyPage() {
               alt="profile"
               className="profile-img"
               style={{ marginBottom: '8px' }}
-/>
-
+            />
             {imgEditing && (
               <label className="custom-file-label">
                 <input

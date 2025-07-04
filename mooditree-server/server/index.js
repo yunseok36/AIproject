@@ -20,12 +20,13 @@ const userSchema = new mongoose.Schema({
 });
 const User = mongoose.model('User', userSchema);
 
-// 3. Emotion 모델 불러오기
-const Emotion = require('./models/Emotion'); // <- 여기 한 번만!
+// 3. Emotion 모델 불러오기 (models/Emotion.js)
+const Emotion = require('./models/Emotion');
 
 app.use(cors());
 app.use(express.json());
 
+// 서버 기본 라우트
 app.get('/', (req, res) => {
   res.send('서버가 정상적으로 작동중입니다!');
 });
@@ -58,7 +59,7 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-// 감정 저장
+// 감정 저장 (POST)
 app.post('/api/emotion', async (req, res) => {
   const { email, emotion, label, date } = req.body;
   if (!email || !emotion || !label || !date) {
@@ -72,14 +73,15 @@ app.post('/api/emotion', async (req, res) => {
   }
 });
 
-// 감정 이력 조회
+// 감정 이력 조회 (GET)
 app.get('/api/emotion', async (req, res) => {
   const { email } = req.query;
-  console.log('[DEBUG] /api/emotion called, email:', email);
-  if (!email) return res.status(400).json({ message: '이메일 필요' });
+  if (!email) {
+    return res.status(400).json({ message: '이메일이 필요합니다.' });
+  }
   try {
-    const history = await Emotion.find({ email }).sort({ date: -1 });
-    res.json(history);
+    const list = await Emotion.find({ email }).sort({ date: -1 }); // 최신순
+    res.json({ message: '감정 조회 성공', emotions: list });
   } catch (e) {
     res.status(500).json({ message: '서버 오류', error: e.message });
   }

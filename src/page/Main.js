@@ -18,6 +18,7 @@ function Main() {
     setEmotionResult("");
 
     try {
+      // 1️⃣ Flask 서버(포트 5000)로 POST
       const response = await fetch("http://localhost:5000/api/sentiment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -27,20 +28,23 @@ function Main() {
       if (!response.ok) throw new Error("서버 에러");
 
       const data = await response.json();
-      setEmotionResult(data.result);  // 이모지+문장 그대로 표시!
+      setEmotionResult(data.result);  // 이모지+문장 그대로 표시
 
-      // 로그인 사용자만 DB 저장
+      // 2️⃣ 로그인 사용자만 DB 저장 (서버가 없다면 이 부분 생략 가능)
       const user = JSON.parse(localStorage.getItem("user"));
       if (user && data.result && data.label) {
-        await fetch("http://localhost:4000/api/emotion", {
+        fetch("http://localhost:4000/api/emotion", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             email: user.email,
-            emotion: data.result, // 이모지+감정설명
-            label: data.label,    // 예: 'Very Positive'
+            emotion: data.result,
+            label: data.label,
             date: new Date().toISOString(),
           }),
+        }).catch(e => {
+          // 서버 미구현 시 에러 무시
+          console.warn("4000번 서버 저장 실패:", e.message);
         });
       }
 
@@ -93,7 +97,7 @@ function Main() {
           onChange={(e) => setInputText(e.target.value)}
         /><br /><br />
         <div className="space">
-          <button className="button-primary no-arrow" onClick={analyzeEmotion}>
+          <button className="button-primary no-arrow" onClick={analyzeEmotion} disabled={loading}>
             감정 진단
           </button>
         </div>
