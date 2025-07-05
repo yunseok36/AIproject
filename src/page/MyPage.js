@@ -2,17 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MyPage.css';
 
-// 이모지 추출 함수 (컴포넌트 함수 바깥/안 어디든 가능, 여기선 바깥에 둡니다)
+// 이모지 추출 함수
 function extractEmoji(str) {
   if (!str) return null;
-  // 최신 브라우저 지원 이모지 정규식 (최우선)
   const match = str.match(/[\p{Emoji}]/gu);
   if (match && match.length > 0) return match[0];
-  // 대체: 이모지 surrogate pair
   if (/^([\uD800-\uDBFF][\uDC00-\uDFFF])/u.test(str)) {
     return str[0] + str[1];
   }
-  // alt: 넓은 이모지 범위 유니코드
   const alt = str.match(/([\u231A-\uD83E\uDDFF])/);
   if (alt) return alt[0];
   return null;
@@ -67,11 +64,9 @@ function MyPage() {
       fetch(`http://localhost:4000/api/emotion?email=${encodeURIComponent(user.email)}`)
         .then(res => res.json())
         .then(data => {
-          // 항상 배열만 emotionHistory에 저장
           const emotions = Array.isArray(data.emotions) ? data.emotions : [];
           setEmotionHistory(emotions);
 
-          // 오늘 날짜 감정만 추출
           const today = new Date().toISOString().slice(0, 10);
           const todayLog = emotions.find(e => (e.date && e.date.slice(0,10) === today));
           setTodayEmotion(todayLog || null);
@@ -139,10 +134,8 @@ function MyPage() {
       img: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Music-icon.png",
       link: "#"
     }
-    // ...더 추가 가능
   ];
 
-  // 랜덤 3개 추천
   function pickRandom(arr, n = 3) {
     const copy = arr.slice();
     const result = [];
@@ -154,7 +147,6 @@ function MyPage() {
   }
 
   const renderContent = () => {
-    // TODO: 감정에 따라 추천 알고리즘 반영
     const showList = pickRandom(musicListAll, 3);
     if (activeTab === 'music') {
       return showList.map((item, index) => (
@@ -180,7 +172,6 @@ function MyPage() {
         <h1 className="page-title">My Page</h1>
         <h1 className="page-title">Profile</h1>
         <div className="profile">
-          {/* 이미지만과 "이미지 선택"만 수직 중앙정렬 */}
           <div className="profile-img-select">
             <img
               src={imgPreview || user.profileImg || process.env.PUBLIC_URL + "/profile.png"}
@@ -200,7 +191,6 @@ function MyPage() {
               </label>
             )}
           </div>
-          {/* 나머지 정보는 기존대로 아래에 위치 */}
           <div className="username">{user.name}</div>
           <div className="email">{user.email}</div>
           {imgEditing ? (
@@ -213,21 +203,21 @@ function MyPage() {
               프로필 이미지 변경
             </button>
           )}
-        </div>
-        {/* 오늘의 감정: 이모지+감정명만 간단하게 */}
-        <div className="today-emotion">
-          <div className="label">오늘의 감정</div>
-          <div className="emoji" style={{ fontSize: 40, fontWeight: 600, marginBottom: 6 }}>
-            {todayEmotion
-              ? (
-                <>
-                  <span style={{ fontSize: 48 }}>{getSimpleEmotion(todayEmotion).emoji}</span>
-                  <span style={{ marginLeft: 10, fontSize: 28 }}>{getSimpleEmotion(todayEmotion).label}</span>
-                </>
-              )
-              : "아직 진단 내역 없음"}
+          {/* 오늘의 감정: 이모지+감정명만 간단하게 (프로필 내부로 이동) */}
+          <div className="today-emotion">
+            <div className="label">오늘의 감정</div>
+            <div className="emoji">
+              {todayEmotion
+                ? (
+                  <>
+                    <span>{getSimpleEmotion(todayEmotion).emoji}</span>
+                    <span className="today-emotion-label">{getSimpleEmotion(todayEmotion).label}</span>
+                  </>
+                )
+                : "아직 진단 내역 없음"}
+            </div>
+            <div className="date">{new Date().toISOString().slice(0, 10)}</div>
           </div>
-          <div className="date">{new Date().toISOString().slice(0, 10)}</div>
         </div>
         <button className="button" onClick={() => navigate('/calendar')}>달력 확인</button>
       </div>

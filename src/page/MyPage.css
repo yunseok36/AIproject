@@ -43,7 +43,15 @@
   background: #f6faea;
 }
 
-
+.profile {
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 18px;
+  padding-bottom: 12px;
+}
 
 .username {
   font-weight: 700;
@@ -52,32 +60,70 @@
   margin-bottom: 5px;
 }
 
+/* ========== 오늘의 감정 영역 전체 크게 ========== */
 .today-emotion {
   border-top: 1px solid #c4c4b5;
-  padding-top: 40px;
-  margin-top: 60px;
+  padding-top: 24px;
+  margin-top: 22px;
+  padding-bottom: 22px;
   text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 130px;
+  font-size: 1.17rem;
 }
 
 .today-emotion .label {
   color: #36795A;
   font-weight: bold;
-  font-size: 1.4rem;
-  padding-top: 10px;
-  margin-bottom: 10px;
+  font-size: 1.33rem;
+  padding-top: 8px;
+  margin-bottom: 12px;
 }
 
 .today-emotion .emoji {
+  display: flex;
+  align-items: flex-end;
+  font-size: 2.7rem;
+  margin-bottom: 13px;
+  justify-content: center;
+}
+
+.today-emotion .emoji span:first-child {
   font-size: 2.5rem;
-  margin-bottom: 10px;
+  line-height: 1;
+  margin-right: 10px;
+}
+
+.today-emotion-label {
+  margin-left: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #b69328;
+  padding: 7px 22px 7px 16px;
+  border-radius: 28px;
+  background: linear-gradient(90deg, #f9f5de 0%, #efe7c2 100%);
+  box-shadow: 0 2px 9px 0 rgba(247, 209, 79, 0.08);
+  letter-spacing: 1.2px;
+  font-family: 'Koulen', 'Instrument Sans', sans-serif;
+  display: inline-block;
+  transition: background 0.25s, color 0.15s;
+  border: 1.2px solid #e7d486;
+  text-shadow: 1px 2px 6px #efe4c1, 0 0 0 #FFF9EC;
+  line-height: 1.25;
+}
+.today-emotion-label:hover {
+  background: linear-gradient(90deg, #fff9e1 0%, #fae9c4 100%);
+  color: #8d730a;
 }
 
 .today-emotion .date {
-  margin-top: 5px;
-  font-size: 0.95rem;
+  margin-top: 10px;
+  font-size: 1.08rem;
   color: #828356;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
+/* ========== 오늘의 감정 영역 끝 ========== */
 
 .button {
   margin-top: 20px;
