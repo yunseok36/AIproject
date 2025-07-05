@@ -2,12 +2,12 @@ import { useState } from "react";
 import "./Main.css";
 import { useNavigate } from "react-router-dom"; // useNavigate 훅 임포트
 import handImage from "../image/hand.jpg";
+import hand2Image from "../image/hand2.png";
 import handImage2 from "../image/two-hands.jpg";
 import checkImage from "../image/checking.png";
 import RecommendImage from "../image/recommend.png";
 import ActivityImage from "../image/activity.png";
 import SaveImage from "../image/save.png";
-import plusImage from "../image/plus.svg";
 
 const functionItems = [
   {
@@ -37,6 +37,8 @@ const functionItems = [
 ];
 
 function Main() {
+  const SLIDE_WIDTH = 1020;
+
   // 감정 진단 텍스트
   const [inputText, setInputText] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -89,15 +91,26 @@ function Main() {
   return (
     <div className="Page-Design">
       <div className="section0">
-            ✺ KNOW YOUR MOOD<br/>
-            <div className="main-text-starticon">✚</div>
-            <br/>CHANGE YOUR DAY ✧
+            KN✺W YOUR MOOD,<br/>
+            CHANGE YOUR DAY <br/>
+            <div className="main-text-article">
+                Artificial Intelligence-Driven Platform for<br/>
+                Emotion Analysis & Content Recommendation<br/>
+            </div>
+      </div>
+
+      <div className="gradient-transition-start"></div>
+
+      <div className="page-line">
+        <span className="line"></span>
+        <span className="star">✺✺✺</span>
+        <span className="line"></span>
       </div>
 
       <div className="section1">
         <div className="content-wrapper">
           <div className="text-content">
-          <h1 className="title1">How are you<br /> feeling today?</h1>
+          <h1 className="title1">How are your<br /> feelings today?</h1>
           <p>
             <span className="sub-title">오늘 당신의 감정, 안녕하신가요?</span>
           </p><br />
@@ -107,37 +120,85 @@ function Main() {
             감정을 이해하며 조절해가는 첫걸음을 시작해보세요.
           </div>
           <br />
-          <button className="button-primary" onClick={handleStartClick}>시작하기</button>
+          <button className="button-primary" onClick={handleStartClick}>더 알아보기</button>
           </div>
-          <img className="image-Main" src={handImage} alt="Hand"/>
         </div> 
       </div>
 
-      <div className="section2">
+      <div className="page-line">
+        <span className="line"></span>
+        <span className="star">✺✺✺</span>
+        <span className="line"></span>
+      </div>
+
+      <div className="section1">
         <div className="content-wrapper">
-          <div className="left-content-section2">
-            <h1 className="title2">왜 MOODI · TREE일까요?</h1>
-            <img className="image-Main2" src={handImage2} alt="Hand"/>
-          </div>
-          <div className="right-content-section2">
-            <div className="article2">
+          <div className="text-content">
+          <h1 className="title1">Why using <br/>MOODI · TREE?</h1>
+          <p>
+            <span className="sub-title">왜 MOODI · TREE를 사용하나요?</span>
+          </p><br />
+          <div className="article">
               우리는 감정이 삶의 질을 좌우한다고 믿습니다.<br/>
               하지만 바쁜 일상 속에서 자신의 감정을 돌볼 시간은 많지 않죠.<br/>
-              그래서 탄생했습니다 — <strong>감정을 들여다보고, 공감하고, 케어해주는 AI.</strong><br/><br/>
+              그래서 탄생했습니다 — <strong>감정을 들여다보고, 공감하고, 케어해주는 플랫폼.</strong><br/><br/>
               작은 대화 하나로도 스스로를 이해하는 계기가 될 수 있도록,<br/>
               이 서비스가 당신의 하루에 따뜻한 쉼표가 되었으면 합니다.
-            </div>
-          </div>  
+          </div>
+          <br />
+          </div>
         </div> 
+      </div>
+
+      <div className="page-line">
+        <span className="line"></span>
+        <span className="star">✺✺✺</span>
+        <span className="line"></span>
+      </div>
+
+      <div className="section1">
+        <div className="content-wrapper">
+        <div className="text-content">
+          <h1 className="title1">MOODI · TREE<br/>Functions</h1>
+          <p>
+            <span className="sub-title">MOODI · TREE 기능에 대해 설명드립니다</span>
+          </p><br />
+          <br/>
+          <div className="content-wrapper-boxs">
+            <div className="main-functions-box">
+              <p>01 AI를 활용한 감정 분석</p><br/>
+              <div className="main-functions-text">텍스트를 통해 현재 상태를 입력 시 이를 분석 후 가장 일치하는 감정을 진단합니다.</div>
+              </div>
+            <div className="main-functions-box">
+              <p>02 콘텐츠 및 활동 추천</p><br/>
+              <div className="main-functions-text">진단받은 감정에 어울리는 콘텐츠 및 활동을 추천하여 긍정적 방향으로 이끌어가도록 도와줍니다.</div>
+            </div>
+            <div className="main-functions-box">
+              <p>03 감정 기록 일기</p><br/>
+              <div className="main-functions-text">달력에 진단받은 감정 및 있었던 일, 추천받은 콘텐츠를 기록 및 저장하여 감정 변화를 확인할 수 있습니다.</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div className="page-line">
+        <span className="line"></span>
+        <span className="star">✺✺✺</span>
+        <span className="line"></span>
       </div>
 
       <div className="section3">
-        <h1 className="title3">AI와 함께 감정을 다루고, 케어하세요</h1>
+        <div className="content-wrapper">
+          <div className="text-content">
+          <h1 className="title3">How to use</h1>
+          </div>     
+        </div>
         <div className="slider">
           <button className="arrow left" onClick={prevSlide}>◀</button>
 
           <div className="slider-wrapper">
-            <div className="slider-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+            <div className="slider-track" style={{ transform: `translateX(-${currentIndex * SLIDE_WIDTH}px)` }}>
               {functionItems.map((item, index) => (
                 <div className="functions-box" key={index}>
                   <div className="functions-text">
@@ -163,6 +224,8 @@ function Main() {
           ))}
       </div>
       </div>
+
+      <div className="gradient-transition-last"></div>
 
     <div className="section4">
       <div className="title-right">

@@ -36,7 +36,7 @@
     font-weight: 400;
     font-size: 20px;
     border-radius: 20px;
-    padding: 6px 18px;
+    padding: 5px 18px;
     transition: background 0.18s, color 0.18s;
     display: inline-block;
     font-family: "Koulen", sans-serif;
@@ -44,8 +44,8 @@
 }
 
 .nav-list li a:hover {
-    background: #e1f5e3;
-    color: #218f70;
+    background: #e8e8db;
+    color: #236546;
 }
 
 .nav-list li .login-button {
@@ -54,7 +54,7 @@
     font-weight: 400;
     font-size: 20px;
     border-radius: 20px;
-    padding: 6px 18px;
+    padding: 5px 18px;
     font-family: "Koulen", sans-serif;
     letter-spacing: 0.7px;
     transition: background-color 0.3s, color 0.18s;

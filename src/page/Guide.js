@@ -4,62 +4,81 @@ import emotionImg from "../image/emotion.png";
 
 function Guide() {
 
-    const [openIndexes, setOpenIndexes] = useState([]); // 열려있는 질문 인덱스
+    const [openIndex, setOpenIndex] = useState(null); // 열려있는 질문 인덱스
+    const [closingIndex, setClosingIndex] = useState(null); // 닫히는 질문 인덱스
 
     const toggleAnswer = (index) => {
-        setOpenIndexes((prev) =>
-            prev.includes(index)
-        ? prev.filter((i) => i !== index)
-        : [...prev, index]
-        );
+        if (openIndex === index) {
+            setClosingIndex(index);
+            setOpenIndex(null);
+            setTimeout(() => 
+                setClosingIndex(null), 400);
+            } else {
+                if (openIndex !== null) {
+                setClosingIndex(openIndex);
+                setTimeout(() => 
+                    setClosingIndex(null), 400);
+            }
+            setOpenIndex(index);
+        }
     };
 
     const faqList = [
         {
+            question: "Q. 어떤 식으로 감정을 입력해야 하나요?",
+            answer: (
+                <>
+                간단한 한두 단어 혹은 짧은 문장 형태로 입력하시면 AI가 자동으로 이를 분석합니다.<br/>
+                예: "우울함", "행복해", "일이 너무 많아서 피곤해", · · ·
+                </>
+            )    
+        },
+        {
             question: "Q. 감정을 여러 개 입력해도 되나요?",
-            answer: '네, "불안하고 짜증나요"처럼 복합 감정도 인식합니다.',
+            answer: '네, "불안하고 짜증나요"처럼 복합적인 감정도 인식하여 결과를 도출합니다.',
         },
         {
             question: "Q. 추천 콘텐츠가 마음에 들지 않아요.",
-            answer: "추천 결과는 언제든 새로고침하거나, 다른 감정을 입력해 다시 받을 수 있습니다.",
+            answer: "추천 결과는 언제든 새로고침하거나, 다른 감정을 입력하여 다시 추천받을 수 있습니다.",
+        },
+        {
+            question: "Q. 로그인 및 화원가입하면 어떤 기능을 사용할 수 있나요?",
+            answer: "로그인 및 회원가입 시 진단받은 감정 및 추천받은 콘텐츠를 저장 및 확인할 수 있으며 이를 날짜별로 기록할 수 있습니다.",
         },
     ];
 
     return (
         <div className="guide-page">
             <div className="guide-header">
-                <h1 className="guide-title">MOODI-TREE 사용 가이드</h1>
-                <img src={emotionImg} alt="Emotion" className="emotion-icon" />
+                <h1 className="guide-title"><strong>MOODI · TREE</strong>에 대해 소개합니다</h1><br/>
+                MOODI · TREE는 사용자가 현재의 감정을 인식하고 돌보도록 도와주는 서비스입니다.<br/>
+                고도화된 감정 분석 모델을 상시 적용함으로써, 기존 감정 기반 서비스와 차별화된 정확도 및 맞춤형 추천 기능을 제공하고 있습니다.<br/>
+                사용자가 자신의 감정을 보다 쉽게 이해하고, 스스로 진단하고 돌봐 긍정적의 방향으로 나아갈 수 있도록 지원합니다.<br/><br/>
+                시간과 장소의 제약 없이 누구나, 언제 어디서나 감정을 진단하고 돌볼 수 있도록 목표하고 있으며,<br/>
+                감정 기반 서비스에 대한 수요 증가에 발맞춰, MOODI · TREE는 보다 다양한 감정 케어 솔루션를 지속적으로 확장하고자 합니다.
             </div>
 
             <div className="section-Guide">
                 <div className="guide-description">
-                    <div className="guide-subtitle">MOODI · TREE 소개</div>
-                    <strong>MOODI-TREE는 어떤 서비스인가요?</strong>
+                    <div className="guide-subtitle">MOODI · TREE는 어떤 사이트인가요?</div>
                     <ul className="dot-list">
                         <li>MOODI-TREE는 AI를 활용한 감정 기반 콘텐츠 추천 플랫폼입니다.</li>
                         <li>사용자가 현재의 감정 상태를 입력하면 AI가 해당 정보에 따라 적절한 음악, 글, 활동 등을 사용자에게 추천합니다.</li>
                     </ul>
-                </div>
-
-                <div className="guide-description">
-                    <strong>어떤 식으로 감정을 입력해야 하나요?</strong>
+                <div className="guide-subtitle">MOODI · TREE는 어떤 기능을 사용할 수 있나요?</div>
                     <ul className="dot-list">
-                        <li><strong>간단한 한두 단어 입력:</strong> "우울함", "행복해", "짜증 나"</li>
-                        <li><strong>짧은 문장 형태로도 가능:</strong> "요즘 너무 지치고 무기력해요.", "일이 너무 많아서 피곤해요."</li>
-                        <li><strong>감정 입력 후 어울리는 콘텐츠 추천:</strong> '외롭다'는 감정 입력  ➡  '위로되는 음악', '따뜻한 에세이' 등과 같은 콘텐츠 추천</li>
+                        <li>MOODI-TREE는 AI를 활용한 감정 기반 콘텐츠 추천 플랫폼입니다.</li>
+                        <li>사용자가 현재의 감정 상태를 입력하면 AI가 해당 정보에 따라 적절한 음악, 글, 활동 등을 사용자에게 추천합니다.</li>
                     </ul>
                 </div>
             </div>
             <br/><br/>
 
             <div className="section-Guide">
-                
                 <p className="guide-description">
                     <div className="guide-subtitle">MOODI · TREE 사용 방법</div>
                     <strong>MOODI-TREE를 효과적으로 사용하는 방법을 안내해드립니다.</strong>
                 </p>
-
                 <div className="flow-steps-centered">
                     {[
                         "현재 감정 입력",
@@ -111,29 +130,22 @@ function Guide() {
 
             {/* FAQ (아코디언 방식) */}
             <div className="qa-block">
-                <div className="question">FAQ</div>
-                {faqList.map((item, index) => (
+            <div className="question">FAQ</div>
+                {faqList.map((item, index) => {
+                const isOpen = openIndex === index;
+                const isClosing = closingIndex === index;
+                return (
                     <div key={index} className="faq-item">
-                        <div
-                            className="faq-question"
-                            onClick={() => toggleAnswer(index)}
-                        >
-                            {item.question}
-                            <span className="arrow-icon">
-                                {openIndexes.includes(index) ? "▲" : "▼"}
-                            </span>
-                        </div>
-                        <div
-                            className={`faq-answer-wrapper ${
-                                openIndexes.includes(index) ? "open" : ""
-                            }`}
-                        >
-                            {openIndexes.includes(index) && (
-                                <p className="faq-answer">{item.answer}</p>
-                            )}
-                        </div>
+                    <div className="faq-question" onClick={() => toggleAnswer(index)}>
+                        {item.question}
+                        <span className="arrow-icon">{isOpen ? "▲" : "▼"}</span>
                     </div>
-                ))}
+                    <div className={`faq-answer-wrapper ${isOpen ? "open" : ""} ${isClosing ? "closing" : ""}`}>
+                        {(isOpen || isClosing) && <p className="faq-answer">{item.answer}</p>}
+                    </div>
+                    </div>
+                );
+                })}
             </div>
         </div>
     );

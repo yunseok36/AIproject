@@ -26,11 +26,13 @@
 }
 
 .guide-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;    
-    width: 100%;
-    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color:#646547;
+    line-height: 1.9;
+    margin-top: 30px;
+    margin-bottom: 150px;
 }
 
 .emotion-icon {
@@ -42,8 +44,9 @@
 }
 
 .guide-title {
-    font-size: 2.8rem;
-    font-weight: 700;
+    font-size: 3.2rem;
+    font-weight: 500;
+    padding-bottom: 20px;
     color: #36795A;
     margin: 0;
     flex: 1;
@@ -170,13 +173,19 @@ ul.dot-list li::before {
 
 .faq-answer-wrapper {
   max-height: 0;
+  opacity: 0;
   overflow: hidden;
-  transition: max-height 0.6s linear;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
 }
 
 .faq-answer-wrapper.open {
-  max-height: 150px;
+  max-height: 500px;
   opacity: 1;
+}
+
+.faq-answer-wrapper.closing {
+  max-height: 0;
+  opacity: 0;
 }
 
 .faq-answer {
