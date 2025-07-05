@@ -19,7 +19,7 @@ function Main() {
 
     try {
       // 1️⃣ Flask 서버(포트 5000)로 POST
-      const response = await fetch("http://localhost:5000/api/sentiment", {
+      const response = await fetch("https://flask-emotion-api-7u41.onrender.com/api/sentiment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: inputText }),
