@@ -7,7 +7,7 @@ function Main() {
   const [emotionResult, setEmotionResult] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // 감정 분석 요청 함수 (Flask API 연동)
+  // 감정 분석 요청 함수 (배포된 Flask API 연동)
   const analyzeEmotion = async () => {
     if (!inputText.trim()) {
       setEmotionResult("내용을 입력해주세요!");
@@ -18,8 +18,8 @@ function Main() {
     setEmotionResult("");
 
     try {
-      // 1️⃣ Flask 서버(포트 5000)로 POST
-      const response = await fetch("http://localhost:5000/api/sentiment", {
+      // Render에 배포한 서버 주소로 변경!
+      const response = await fetch("https://flask-emotion-api-7u41.onrender.com/api/sentiment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: inputText }),
@@ -30,7 +30,7 @@ function Main() {
       const data = await response.json();
       setEmotionResult(data.result);  // 이모지+문장 그대로 표시
 
-      // 2️⃣ 로그인 사용자만 DB 저장 (서버가 없다면 이 부분 생략 가능)
+      // 2️⃣ 로그인 사용자만 DB 저장 (몽고DB 서버는 localhost:4000, 배포시 백엔드도 서버 주소로 변경 필요)
       const user = JSON.parse(localStorage.getItem("user"));
       if (user && data.result && data.label) {
         fetch("http://localhost:4000/api/emotion", {

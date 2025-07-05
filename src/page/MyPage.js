@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MyPage.css';
 
-// 이모지 추출 함수
 function extractEmoji(str) {
   if (!str) return null;
   const match = str.match(/[\p{Emoji}]/gu);
@@ -19,18 +18,15 @@ function MyPage() {
   const [activeTab, setActiveTab] = useState('music');
   const [user, setUser] = useState(null);
 
-  // 프로필 이미지 관련 state
   const [imgEditing, setImgEditing] = useState(false);
   const [editImg, setEditImg] = useState(null);
   const [imgPreview, setImgPreview] = useState(null);
 
-  // 감정 이력 state
   const [emotionHistory, setEmotionHistory] = useState([]);
   const [todayEmotion, setTodayEmotion] = useState(null);
 
   const navigate = useNavigate();
 
-  // 감정 라벨을 한글 감정명으로 매핑
   const labelToShort = {
     "Very Positive": "매우 긍정",
     "Positive": "긍정",
@@ -44,7 +40,6 @@ function MyPage() {
     "1 star": "매우 부정"
   };
 
-  // 이모지+감정명만 추출하는 함수
   const getSimpleEmotion = (item) => {
     if (!item) return { emoji: "❓", label: "미진단" };
     let emoji = extractEmoji(item.emotion) || "❓";
@@ -58,7 +53,6 @@ function MyPage() {
     else navigate('/Login');
   }, [navigate]);
 
-  // 감정 이력 불러오기 (마운트 시)
   useEffect(() => {
     if (user?.email) {
       fetch(`http://localhost:4000/api/emotion?email=${encodeURIComponent(user.email)}`)
@@ -78,7 +72,6 @@ function MyPage() {
     }
   }, [user]);
 
-  // 파일 변경 핸들러 (미리보기 생성)
   const handleImgChange = e => {
     const file = e.target.files[0];
     if (file) {
@@ -87,7 +80,6 @@ function MyPage() {
     }
   };
 
-  // 저장 버튼 - 이미지 base64로 localStorage 및 user state에 저장
   const handleImgSave = () => {
     if (editImg) {
       const reader = new FileReader();
@@ -102,7 +94,6 @@ function MyPage() {
     }
   };
 
-  // 음악/영화 추천 임시 리스트 (랜덤 3개 뽑기)
   const musicListAll = [
     {
       title: "Personal",
@@ -203,7 +194,6 @@ function MyPage() {
               프로필 이미지 변경
             </button>
           )}
-          {/* 오늘의 감정: 이모지+감정명만 간단하게 (프로필 내부로 이동) */}
           <div className="today-emotion">
             <div className="label">오늘의 감정</div>
             <div className="emoji">
@@ -239,7 +229,6 @@ function MyPage() {
         <div className="tab-content">
           {renderContent()}
 
-          {/* 감정 진단 내역 리스트 */}
           <div style={{ marginTop: "60px", textAlign: "left" }}>
             <h3 style={{ color: "#36795A", fontSize: "1.1rem", marginBottom: 10 }}>최근 감정 진단 기록</h3>
             {emotionHistory.length === 0 ? (

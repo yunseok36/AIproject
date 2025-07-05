@@ -60,7 +60,6 @@
   margin-bottom: 5px;
 }
 
-/* ========== 오늘의 감정 영역 전체 크게 ========== */
 .today-emotion {
   border-top: 1px solid #c4c4b5;
   padding-top: 24px;
@@ -123,7 +122,6 @@
   color: #828356;
   margin-bottom: 8px;
 }
-/* ========== 오늘의 감정 영역 끝 ========== */
 
 .button {
   margin-top: 20px;
