@@ -13,7 +13,7 @@
 }
 
 .calendar-box {
-  background: #f0f0e0;
+  background: #F2F0E6;
   padding: 20px;
   border-radius: 16px;
 }
@@ -81,7 +81,7 @@
   align-items: center;
   height: 80px;
   margin: 4px;
-  background: #fff;
+  background: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -94,7 +94,12 @@
 }
 
 .day-cell.has-emoji {
-  background: #F3F3EC;
+  background: #F5F3EF;
+}
+
+.day-cell.disabled {
+  background: #F5F3EF;
+  cursor: not-allowed;
 }
 
 .day-cell .emoji {
@@ -112,7 +117,7 @@
 .note-box {
   margin: 20px auto 0;
   padding: 20px;
-  background: #f0f0e0;
+  background: #F2F0E6;
   border-radius: 16px;
   box-sizing: border-box;
 }
@@ -150,16 +155,16 @@
 .note-fields input {
   width: 100%;
   padding: 6px;
-  border: 1px solid #bbb;
+  border: 1px solid #CFCFCF;
   border-radius: 6px;
-  background: #fff;
+  background: white;
   box-sizing: border-box;
 }
 
 .note-fields textarea {
   width: 100%;
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #CFCFCF;
   border-radius: 6px;
   resize: vertical;
   box-sizing: border-box;
@@ -201,7 +206,7 @@
 
 .note-divider {
   border: 0;
-  border-top: 1px solid #B3B3B3;
+  border-top: 1px solid #CFCFCF;
   margin: 8px 0;
 }
 
@@ -210,4 +215,10 @@
   font-size: 16px;
   line-height: 1.4;
   color: #333;
+}
+
+.note-button-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
 }

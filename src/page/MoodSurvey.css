@@ -39,14 +39,14 @@
     grid-template-columns: 1fr repeat(5, 40px);
     align-items: center;
     padding: 12px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #F2F3F4;
 }
 
 .survey-header {
     font-weight: bold;
     text-align: center;
     color: #444;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid #CFCFCF;
 }
 
 .question-col {
