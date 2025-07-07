@@ -1,9 +1,11 @@
 body {
+  overflow-x: hidden;
   background-color: #f6faea;
   margin: 0;
   font-family: "Instrument Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  will-change:  scroll-position, transform;
 }
 
 .button-primary {
@@ -35,6 +37,39 @@ body {
 }
 
 .button-primary.no-arrow::after {
+  content: "";
+  margin-left: 0;
+}
+
+.button-primary-second {
+  margin-top: 30px;
+  padding: 12px 30px;
+  background-color: #646547;
+  color: #FDFFF5;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.5px;
+}
+
+.button-primary-second:hover {
+  background-color: #d7d7b3;
+  color: #646547;
+}
+
+.button-primary-second::after {
+  content: " ➔";
+  margin-left: 8px;
+}
+
+.button-primary-second.no-arrow::after {
   content: "";
   margin-left: 0;
 }

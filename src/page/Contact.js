@@ -40,7 +40,7 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("폼 제출 데이터:", form);
-    alert("문의가 제출되었습니다. 감사합니다!");
+    alert("문의가 정상적으로 제출되었습니다. 감사합니다!");
 
     setForm({
       name: "",
@@ -61,7 +61,7 @@ function Contact() {
 
   return (
     <div className="contact-page">
-      <h1 className="contact-title">Please contact us</h1>
+      <h1 className="contact-title">Contact with us</h1>
       <p className="contact-intro">
         MOODI-TREE는 여러분의 감정을 더 깊이 이해하고,
         <br />
@@ -111,7 +111,13 @@ function Contact() {
           className="file-upload-dropzone"
           onDragOver={(e) => e.preventDefault()}
           onDrop={handleDrop}
+          onClick={(e) => {
+            if (e.target.tagName !== "INPUT") {
+              document.getElementById("file-upload").click();
+            }
+          }}
         >
+        <div className="file-input-wrapper">
           <input
             type="file"
             name="file"
@@ -120,22 +126,29 @@ function Contact() {
             className="file-input-hidden"
             id="file-upload"
           />
+        {form.file.length > 0 && (
+          <button
+            type="button"
+            className="file-clear-button"
+            onClick={(e) => {
+              e.stopPropagation(); // 클릭 이벤트 버블링 방지
 
-          <ul className="file-list">
-            {form.file.map((f, index) => (
-              <li key={index} className="file-item">
-                {f.name}
-                <button
-                  type="button"
-                  className="remove-button"
-                  onClick={() => handleFileDelete(index)}
-                >
-                  삭제
-                </button>
-              </li>
-            ))}
-          </ul>
+              // input 요소의 value도 비움
+              const fileInput = document.getElementById("file-upload");
+              if (fileInput) {
+                fileInput.value = ""; // 이게 핵심!
+              }
+
+              // 상태 초기화
+              setForm({ ...form, file: [] });
+            }}
+          >
+            파일 삭제 ✕
+          </button>
+        )}
         </div>
+        
+      </div>
         <div className="radio-group">
           <label>답변 방법:</label>
           <label>

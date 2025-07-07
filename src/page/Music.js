@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Music.module.css';
-import earphonesImage from '../image/earphones.png';
+import earphonesImage from '../image/earphone.png';
 
 function Music() {
   const navigate = useNavigate();
