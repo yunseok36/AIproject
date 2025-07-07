@@ -53,9 +53,8 @@
   flex: 1;
 }
 
-.movie {
-  height: auto;
-  width: 640px;
+.movieIcon {
+  filter: sepia(60%) hue-rotate(10deg) saturate(50%);
 }
 
 .recommendButton {
@@ -121,8 +120,8 @@
 .right h2 {
   font-size: 1.3rem;
   font-weight: 600;
-  background-color: #F2F3F4;
-  color: #646547;
+  background-color:#e3e3cb ;
+  color:#646547 ;
   padding: 7px 70px;
   border-radius: 50px;
   display: inline-block;

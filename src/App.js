@@ -22,9 +22,11 @@ import MyPage from "./page/MyPage";   // ⭐️ MyPage import 추가
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.5, // scroll 속도
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -7 * t)), // 감속 느낌
+      duration: 1.2, // scroll 속도
+      easing: (t) => 1 - Math.pow(2, -10 * t),    
       smooth: true,
+      syncTouch: true,
+      gestureOrientation: "vertical",
     });
 
     function raf(time) {
@@ -43,6 +45,7 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/About" element={<Guide />} />
           <Route path="/MoodCheck" element={<MoodCheck />} />
+          <Route path="/MyPage" element={<MyPage />} />
           <Route path="/Music" element={<Music />} />
           <Route path="/Movie" element={<Movie />} />
           <Route path="/Survey" element={<MoodSurvey />} />

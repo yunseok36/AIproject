@@ -21,8 +21,23 @@
     color: #828356;
 }
 
+.section-divider {
+    border: none;
+    border-top: 1px dashed #36795A;
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    height: 50px;
+}
+
 .section-Guide {
     padding-bottom: 60px;
+}
+
+.guide-image {
+    width: 80px;
+    height: auto;
 }
 
 .guide-header {
@@ -54,13 +69,14 @@
 }
 
 .guide-subtitle {
-    font-size: 1.9rem;
+    color: #646547;
+    font-size: 2.1rem;
     font-weight: 600;
     margin: 40px 0;
 }
 
 .guide-description {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     line-height: 1.8;
     margin: 20px 0;
     color: #646547;
@@ -71,19 +87,18 @@
     margin-bottom: 20px;
 }
 
-ul.dot-list {
-    padding-left: 1.05em;
+.dot-list {
+    font-size: 1.1rem;
+    padding-left: 1em;
+    padding-bottom: 100px;
     list-style: none;
     margin: 0;
     color: #828356;
-}
-
-ul.dot-list li {
-    font-size: 1.1rem;
-    position: relative;
-    padding-left: 1em;
-    margin-bottom: 10px;
-    color: #828356;
+    width: 90%;
+    max-width: 950px;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 ul.dot-list li::before {
@@ -193,4 +208,32 @@ ul.dot-list li::before {
   font-size: 1rem;
   line-height: 1.7;
   margin-top: 10px;
+}
+
+
+.page-line-guide {
+  position: relative;
+  width: 100vw;
+  left: 0;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f6faea;
+  padding-top: 30px;
+  padding-bottom: 60px;
+  box-sizing: border-box;
+  color: #36795A;
+}
+
+.page-line-guide .line {
+  flex: 0.46;
+  border-top: 1.5px dashed #646547;
+  height: 1.6px;
+  margin: 0 30px; /* 텍스트와 선 사이 여백 */
+}
+
+.page-line-guide .star {
+  font-size: 1.8rem;
+  white-space: nowrap;
 }

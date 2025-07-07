@@ -2,19 +2,35 @@
     padding: 40px 80px 40px 80px;
 }
 
+.MoodCheck-titles {
+  text-align: center;
+}
+
 .title-MoodCheck {
-    font-size: 2.8rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 4rem;
     font-weight: 700;
     color: #36795A;
-    text-align: center;
     position: relative;
-    padding-top: 50px;
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+.subtitle-MoodCheck {
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #d7d7b3;
+  color: #646547;
+  padding: 7px 170px;
+  border-radius: 50px;
+  display: inline-block;
 }
 
 .article-MoodCheck {
     font-size: 1.2rem;
     color: #828356;
-    padding-top: 50px;
+    padding-top: 80px;
     padding-bottom: 80px;
     line-height: 35px;
     text-align: center;
@@ -24,20 +40,20 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 70px;
+    gap: 50px;
     margin-bottom: 80px;
 }
 
 .box-item {
     background: #E8E4C9;
     color: #4f5034;
-    padding: 60px 20px;
+    padding: 60px 30px;
     border-radius: 20px;
     flex: 1 1 calc(25% - 20px);
     flex-direction: column;
     text-align: center;
     font-weight: 600;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     min-width: 220px;
     max-width: 250px;
     display: flex;

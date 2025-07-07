@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Main.css";
+
 import { useNavigate } from "react-router-dom";
 import checkImage from "../image/checking.png";
 import RecommendImage from "../image/recommend.png";
@@ -178,16 +179,25 @@ if (user && data.result && data.label) {
     <div className="Page-Design">
       {/* Section 0: 메인 타이틀 */}
       <div className="section0">
-        KN✺W YOUR MOOD,<br />
-        CHANGE YOUR DAY <br />
-        <div className="main-text-article">
-          Artificial Intelligence-Driven Platform for
-          <br />
-          Emotion Analysis & Content Recommendation
+        <div className="title-row">
+          <div className="title-line left-line" />
+          <div className="title-bracket">
+            <img src={leftBracket} alt="[" className="bracket" />
+            <div className="main-text-title">
+              KN✺W YOUR MOOD,<br/>
+              CHANGE YOUR DAY<br/>
+            </div>
+            <img src={rightBracket} alt="]" className="bracket" />
+          </div>
+          <div className="title-line right-line" />
         </div>
-      </div>
 
-      <div className="gradient-transition-start"></div>
+      <div className="main-text-article">
+        Artificial Intelligence-Driven Platform for<br/>
+        Emotion Analysis & Content Recommendation<br/>
+      </div>
+      </div>
+      
 
       <div className="page-line">
         <span className="line"></span>
@@ -199,20 +209,20 @@ if (user && data.result && data.label) {
       <div className="section1">
         <div className="content-wrapper">
           <div className="text-content">
-            <h1 className="title1">How are you<br /> feeling today?</h1>
-            <p>
-              <span className="sub-title">오늘 당신의 감정, 안녕하신가요?</span>
-            </p>
-            <br />
-            <div className="article">
-              현재 당신의 감정을 섬세하게 읽고 분석하며,
-              <br />
-              지금 마음에 꼭 맞는 콘텐츠 및 활동을 추천해드립니다.
-              <br />
-              감정을 이해하며 조절해가는 첫걸음을 시작해보세요.
-            </div>
-            <br />
-            <button className="button-primary" onClick={handleStartClick}>시작하기</button>
+          <h1 className="title1">How are you<br /> feeling today?</h1>
+          <p>
+            <span className="sub-title">오늘 당신의 감정, 안녕하신가요?</span>
+          </p><br />
+          <img src={speech1} className="side-image"></img>
+          <img src={speech2} className="side-image2"></img>
+          <img src={speech3} className="side-image3"></img>
+          <div className="article">
+            현재 당신의 감정을 섬세하게 읽고 분석하며,<br />
+            지금 마음에 꼭 맞는 콘텐츠 및 활동을 추천해드립니다.<br />
+            감정을 이해하며 조절해가는 첫걸음을 시작해보세요.
+          </div>
+          <br />
+          <button className="button-primary-second" onClick={handleStartClick}>더 알아보기</button>
           </div>
         </div>
       </div>
@@ -257,34 +267,30 @@ if (user && data.result && data.label) {
       {/* Section 1: 기능 설명 */}
       <div className="section1">
         <div className="content-wrapper">
-          <div className="text-content">
-            <h1 className="title1">MOODI · TREE<br />Functions</h1>
-            <p>
-              <span className="sub-title">MOODI · TREE 기능에 대해 설명드립니다</span>
-            </p>
-            <br />
-            <div className="content-wrapper-boxs">
-              <div className="main-functions-box">
-                <p>01 AI를 활용한 감정 분석</p>
-                <br />
-                <div className="main-functions-text">
-                  텍스트를 통해 현재 상태를 입력 시 이를 분석 후 가장 일치하는 감정을 진단합니다.
-                </div>
-              </div>
-              <div className="main-functions-box">
-                <p>02 콘텐츠 및 활동 추천</p>
-                <br />
-                <div className="main-functions-text">
-                  진단받은 감정에 어울리는 콘텐츠 및 활동을 추천하여 긍정적 방향으로 이끌어가도록 도와줍니다.
-                </div>
-              </div>
-              <div className="main-functions-box">
-                <p>03 감정 기록 일기</p>
-                <br />
-                <div className="main-functions-text">
-                  달력에 진단받은 감정 및 있었던 일, 추천받은 콘텐츠를 기록 및 저장하여 감정 변화를 확인할 수 있습니다.
-                </div>
-              </div>
+        <div className="text-content">
+          <h1 className="title1">Join with<br/>MOODI · TREE</h1>
+          <p>
+            <span className="sub-title">MOODI · TREE에서 다양한 기능을 즐기세요</span>
+          </p><br />
+          <br/>
+          <div className="content-wrapper-boxs">
+            <div className="main-functions-box">
+              <p><span className="functions-number">01</span><br/>
+              AI를 활용한 감정 분석</p>
+              <div className="main-functions-text">감정을 인지하는 인공지능 모델을 통하여 현재 나의 감정 상태를 객관적으로 진단할 수 있습니다.</div>
+              <img src={AI} className="activity-image"></img>
+            </div>
+            <div className="main-functions-box">
+              <p><span className="functions-number">02</span><br/>
+              콘텐츠 및 활동 추천</p>
+              <div className="main-functions-text">진단받은 감정에 어울리는 다양한 콘텐츠 및 활동을 추천받아 이를 즐길 수 있습니다</div>
+              <img src={popular} className="activity-image"></img>
+            </div>
+            <div className="main-functions-box">
+              <p><span className="functions-number">03</span><br/>
+              감정 기록 일기</p>
+              <div className="main-functions-text">달력에 진단받은 감정, 추천받은 콘텐츠 등을 기록 및 저장하여 일기처럼 적어 저장할 수 있습니다.</div>
+              <img src={diary} className="activity-image"></img>
             </div>
           </div>
         </div>
@@ -300,7 +306,10 @@ if (user && data.result && data.label) {
       <div className="section3">
         <div className="content-wrapper">
           <div className="text-content">
-            <h1 className="title3">How to use</h1>
+          <h1 className="title1">How to use</h1>
+            <p>
+              <span className="sub-title">MOODI · TREE를 이용하는 방법을 안내드립니다</span>
+            </p><br />
           </div>
         </div>
         <div className="slider">
@@ -323,14 +332,10 @@ if (user && data.result && data.label) {
                     <div className="function-desc">{item.description}</div>
                   </div>
                   <div className="functions-image">
-                    <img
-                      src={item.image}
-                      className="functions-Images"
-                      alt={`기능 ${item.id}`}
-                    />
+                      <img src={item.image} className="functions-Images" alt={`기능 ${item.id}`} />
                   </div>
-                </div>
-              ))}
+                  </div>
+                  ))}  
             </div>
           </div>
           <button className="arrow right" onClick={nextSlide}>
@@ -348,15 +353,20 @@ if (user && data.result && data.label) {
         </div>
       </div>
 
-      <div className="gradient-transition-last"></div>
-
-      {/* Section 4: 감정 진단 입력/버튼 */}
-      <div className="section4">
-        <div className="title-right">
-          <h1 className="title4">현재의 감정을<br /> 한 번 확인해보세요</h1>
-          <div className="article">
-            현재의 기분을 알리는 글을 작성한 후 감정을 진단해드립니다.<br />
-            AI가 상세히 분석하여 현재의 기분 및 이를 다룰 수 있는 방법을 알려드리겠습니다.
+    <div className="section4">
+      <div className="title-right">
+        <h1 className="title4">현재의 감정을<br /> 한 번 확인해보세요</h1>
+        <div className="article">
+          현재의 기분을 알리는 글을 작성한 후 감정을 진단해드립니다.<br />
+          AI가 상세히 분석하여 현재의 기분 및 이를 다룰 수 있는 방법을 알려드리겠습니다.
+        </div>
+      </div>
+      <br />
+      <div className="emotion-box">
+        {loading ? (
+          <div className="loading-container">
+            <div className="loader"></div>
+            <p>진단중...</p>
           </div>
           <br /><br />
           <div className="emotion-box">

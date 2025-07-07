@@ -30,7 +30,7 @@ function Loading() {
     <main className="loading-main">
       <div className="loading-container">
         <img src={treeImage} alt="Loading Tree" className="loading-tree" />
-        <h2 className="loading-text">당신에게 어울리는 콘텐츠를 찾는 중이에요..</h2>
+        <h2 className="loading-text">당신에게 어울리는 콘텐츠를 찾는 중이에요...</h2>
       </div>
     </main>
   );
