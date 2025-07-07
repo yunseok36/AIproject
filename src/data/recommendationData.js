@@ -96,6 +96,7 @@ import midsommarImage from '../image/Mid.png';
 import whiplashImage from '../image/Whiplash.png';
 import motherImage from '../image/Mother.png';
 import sawImage from '../image/Gokseong.png';
+import devilImage from '../image/Devil.png';
 import oldboyImage from '../image/Oldboy.png';
 
 
@@ -219,7 +220,7 @@ export const movieRecommendations = {
     { title: "미드소마", year: 2019, director: "Ari Aster", image: midsommarImage },
     { title: "위플래쉬", year: 2014, director: "Damien Chazelle", image: whiplashImage },
     { title: "마더", year: 2009, director: "봉준호", image: motherImage },
-    { title: "악마를 보았다", year: 2010, director: "김지운", image: sawImage },
+    { title: "악마를 보았다", year: 2010, director: "김지운", image: devilImage },
     { title: "곡성", year: 2016, director: "나홍진", image: sawImage },
     { title: "올드보이", year: 2003, director: "박찬욱", image: oldboyImage },
   ],
