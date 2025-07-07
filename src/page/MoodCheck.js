@@ -1,4 +1,3 @@
-// 불필요한 useLayoutEffect, useRef 삭제
 import React, { useState } from "react";
 import "./MoodCheck.css";
 import { useNavigate } from "react-router-dom";

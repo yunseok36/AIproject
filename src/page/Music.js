@@ -1,21 +1,26 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Home.jsx에서 가져옴
+import { useNavigate } from 'react-router-dom';
 import styles from './Music.module.css';
+import earphonesImage from '../image/earphones.png';
 
 function Music() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('./page/Loading');
+    console.log("음악 추천받기 버튼 클릭됨");
+    // 'music' type과 '긍정적' mood를 URL 파라미터로 전달
+    navigate('/Loading/music/긍정적'); // 여기에 실제 감정 상태를 연결해야 합니다.
   };
 
   return (
-    // Home.jsx의 mainContent 부분을 가져옴
-    <div className={styles.musicContainer}> {/* 클래스 이름 변경 */}
+    <div className={styles.musicContainer}>
       <main className={styles.mainContent}>
         <div className={styles.left}>
-          {/* assets/earphones.png 경로는 public 폴더에 있어야 합니다. */}
-          <img src="/assets/earphones.png" alt="earphones" className={styles.earphones} /> 
+          <img 
+            src={earphonesImage} 
+            alt="earphones" 
+            className={styles.earphones} 
+          />
         </div>
 
         <div className={styles.right}>

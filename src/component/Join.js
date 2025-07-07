@@ -83,7 +83,7 @@ export default function Join() {
           </div>
         </div>
         <div className="join-title">
-          오늘의 감정, 오늘의 추천 <b>MOODI·TREE</b>에서 시작하세요.
+          오늘의 감정, 오늘의 추천 <b>MOODI · TREE</b>에서 시작하세요.
         </div>
         <form className="join-form" onSubmit={handleSubmit}>
           <div className="input-row">

@@ -32,12 +32,12 @@
 .contact-form select,
 .contact-form input[type="file"] {
   padding: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid #CFCFCF;
   border-radius: 10px;
   color: #828356;
   font-size: 1rem;
   font-family: inherit;
-  background-color: #F0F0E0;
+  background-color: #FDFFF5;
 }
 
 .contact-form textarea {
@@ -67,7 +67,7 @@
 }
 
 .contact-form button:hover {
-  background-color: #eeeeed;
+  background-color: #F2F3F4;
   color: #36795A;
 }
 

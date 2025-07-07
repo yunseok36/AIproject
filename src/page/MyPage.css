@@ -1,17 +1,16 @@
 .Page-Design-MyMood {
   display: flex;
   padding: 80px 80px;
-  background-color: #FFFFFB;
   gap: 50px;
   font-family: "Instrument Sans", sans-serif;
 }
 
 .sidebar {
   width: 250px;
-  background: #e3e3cb;
+  background: #E8E4C9;
   padding: 10px 20px;
-  border-right: 1px solid #DADACC;
-  height: 700px;
+  border-right: 1px solid #CFCFCF;
+  height: 720px;
   border-radius: 20px;
   text-align: center;
 }
@@ -22,7 +21,7 @@
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid #CFCFCF;
 }
 
 .profile-img-select {
@@ -55,16 +54,15 @@
 
 .username {
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   color: #4F5034;
   margin-bottom: 5px;
 }
 
-/* ========== 오늘의 감정 영역 전체 크게 ========== */
 .today-emotion {
-  border-top: 1px solid #c4c4b5;
-  padding-top: 24px;
-  margin-top: 22px;
+  border-top: 1px solid #CFCFCF;
+  padding-top: 30px;
+  margin-top: 50px;
   padding-bottom: 22px;
   text-align: center;
   width: 100%;
@@ -123,13 +121,29 @@
   color: #828356;
   margin-bottom: 8px;
 }
-/* ========== 오늘의 감정 영역 끝 ========== */
 
-.button {
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.button-1 {
   margin-top: 20px;
   background: #36795A;
   color: #FFFFFB;
   border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.button-2 {
+  margin-top: 20px;
+  background: #FFFFFB;
+  color: #36795A;
+  border: 2px solid #36795A;
   padding: 10px 20px;
   border-radius: 20px;
   cursor: pointer;
@@ -144,7 +158,14 @@
 .page-title {
   font-size: 2.2rem;
   color: #36795A;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
+}
+
+.page-subtitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #36795A;
+  margin-bottom: 20px;
 }
 
 .tabs {
@@ -257,4 +278,24 @@
   font-size: 1.07em;
   display: inline-block;
   vertical-align: middle;
+}
+.tabs {
+  display: flex;
+  gap: 60px;
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+.tab {
+  cursor: pointer;
+  padding-bottom: 8px;
+  color: #4F5034;
+  transition: color 0.15s;
+}
+
+.tab.active {
+  border-bottom: 3px solid #36795A;
+  font-weight: bold;
+  color: #36795A;
 }

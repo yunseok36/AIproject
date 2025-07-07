@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect } from 'react';
+import Lenis from '@studio-freight/lenis';
 import Header from "./component/Header";
 import Footer from "./component/Footer";
 import Main from "./page/Main";
@@ -8,12 +10,31 @@ import Music from "./page/Music";
 import Movie from "./page/Movie";
 import MoodSurvey from "./page/MoodSurvey";
 import Login from "./component/Login";
-import MyPage from "./page/MyPage";
 import Join from "./component/Join";
 import Calendar from "./page/Calendar";
 import Contact from "./page/Contact";
+import Loading from "./page/Loading";
+import MusicResult from "./page/MusicResult";
+import MovieResult from "./page/MovieResult";
+import Detail from "./page/Detail";
+import MyPage from "./page/MyPage";   // ⭐️ MyPage import 추가
 
 function App() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.5, // scroll 속도
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -7 * t)), // 감속 느낌
+      smooth: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
+
   return (
     <div className="app-container">
       <Router>
@@ -26,11 +47,14 @@ function App() {
           <Route path="/Movie" element={<Movie />} />
           <Route path="/Survey" element={<MoodSurvey />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/MyPage" element={<MyPage />} />
           <Route path="/Join" element={<Join />} />
-          <Route path="/MyMood" element={<MyPage />} />
           <Route path="/Calendar" element={<Calendar />} />
+          <Route path="/Detail/:date" element={<Detail />} />
           <Route path="/Contact" element={<Contact />} />
+          <Route path="/Loading/:type/:mood" element={<Loading />} />
+          <Route path="/MusicResult/:mood" element={<MusicResult />} />
+          <Route path="/MovieResult/:mood" element={<MovieResult />} />
+          <Route path="/MyPage" element={<MyPage />} /> 
         </Routes>
         <Footer />
       </Router>

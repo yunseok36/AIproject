@@ -1,16 +1,23 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import useCalendarStore from "../store/calendarStore";
 import "./Calendar.css";
 
-const emotions = ["😊", "😢", "😠", "😱", "😌"];
+const emotions = ["😄", "😠", "😢", "😌"];
 
 export default function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [emotionMap, setEmotionMap] = useState({});
-  const [noteMap, setNoteMap] = useState({});
   const [selectedDay, setSelectedDay] = useState(null);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [editMode, setEditMode] = useState(false);
+
+  const { emotionMap, noteMap, setEmotion, saveNote } = useCalendarStore();
+
+  const today = new Date();
+  const todayYear = today.getFullYear();
+  const todayMonth = today.getMonth();
+  const todayDate = today.getDate();
 
   const getDaysInMonth = (year, month) =>
     new Date(year, month + 1, 0).getDate();
@@ -21,32 +28,42 @@ export default function Calendar() {
   };
 
   const handleNext = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
+    const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+    if (
+      nextMonth.getFullYear() > todayYear ||
+      (nextMonth.getFullYear() === todayYear && nextMonth.getMonth() > todayMonth)
+    ) {
+      return;
+    }
+    setCurrentDate(nextMonth);
     setSelectedDay(null);
   };
 
   const handleSelectDay = (year, month, day) => {
-    const key = `${year}-${month + 1}-${day}`;
+    const isFuture =
+      year > todayYear ||
+      (year === todayYear && month > todayMonth) ||
+      (year === todayYear && month === todayMonth && day > todayDate);
+
+    if (isFuture) return;
+
+    const mm = String(month + 1).padStart(2, "0");
+    const dd = String(day).padStart(2, "0");
+    const key = `${year}-${mm}-${dd}`;
     setSelectedDay(key);
     setTitle(noteMap[key]?.title || "");
     setContent(noteMap[key]?.content || "");
-    setEditMode(false); // 처음 선택 시에는 미리보기부터
+    setEditMode(false);
   };
 
   const handleEmotionChange = (emoji) => {
     if (selectedDay) {
-      setEmotionMap({
-        ...emotionMap,
-        [selectedDay]: emoji,
-      });
+      setEmotion(selectedDay, emoji);
     }
   };
 
   const handleSaveNote = () => {
-    setNoteMap({
-      ...noteMap,
-      [selectedDay]: { title, content },
-    });
+    saveNote(selectedDay, { title, content });
     setEditMode(false);
   };
 
@@ -60,11 +77,21 @@ export default function Calendar() {
     cells.push(<div className="day-cell empty" key={`e-${i}`} />);
   }
   for (let d = 1; d <= daysInMonth; d++) {
-    const key = `${year}-${month + 1}-${d}`;
+    const isFuture =
+      year > todayYear ||
+      (year === todayYear && month > todayMonth) ||
+      (year === todayYear && month === todayMonth && d > todayDate);
+
+    const mm = String(month + 1).padStart(2, "0");
+    const dd = String(d).padStart(2, "0");
+    const key = `${year}-${mm}-${dd}`;
+    const isDisabled = isFuture;
+
     cells.push(
       <div
         key={key}
-        className={`day-cell ${emotionMap[key] ? "has-emoji" : ""}`}
+        className={`day-cell ${emotionMap[key] ? "has-emoji" : ""} ${isDisabled ? "disabled" : ""
+          }`}
         onClick={() => handleSelectDay(year, month, d)}
       >
         <div className="emoji">{emotionMap[key]}</div>
@@ -72,6 +99,10 @@ export default function Calendar() {
       </div>
     );
   }
+
+  const isNextDisabled =
+    (year > todayYear) ||
+    (year === todayYear && month >= todayMonth);
 
   return (
     <div className="calendar-container">
@@ -83,7 +114,7 @@ export default function Calendar() {
             {currentDate.toLocaleString("en", { month: "long" }).toUpperCase()}
             <div className="year">{year}</div>
           </div>
-          <button onClick={handleNext}>▶</button>
+          <button onClick={handleNext} disabled={isNextDisabled}>▶</button>
         </div>
         <div className="day-names">
           {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((d) => (
@@ -103,7 +134,7 @@ export default function Calendar() {
               <span className="note-emotion">
                 오늘의 감정:
                 <span className="selected-emoji">
-                  {emotionMap[selectedDay] || "🙂"}
+                  {emotionMap[selectedDay] || "😄"}
                 </span>
               </span>
             </div>
@@ -111,9 +142,12 @@ export default function Calendar() {
             <div className="note-preview-content">
               {noteMap[selectedDay].content || "내용이 없습니다."}
             </div>
-            <button className="button-primary" onClick={() => setEditMode(true)}>
-              수정
-            </button>
+            <div className="note-button-group">
+              <button className="button-primary" onClick={() => setEditMode(true)}>
+                수정
+              </button>
+              <Link to={`/Detail/${selectedDay}`} className="button-primary">상세</Link>
+            </div>
           </div>
         ) : (
           <div className="note-box">
@@ -130,7 +164,7 @@ export default function Calendar() {
               <div className="note-emotion">
                 오늘의 감정:
                 <span className="selected-emoji">
-                  {emotionMap[selectedDay] || "🙂"}
+                  {emotionMap[selectedDay] || "😄"}
                 </span>
               </div>
             </div>
