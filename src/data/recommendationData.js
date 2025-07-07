@@ -97,7 +97,6 @@ import whiplashImage from '../image/Whiplash.png';
 import motherImage from '../image/Mother.png';
 import devilImage from '../image/Devil.png';
 import sawImage from '../image/Gokseong.png';
-import devilImage from '../image/Devil.png';
 import oldboyImage from '../image/Oldboy.png';
 
 

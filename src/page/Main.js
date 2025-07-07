@@ -1,11 +1,18 @@
 import { useState } from "react";
 import "./Main.css";
-
-import { useNavigate } from "react-router-dom";
-import checkImage from "../image/checking.png";
-import RecommendImage from "../image/recommend.png";
-import ActivityImage from "../image/activity.png";
-import SaveImage from "../image/save.png";
+import { useNavigate } from "react-router-dom"; // useNavigate 훅 임포트
+import leftBracket from "../image/left-bracket.svg";
+import rightBracket from "../image/right-bracket.svg";
+import speech1 from "../image/speech1.svg";
+import speech2 from "../image/speech2.svg";
+import speech3 from "../image/speech3.svg";
+import AI from "../image/AI.png";
+import popular from "../image/popular.png";
+import diary from "../image/diary.png";
+import checkImage from "../image/question-desc.png";
+import RecommendImage from "../image/recommend-desc.png";
+import ActivityImage from "../image/guide_desc.png";
+import SaveImage from "../image/check-desc.svg";
 import { songRecommendations, movieRecommendations } from "../data/recommendationData";
 
 // 감정 label → 추천데이터 한글 키 변환표
@@ -103,11 +110,11 @@ function Main() {
 
     try {
 // (1) Flask API로 감정 분석 요청
-const response = await fetch("https://flask-emotion-api-7u41.onrender.com/api/sentiment", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ text: inputText }),
-});
+      const response = await fetch("https://flask-emotion-api-7u41.onrender.com/api/sentiment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: inputText }),
+      });
 
       if (!response.ok) throw new Error("서버 에러");
 
@@ -118,34 +125,34 @@ const response = await fetch("https://flask-emotion-api-7u41.onrender.com/api/se
       // (2) label을 한글키로 변환
       const labelKor = labelMap[data.label] || "보통";
       // (3) 추천곡/영화 뽑기
-const songs = pickRandom(songRecommendations[labelKor], 3);
-const movies = pickRandom(movieRecommendations[labelKor], 3);
+      const songs = pickRandom(songRecommendations[labelKor], 3);
+      const movies = pickRandom(movieRecommendations[labelKor], 3);
 
 // (4) 감정 및 추천 DB 저장
-const user = JSON.parse(localStorage.getItem("user"));
-if (user && data.result && data.label) {
-  fetch("http://localhost:4000/api/emotion", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email: user.email,
-      emotion: data.result,
-      label: data.label,
-      date: new Date().toISOString(),
-      recommendations: {
-        music: songs,
-        movie: movies,
+      const user = JSON.parse(localStorage.getItem("user"));
+      if (user && data.result && data.label) {
+        fetch("http://localhost:4000/api/emotion", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: user.email,
+            emotion: data.result,
+            label: data.label,
+            date: new Date().toISOString(),
+            recommendations: {
+              music: songs,
+              movie: movies,
+            },
+          }),
+        })
+          .then((res) => res.json())
+          .then((resp) => {
+            console.log("DB 저장 결과:", resp);
+          })
+          .catch((e) => {
+            console.warn("4000번 서버 저장 실패:", e.message);
+          });
       }
-    }),
-  })
-  .then(res => res.json())
-  .then(resp => {
-    console.log("DB 저장 결과:", resp);
-  })
-  .catch((e) => {
-    console.warn("4000번 서버 저장 실패:", e.message);
-  });
-}
 
 
 
@@ -353,57 +360,53 @@ if (user && data.result && data.label) {
         </div>
       </div>
 
-    <div className="section4">
-      <div className="title-right">
-        <h1 className="title4">현재의 감정을<br /> 한 번 확인해보세요</h1>
-        <div className="article">
-          현재의 기분을 알리는 글을 작성한 후 감정을 진단해드립니다.<br />
-          AI가 상세히 분석하여 현재의 기분 및 이를 다룰 수 있는 방법을 알려드리겠습니다.
-        </div>
-      </div>
-      <br />
-      <div className="emotion-box">
-        {loading ? (
-          <div className="loading-container">
-            <div className="loader"></div>
-            <p>진단중...</p>
+      <div className="section4">
+        <div className="title-right">
+          <h1 className="title4">현재의 감정을<br /> 한 번 확인해보세요</h1>
+          <div className="article">
+            현재의 기분을 알리는 글을 작성한 후 감정을 진단해드립니다.<br />
+            AI가 상세히 분석하여 현재의 기분 및 이를 다룰 수 있는 방법을 알려드리겠습니다.
           </div>
-          <br /><br />
-          <div className="emotion-box">
-            {loading ? (
+        </div>
+        <br />
+        <div className="emotion-box">
+          {loading ? (
+            <>
               <div className="loading-container">
                 <div className="loader"></div>
                 <p>진단중...</p>
               </div>
-            ) : emotionResult ? (
-              <div className="emotion-result">{emotionResult}</div>
-            ) : errorMessage ? (
-              <div className="emotion-result error">{errorMessage}</div>
-            ) : (
-              <textarea
-                className="text-input"
-                rows="6"
-                placeholder="내용을 입력해주세요.(1000자 제한)"
-                maxLength={1000}
-                value={inputText}
-                onChange={(e) => {
-                  setInputText(e.target.value);
-                  setErrorMessage("");
-                }}
-              />
-            )}
-          </div>
-          <div className="space">
-            <button
-              className="button-primary no-arrow"
-              onClick={analyzeEmotion}
-              disabled={loading}
-            >
-              {analyzed ? "다시하기" : "감정 진단"}
-            </button>
-          </div>
+              <br /><br />
+            </>
+          ) : emotionResult ? (
+            <div className="emotion-result">{emotionResult}</div>
+          ) : errorMessage ? (
+            <div className="emotion-result error">{errorMessage}</div>
+          ) : (
+            <textarea
+              className="text-input"
+              rows="6"
+              placeholder="내용을 입력해주세요.(1000자 제한)"
+              maxLength={1000}
+              value={inputText}
+              onChange={(e) => {
+                setInputText(e.target.value);
+                setErrorMessage("");
+              }}
+            />
+          )}
+        </div>
+        <div className="space">
+          <button
+            className="button-primary no-arrow"
+            onClick={analyzeEmotion}
+            disabled={loading}
+          >
+            {analyzed ? "다시하기" : "감정 진단"}
+          </button>
         </div>
       </div>
+    </div>
     </div>
   );
 }
