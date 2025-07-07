@@ -23,7 +23,18 @@ function MovieResult() {
           // 💡 반드시 today.recommendations.movie 확인!
           if (today && Array.isArray(today.recommendations?.movie)) {
             setTodayLabel(today.label);
-            setMovies(getRandomItems(today.recommendations.movie, 3));
+            
+            // 영화 데이터에 유튜브 링크가 없는 경우 자동으로 검색 링크 생성
+            const moviesWithTrailers = today.recommendations.movie.map(movie => {
+              if (!movie.trailerLink) {
+                // 영화 제목과 감독으로 유튜브 검색 링크 생성
+                const searchQuery = encodeURIComponent(`${movie.title} ${movie.director} 예고편 trailer`);
+                movie.trailerLink = `https://www.youtube.com/results?search_query=${searchQuery}`;
+              }
+              return movie;
+            });
+            
+            setMovies(getRandomItems(moviesWithTrailers, 3));
           }
         }
       })
@@ -44,7 +55,19 @@ function MovieResult() {
           {movies.map((movie, idx) => (
             <div key={idx} className="result-item">
               <div className="image-wrapper">
-                <img src={movie.image} alt={movie.title} className="result-image" />
+                {/* 영화 포스터 이미지에 예고편 링크 추가 */}
+                <a 
+                  href={movie.trailerLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  title={`${movie.title} 예고편 보기`}
+                >
+                  <img 
+                    src={movie.image} 
+                    alt={movie.title} 
+                    className="result-image" 
+                  />
+                </a>
               </div>
               <div className="song-info">
                 <p className="singer">{movie.director}</p>

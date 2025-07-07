@@ -203,12 +203,26 @@ function MyPage() {
                     ...cardBase,
                     background: "#fffbe4",
                   }}>
+                    {/* 앨범 이미지에 onClick 이벤트 핸들러 추가 */}
                     <img
                       src={song.image}
                       alt={song.title}
+                      onClick={() => {
+                        if (song.youtubeLink) {
+                          window.open(song.youtubeLink, '_blank', 'noopener,noreferrer');
+                        } else {
+                          const searchQuery = encodeURIComponent(`${song.name} ${song.title} official`);
+                          window.open(`https://www.youtube.com/results?search_query=${searchQuery}`, '_blank', 'noopener,noreferrer');
+                        }
+                      }}
                       style={{
-                        width: 140, height: 140, borderRadius: 16, marginBottom: 20, background: "#fff",
-                        boxShadow: "0 2px 24px #f8eebb77"
+                        width: 140, 
+                        height: 140, 
+                        borderRadius: 16, 
+                        marginBottom: 20, 
+                        background: "#fff",
+                        boxShadow: "0 2px 24px #f8eebb77",
+                        cursor: "pointer" // 클릭 가능함을 표시
                       }}
                     />
                     <div style={{
@@ -241,12 +255,26 @@ function MyPage() {
                     ...cardBase,
                     background: "#f7f1ff",
                   }}>
+                    {/* 영화 포스터 이미지에 onClick 이벤트 핸들러 추가 */}
                     <img
                       src={movie.image}
                       alt={movie.title}
+                      onClick={() => {
+                        if (movie.trailerLink) {
+                          window.open(movie.trailerLink, '_blank', 'noopener,noreferrer');
+                        } else {
+                          const searchQuery = encodeURIComponent(`${movie.title} ${movie.director} trailer 예고편`);
+                          window.open(`https://www.youtube.com/results?search_query=${searchQuery}`, '_blank', 'noopener,noreferrer');
+                        }
+                      }}
                       style={{
-                        width: 140, height: 140, borderRadius: 16, marginBottom: 20, background: "#fff",
-                        boxShadow: "0 2px 24px #dfc8f877"
+                        width: 140, 
+                        height: 140, 
+                        borderRadius: 16, 
+                        marginBottom: 20, 
+                        background: "#fff",
+                        boxShadow: "0 2px 24px #dfc8f877",
+                        cursor: "pointer" // 클릭 가능함을 표시
                       }}
                     />
                     <div style={{
