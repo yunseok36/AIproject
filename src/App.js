@@ -16,11 +16,11 @@ import Contact from "./page/Contact";
 import Loading from "./page/Loading";
 import MusicResult from "./page/MusicResult";
 import MovieResult from "./page/MovieResult";
-import Detail from "./page/Detail"; // Detail 컴포넌트 import 추가
-import MyPage from "./page/MyPage"; 
+import Detail from "./page/Detail";
+import MyPage from "./page/MyPage";   // ⭐️ MyPage import 추가
 
 function App() {
-    useEffect(() => {
+  useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2, // scroll 속도
       easing: (t) => 1 - Math.pow(2, -10 * t),    
@@ -52,12 +52,12 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/Join" element={<Join />} />
           <Route path="/Calendar" element={<Calendar />} />
-          <Route path="/Detail/:date" element={<Detail />} /> {/* 원격 저장소의 변경사항 */}
+          <Route path="/Detail/:date" element={<Detail />} />
           <Route path="/Contact" element={<Contact />} />
-          {/* 파라미터 추가된 라우트 */}
           <Route path="/Loading/:type/:mood" element={<Loading />} />
           <Route path="/MusicResult/:mood" element={<MusicResult />} />
           <Route path="/MovieResult/:mood" element={<MovieResult />} />
+          <Route path="/MyPage" element={<MyPage />} /> 
         </Routes>
         <Footer />
       </Router>

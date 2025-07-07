@@ -1,4 +1,4 @@
-/*페이지 구성*/
+/* 페이지 구성 */
 .Page-Design {
   padding: 50px 120px 0;
 }
@@ -10,6 +10,13 @@
   gap: 20px;
   height: 250px;
   flex-wrap: nowrap;
+}
+
+.page-line .line {
+  flex: 0.46;
+  height: 1.6px;
+  background-color: #646547;
+  margin: 0 30px; /* 텍스트와 선 사이 여백 */
 }
 
 .title-bracket {
@@ -25,7 +32,7 @@
 
 .section0 {
   font-family: 'Montserrat', sans-serif;
-  color:#36795A;
+  color: #36795A;
   text-transform: uppercase;
   text-align: center;
   font-size: 5rem;
@@ -66,14 +73,14 @@
 
 .section4 {
   background-color: #dadac0;
-  color:#36795A;
+  color: #36795A;
   text-align: center;
   position: relative;
   font-size: 3rem;
   font-weight: 700;
-  gap:20px;
+  gap: 20px;
   padding-top: 60px;
-  padding-bottom:60px;
+  padding-bottom: 60px;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
@@ -81,8 +88,7 @@
   width: 100vw;
   box-sizing: border-box;
   flex-direction: column;
-  min-height: calc(100vh + 1px); /* 살짝 더 늘려 끊기는 현상 방지 */
-  position: relative;
+  min-height: calc(100vh + 1px);
   z-index: 1;
 }
 
@@ -92,7 +98,7 @@
   left: 50%;
   margin-left: -50vw;
   width: 100vw;
-  background: linear-gradient( #f6faea, #EAEDD2);
+  background: linear-gradient(#f6faea, #EAEDD2);
 }
 
 .gradient-transition-last {
@@ -136,8 +142,7 @@
   gap: 40px;
 }
 
-
-/*텍스트*/
+/* 텍스트 */
 .main-text-title {
   white-space: pre;
   text-align: center;
@@ -159,7 +164,7 @@
 
 .text-content {
   padding-top: 10px;
-  max-width:1000px;
+  max-width: 1000px;
 }
 
 .title1 {
@@ -207,7 +212,7 @@
   color: #646547;
 }
 
-.functions-number{
+.functions-number {
   font-size: 2rem;
 }
 
@@ -243,24 +248,23 @@
   white-space: pre-line;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  max-width: 700px;   
+  max-width: 700px;
 }
 
 .emotion-result {
   font-size: 1.2rem;
 }
 
-
-/*이미지 및 텍스트 상자*/
+/* 이미지 및 텍스트 상자 */
 .side-image {
   position: absolute;
-  top: 40%; /* 세로 가운데 정렬 */
+  top: 40%;
   transform: translateX(-255%);
-  width: 270px; /* 이미지 크기 조절 */
+  width: 270px;
   height: auto;
-  pointer-events: none; /* 이미지가 클릭 이벤트를 방해하지 않게 */
+  pointer-events: none;
   user-select: none;
-  z-index: 10; /* 텍스트 위로 올라오도록 */
+  z-index: 10;
   opacity: 40%;
 }
 
@@ -382,8 +386,7 @@
   box-sizing: border-box;
 }
 
-
-/*슬라이더*/
+/* 슬라이더 */
 .slider-indicators {
   display: flex;
   justify-content: center;
@@ -401,11 +404,10 @@
 }
 
 .indicator-dot.active {
-  background-color: #828356; /* 갈색으로 활성화 표시 */
+  background-color: #828356;
 }
 
-
-/*애니메이션*/
+/* 애니메이션 */
 .slider-wrapper {
   overflow: hidden;
   width: 100%;
@@ -420,17 +422,13 @@
 }
 
 .loading-container {
-  text-align: 1.2rem;
+  font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   color: #36795A;
   font-weight: 600;
-}
-
-.loading-container p {
-  font-size: 1.2rem;
 }
 
 .loader {
@@ -451,8 +449,7 @@
   }
 }
 
-
-/*줄선*/
+/* 줄선 */
 .title-line {
   width: calc(100vw - 240px);
   margin-left: -120px;
@@ -484,15 +481,8 @@
   padding: 200px 170px 30px;
   letter-spacing: 10px;
   box-sizing: border-box;
-  color:#36795A;
+  color: #36795A;
   justify-content: center;
-}
-
-.page-line .line {
-  flex: 0.46;
-  border-top: 1.5px dashed #646547;
-  height: 1.6px;
-  margin: 0 30px; /* 텍스트와 선 사이 여백 */
 }
 
 .page-line .star {
