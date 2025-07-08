@@ -12,7 +12,7 @@ import diary from "../image/diary.png";
 import checkImage from "../image/question-desc.png";
 import RecommendImage from "../image/recommend-desc.png";
 import ActivityImage from "../image/guide_desc.png";
-import SaveImage from "../image/check-desc.svg";
+import SaveImage from "../image/check-desc.png";
 import { songRecommendations, movieRecommendations } from "../data/recommendationData";
 
 // 감정 label → 추천데이터 한글 키 변환표
@@ -78,7 +78,6 @@ function pickRandom(arr, n = 3) {
 }
 
 function Main() {
-  const SLIDE_WIDTH = 1020;
   const [inputText, setInputText] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [emotionResult, setEmotionResult] = useState("");
@@ -166,16 +165,14 @@ function Main() {
     }
   };
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? functionItems.length - 1 : prev - 1
-    );
-  };
+  /*슬라이더 클릭 시 보일 영역*/
 
   const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === functionItems.length - 1 ? 0 : prev + 1
-    );
+    setCurrentIndex((prev) => (prev + 1) % functionItems.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + functionItems.length) % functionItems.length);
   };
 
   const handleStartClick = () => {
@@ -320,14 +317,13 @@ function Main() {
           </div>
         </div>
         <div className="slider">
-          <button className="arrow left" onClick={prevSlide}>
-            ◀
-          </button>
+          <button className="arrow left" onClick={prevSlide}>◀</button>
+
           <div className="slider-wrapper">
             <div
               className="slider-track"
               style={{
-                transform: `translateX(-${currentIndex * SLIDE_WIDTH}px)`,
+                    transform: `translateX(-${currentIndex * 100}%)`,
               }}
             >
               {functionItems.map((item, index) => (
@@ -345,9 +341,8 @@ function Main() {
                   ))}  
             </div>
           </div>
-          <button className="arrow right" onClick={nextSlide}>
-            ▶
-          </button>
+
+          <button className="arrow right" onClick={nextSlide}>▶</button>
         </div>
         <div className="slider-indicators">
           {functionItems.map((_, idx) => (

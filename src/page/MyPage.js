@@ -131,12 +131,12 @@ function MyPage() {
             )}
           </div>
           <div className="username">{user.name}</div>
-          <div className="email">{user.email}</div>
+          <div className="email">{user.email}</div><br/>
           {imgEditing ? (
-            <>
-              <button className="button" onClick={handleImgSave} style={{ marginBottom: "6px" }}>저장</button>
-              <button className="button" onClick={() => { setImgEditing(false); setImgPreview(null); }}>취소</button>
-            </>
+            <div style={{ display: "flex", gap: "10px", marginBottom: "3px" }}>
+              <button className="button-img1" onClick={handleImgSave}>저장</button>
+              <button className="button-img2" onClick={() => { setImgEditing(false); setImgPreview(null); }}>취소</button>
+            </div>
           ) : (
             <button className="button profile-edit-btn" onClick={() => setImgEditing(true)}>
               <FaCamera style={{ marginRight: 6 }} /> 프로필 이미지 변경
@@ -346,12 +346,12 @@ function MyPage() {
                     {activeTab === "music" && (
                       <>
                         <div style={{
-                          fontWeight: 700, fontSize: "1.06rem", color: "#659100", marginBottom: 4, marginTop: 2
+                          fontWeight: 700, fontSize: "1.06rem", color: "#659100", marginBottom: 20, marginTop: 2
                         }}>
                           음악 추천
                         </div>
                         <div style={{
-                          display: "flex", gap: 10, marginBottom: 8
+                          display: "flex", gap: 30, marginBottom: 8, justifyContent: "center"
                         }}>
                           {musics.length === 0 ? (
                             <div style={{ color: "#bbb", fontSize: "0.95rem" }}>없음</div>
@@ -385,7 +385,7 @@ function MyPage() {
                           영화 추천
                         </div>
                         <div style={{
-                          display: "flex", gap: 10, marginBottom: 8
+                          display: "flex", gap: 10, marginBottom: 8, justifyContent: "center"
                         }}>
                           {moviesBox.length === 0 ? (
                             <div style={{ color: "#bbb", fontSize: "0.95rem" }}>없음</div>

@@ -1,6 +1,6 @@
 /* 페이지 구성 */
 .Page-Design {
-  padding: 50px 120px 0;
+  padding: 50px 120px 0px;
 }
 
 .title-row {
@@ -10,13 +10,6 @@
   gap: 20px;
   height: 250px;
   flex-wrap: nowrap;
-}
-
-.page-line .line {
-  flex: 0.46;
-  height: 1.6px;
-  background-color: #646547;
-  margin: 0 30px; /* 텍스트와 선 사이 여백 */
 }
 
 .title-bracket {
@@ -52,7 +45,7 @@
   margin-right: -50vw;
   width: 100vw;
   background-color: #f6faea;
-  padding: 80px 170px 100px;
+  padding: 80px 170px 0px;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -66,7 +59,7 @@
   margin-right: -50vw;
   width: 100vw;
   background-color: #f6faea;
-  padding: 0px 170px 100px;
+  padding: 80px 170px 100px;
   box-sizing: border-box;
   z-index: 0;
 }
@@ -137,9 +130,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 380px;
   margin-top: 20px;
-  gap: 40px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 /* 텍스트 */
@@ -225,6 +218,7 @@
 }
 
 .functions-text h2 {
+  text-align: left;
   flex: 1;
   font-size: 2.8rem;
   font-weight: 600;
@@ -233,6 +227,7 @@
 }
 
 .function-title {
+  text-align: left;
   flex: 1;
   font-size: 1.8rem;
   margin-bottom: 6px;
@@ -240,6 +235,7 @@
 }
 
 .functions-text .function-desc {
+  text-align: left;
   flex: 1;
   font-size: 1.3rem;
   font-weight: 400;
@@ -270,7 +266,7 @@
 
 .side-image2 {
   position: absolute;
-  top: 65%;
+  top: 68%;
   transform: translateX(-235%);
   width: 260px;
   height: auto;
@@ -307,9 +303,9 @@
   position: relative;
   background-color: #e8e8c5;
   border-radius: 30px;
-  width: 1000px;
+  max-width: 100%;
   flex-shrink: 0;
-  flex: 0 0 auto;
+  flex: 0 0 calc(100% - 20px);
   justify-content: space-between;
   align-items: center;
   display: flex;
@@ -319,6 +315,7 @@
   padding: 50px;
   padding-bottom: 90px;
   gap: 30px;
+  margin: 0 10px;
 }
 
 .activity-image {
@@ -327,7 +324,7 @@
   right: 30px;
   width: 80px;
   height: auto;
-  z-index: 1;
+  z-index: 100;
 }
 
 .functions-image {
@@ -339,7 +336,8 @@
 }
 
 .functions-Images {
-  height: 100px;
+  width: 100%;
+  max-height: 100px;
   width: auto;
   object-fit: contain;
 }
@@ -410,15 +408,17 @@
 /* 애니메이션 */
 .slider-wrapper {
   overflow: hidden;
+  max-width: 1000px;
   width: 100%;
   position: relative;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .slider-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  width: fit-content;
-  gap: 20px;
+  width: 100%;
 }
 
 .loading-container {
@@ -485,7 +485,14 @@
   justify-content: center;
 }
 
+.page-line .line {
+  flex: 0.46;
+  height: 1.6px;
+  border-top: 1.5px dashed #646547;
+  margin: 0 30px; /* 텍스트와 선 사이 여백 */
+}
+
 .page-line .star {
   font-size: 1.8rem;
   white-space: nowrap;
-}
+} 
