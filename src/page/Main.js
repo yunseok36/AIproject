@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Main.css";
 import { useNavigate } from "react-router-dom"; // useNavigate 훅 임포트
 import leftBracket from "../image/left-bracket.svg";
@@ -14,6 +14,7 @@ import RecommendImage from "../image/recommend-desc.png";
 import ActivityImage from "../image/guide_desc.png";
 import SaveImage from "../image/check-desc.png";
 import { songRecommendations, movieRecommendations } from "../data/recommendationData";
+
 
 // 감정 label → 추천데이터 한글 키 변환표
 const labelMap = {
@@ -84,6 +85,14 @@ function Main() {
   const [loading, setLoading] = useState(false);
   const [analyzed, setAnalyzed] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // 애니메이션
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setAnimate(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   const navigate = useNavigate();
 
@@ -165,7 +174,7 @@ function Main() {
     }
   };
 
-  /*슬라이더 클릭 시 보일 영역*/
+  // 슬라이더 클릭 시 보일 영역
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % functionItems.length);

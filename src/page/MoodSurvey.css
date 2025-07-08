@@ -30,6 +30,8 @@
 }
 
 .survey-table {
+    font-family: 'NanumHuman', sans-serif;
+    font-weight: 700;
     width: 100%;
     border-collapse: collapse;
 }

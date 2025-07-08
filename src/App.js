@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from 'react';
+import './App.css';
 import Lenis from '@studio-freight/lenis';
 import Header from "./component/Header";
 import Footer from "./component/Footer";

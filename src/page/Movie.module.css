@@ -110,7 +110,8 @@
 }
 
 .right h1 {
-  font-size: 4rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 24px;
@@ -118,11 +119,15 @@
 }
 
 .right h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   background-color:#e3e3cb ;
   color:#646547 ;
-  padding: 7px 70px;
+  padding: 7px 90px;
   border-radius: 50px;
   display: inline-block;
+}
+
+.right .description {
+  font-size: 1.1rem;
 }

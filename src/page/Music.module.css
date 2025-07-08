@@ -1,7 +1,6 @@
 .musicContainer {
   padding: 50px 120px;
   padding-bottom: 120px;
-  font-family: 'Noto Sans KR', sans-serif;
   background-color: #f6faea;
 }
 
@@ -115,7 +114,8 @@
 
 /* 오른쪽 텍스트 색상 초록색으로 변경 */
 .right h1 {
-  font-size: 4rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 24px;
@@ -124,11 +124,15 @@
 
 /* 오른쪽 텍스트 색상 초록색으로 변경 */
 .right h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   background-color: #e3e3cb;
   color: #646547;
-  padding: 7px 70px;
+  padding: 7px 90px;
   border-radius: 50px;
   display: inline-block;
+}
+
+.right .description {
+  font-size: 1.1rem;
 }
