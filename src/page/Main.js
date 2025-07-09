@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Main.css";
 import { useNavigate } from "react-router-dom"; // useNavigate 훅 임포트
 import leftBracket from "../image/left-bracket.svg";
@@ -87,12 +87,29 @@ function Main() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // 애니메이션
-  const [animate, setAnimate] = useState(false);
+
+  const [angle, setAngle] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => setAnimate(true), 100);
-    return () => clearTimeout(timer);
+    const interval = setInterval(() => {
+      setAngle(prev => prev + 20);
+    }, 1000);
   }, []);
+
+
+  const starRef = useRef(null);
+
+  useEffect(() => {
+    let angle = 0;
+    const interval = setInterval(() => {
+      angle += 30;
+      if (starRef.current) {
+        starRef.current.style.transform = `rotate(${angle}deg)`;
+      }
+    }, 5000);
+
+  return () => clearInterval(interval);
+}, []);
 
   const navigate = useNavigate();
 
@@ -197,7 +214,9 @@ function Main() {
           <div className="title-bracket">
             <img src={leftBracket} alt="[" className="bracket" />
             <div className="main-text-title">
-              KN✺W YOUR MOOD,<br/>
+              KN<span className="rotate-star" style={{ transform: `rotate(${angle}deg)`, transition: "transform 0.5s ease" }}>
+                ✺
+                </span>W YOUR MOOD,<br/>
               CHANGE YOUR DAY<br/>
             </div>
             <img src={rightBracket} alt="]" className="bracket" />
@@ -226,9 +245,22 @@ function Main() {
           <p>
             <span className="sub-title">오늘 당신의 감정, 안녕하신가요?</span>
           </p><br />
-          <img src={speech1} className="side-image"></img>
-          <img src={speech2} className="side-image2"></img>
-          <img src={speech3} className="side-image3"></img>
+          <div className="side-image-wrapper">
+            <div className="side-image-bounce delay1">
+              <img src={speech1} className="side-image"></img>
+            </div>
+          </div>
+          <div className="side-image2-wrapper">
+            <div className="side-image-bounce delay3">
+              <img src={speech2} className="side-image2"></img>
+            </div>
+          </div>
+          <div className="side-image3-wrapper">
+            <div className="side-image-bounce delay2">
+              <img src={speech3} className="side-image3"></img>
+            </div>
+            
+          </div>
           <div className="article">
             현재 당신의 감정을 섬세하게 읽고 분석하며,<br />
             지금 마음에 꼭 맞는 콘텐츠 및 활동을 추천해드립니다.<br />

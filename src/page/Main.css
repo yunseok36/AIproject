@@ -252,40 +252,57 @@
 }
 
 /* 이미지 및 텍스트 상자 */
-.side-image {
+.side-image-wrapper {
   position: absolute;
   top: 40%;
-  transform: translateX(-255%);
+  transform: translateX(-150%);
   width: 270px;
   height: auto;
   pointer-events: none;
   user-select: none;
   z-index: 10;
   opacity: 40%;
+  animation-delay: 0s;
 }
 
-.side-image2 {
+.side-image {
+  width: 270px;
+  height: auto;
+}
+
+.side-image2-wrapper {
   position: absolute;
-  top: 68%;
-  transform: translateX(-235%);
+  top: 70%;
+  transform: translateX(-120%);
   width: 260px;
   height: auto;
   pointer-events: none;
   user-select: none;
   z-index: 10;
   opacity: 80%;
+  animation-delay: 0.6s;
 }
 
-.side-image3 {
+.side-image2 {
+  width: 260px;
+  height: auto;
+}
+
+.side-image3-wrapper {
   position: absolute;
   top: 45%;
-  transform: translateX(120%);
+  transform: translateX(200%);
   width: 320px;
   height: auto;
   pointer-events: none;
   user-select: none;
   z-index: 10;
   opacity: 60%;
+}
+
+.side-image3 {
+  width: 320px;
+  height: auto;
 }
 
 .main-functions-box {
@@ -325,6 +342,12 @@
   width: 80px;
   height: auto;
   z-index: 100;
+  transition: transform 0.3s ease;
+  cursor: auto;
+}
+
+.activity-image:hover {
+  transform: translateY(-5px);
 }
 
 .functions-image {
@@ -405,7 +428,7 @@
   background-color: #828356;
 }
 
-/* 애니메이션 */
+/* 슬라이더 */
 .slider-wrapper {
   overflow: hidden;
   max-width: 1000px;
@@ -457,6 +480,7 @@
   border-top: 4px dashed #36795A;
   position: relative;
   height: 0;
+  overflow: hidden;
 }
 
 .left-line {
@@ -496,3 +520,42 @@
   font-size: 1.8rem;
   white-space: nowrap;
 } 
+
+/*애니메이션*/
+
+.rotate-star {
+  display: inline-block;
+  transition: transform 0.5s ease;
+  transform-origin: center;
+}
+
+@keyframes jump {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-5px); }
+  60% { transform: translateY(0); }
+}
+
+.side-image-bounce {
+  animation: jump 1.5s ease-in-out infinite;
+}
+
+.delay1 {
+  animation-delay: 0s;
+}
+
+.delay2 {
+  animation-delay: 0.3s;
+}
+
+.delay3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes floatUp {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
